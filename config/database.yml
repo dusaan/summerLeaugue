@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: summer_dev
+  username: dusan
+  password: waldinko
+ 
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: summer_dev
+  username: dusan
+  password: waldinko
+ 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: summer_dev
+  username: dusan
+  password: waldinko

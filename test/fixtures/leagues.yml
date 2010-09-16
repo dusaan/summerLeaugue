@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: 1
+  rounds: 1
+  starts_at: 2010-06-21 10:55:33
+  finishes_at: 2010-06-21 10:55:33
+  rounds_played: 1
+  sport_id: 1
+
+two:
+  name: 1
+  rounds: 1
+  starts_at: 2010-06-21 10:55:33
+  finishes_at: 2010-06-21 10:55:33
+  rounds_played: 1
+  sport_id: 1

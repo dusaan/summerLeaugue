@@ -1,0 +1,31 @@
+<h1>Listing leagues</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rounds</th>
+    <th>Starts at</th>
+    <th>Finishes at</th>
+    <th>Rounds played</th>
+    <th>Sport</th>
+  </tr>
+
+<% @leagues.each do |league| %>
+  <tr>
+    <td><%=h league.name %></td>
+    <td><%=h league.rounds %></td>
+    <td><%=h league.starts_at.to_date %></td>
+    <td><%=h league.finishes_at.to_date %></td>
+    <td><%=h league.rounds_played %></td>
+    <td><%=h league.sport_id %></td>
+    <td><%= link_to 'Show', league %></td>
+    <td><%= link_to 'Edit', edit_league_path(league) %></td>
+    <td><%= link_to 'Teams', edit_league_teams_path(league) %></td>
+    <td><%= link_to 'Destroy', league, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New league', new_league_path %>

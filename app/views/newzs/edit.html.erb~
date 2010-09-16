@@ -1,0 +1,24 @@
+<h1>Editing newz</h1>
+
+<% form_for(@newz) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :sport_id %><br />
+    <%= f.text_field :sport_id %>
+  </p>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </p>
+  <p>
+    <%= f.label :header %><br />
+    <%= f.text_field :header %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @newz %> |
+<%= link_to 'Back', newzs_path %>

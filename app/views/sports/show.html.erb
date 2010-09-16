@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @sport.name %>
+</p>
+
+<p>
+  <b>Parts:</b>
+  <%=h @sport.parts %>
+</p>
+
+<p>
+  <b>Team:</b>
+  <%=h @sport.team %>
+</p>
+
+
+<%= link_to 'Edit', edit_sport_path(@sport) %> |
+<%= link_to 'Back', sports_path %>

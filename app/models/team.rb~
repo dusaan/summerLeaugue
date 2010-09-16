@@ -1,0 +1,17 @@
+class Team < ActiveRecord::Base
+
+  has_many :matches
+  belongs_to :league
+  before_save :set_ascii_name
+
+  def logo_path
+    return logo.blank? ? "default.jpg" : logo
+  end
+
+  private
+
+  def set_ascii_name
+    puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    self.ascii_name = name.ascii
+  end
+end

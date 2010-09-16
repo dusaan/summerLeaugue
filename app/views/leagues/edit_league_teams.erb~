@@ -1,0 +1,19 @@
+<p>
+  <b>Name:</b>
+  <%=h @league.name %>
+</p>
+
+<% @league_teams.each do |team| %>
+  <tr>
+    <td><%=h team.name %></td>
+    <td><%= link_to 'Remove', league_team_remove_path(team), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+<% @other_teams.each do |team| %>
+  <tr>
+    <td><%=h team.name %></td>
+    <td><%= link_to 'Add', league_team_add_path(@league, team) %></td>
+  </tr>
+<% end %>
+</table>
+

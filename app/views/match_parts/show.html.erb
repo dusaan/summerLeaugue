@@ -1,0 +1,18 @@
+<p>
+  <b>Part nr:</b>
+  <%=h @match_part.part_nr %>
+</p>
+
+<p>
+  <b>Score1:</b>
+  <%=h @match_part.score1 %>
+</p>
+
+<p>
+  <b>Score2:</b>
+  <%=h @match_part.score2 %>
+</p>
+
+
+<%= link_to 'Edit', edit_match_part_path(@match_part) %> |
+<%= link_to 'Back', match_parts_path %>

@@ -1,0 +1,6 @@
+<ul class = "autocomplete">
+  <% @teams.each do |team| %>
+    <li> <%= partner.name %> 
+    </li>
+  <% end %>
+</ul>

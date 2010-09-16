@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  starts_at: 2010-06-21 11:14:45
+  finishes_at: 2010-06-21 11:14:45
+  finished: false
+  league_id: 1
+  sport_id: 1
+
+two:
+  starts_at: 2010-06-21 11:14:45
+  finishes_at: 2010-06-21 11:14:45
+  finished: false
+  league_id: 1
+  sport_id: 1

@@ -1,0 +1,28 @@
+<p>
+  <b>Starts at:</b>
+  <%=h @round.starts_at %>
+</p>
+
+<p>
+  <b>Finishes at:</b>
+  <%=h @round.finishes_at %>
+</p>
+
+<p>
+  <b>Finished:</b>
+  <%=h @round.finished %>
+</p>
+
+<p>
+  <b>League:</b>
+  <%=h @round.league_id %>
+</p>
+
+<p>
+  <b>Sport:</b>
+  <%=h @round.sport_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_round_path(@round) %> |
+<%= link_to 'Back', rounds_path %>

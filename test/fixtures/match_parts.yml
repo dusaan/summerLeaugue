@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  part_nr: 1
+  score1: 1
+  score2: 1
+
+two:
+  part_nr: 1
+  score1: 1
+  score2: 1

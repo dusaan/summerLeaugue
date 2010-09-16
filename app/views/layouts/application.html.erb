@@ -1,0 +1,32 @@
+<%= render :partial => "layouts/head" %>
+
+<div id="contentbg_top">
+  <div id="contentbg_bottom">
+    <div id="content">
+
+<!--<%= render :partial => "layouts/menu" %>
+-->
+<p style="color: green"><%= flash[:notice] %></p>
+  <div id="main-body">
+    <%= render :partial => "layouts/main_body"  %>
+    <%= render :partial => "layouts/left_sidebar"  %>
+  </div> <!-- end #main-body -->
+
+
+ <div id="rightsidebar">
+    <%= render :partial => "layouts/right_sidebar"  %>
+ </div>
+
+
+      <div id="footer">
+        <p class="right"><b>&copy; 2010 <strong>Aliga.sk</strong> </b></p>
+        <p>
+          <a href="#" title="This Page">DOMOV</a> |
+          <a href="#" title="This Page">O NÁS</a> |
+          <a href="#" title="This Page">KONTAKT</a> |
+          <a href="#" title="This Page">F.A.Q.</a> 
+        </p>  
+      </div>
+    </div>
+  </body>
+</html>

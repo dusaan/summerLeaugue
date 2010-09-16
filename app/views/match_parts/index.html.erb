@@ -1,0 +1,24 @@
+<h1>Listing match_parts</h1>
+
+<table>
+  <tr>
+    <th>Part nr</th>
+    <th>Score1</th>
+    <th>Score2</th>
+  </tr>
+
+<% @match_parts.each do |match_part| %>
+  <tr>
+    <td><%=h match_part.part_nr %></td>
+    <td><%=h match_part.score1 %></td>
+    <td><%=h match_part.score2 %></td>
+    <td><%= link_to 'Show', match_part %></td>
+    <td><%= link_to 'Edit', edit_match_part_path(match_part) %></td>
+    <td><%= link_to 'Destroy', match_part, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New match_part', new_match_part_path %>

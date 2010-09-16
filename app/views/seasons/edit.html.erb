@@ -1,0 +1,28 @@
+<h1>Editing season</h1>
+
+<% form_for(@season) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :league_id %><br />
+    <%= f.text_field :league_id %>
+  </p>
+  <p>
+    <%= f.label :period %><br />
+    <%= f.text_field :period %>
+  </p>
+  <p>
+    <%= f.label :act_period %><br />
+    <%= f.text_field :act_period %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @season %> |
+<%= link_to 'Back', seasons_path %>

@@ -1,0 +1,73 @@
+@media screen, print {
+
+body {
+  background: transparent url(/images/piesok2.jpg) no-repeat 50% 0;
+  /*color: #4D4D4D;*/
+  color: #24522B;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: normal;
+  letter-spacing: normal;
+  line-height: 1.45em;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+}
+  
+
+  /* Headings, links... */
+a {color: #C31810;}
+a:hover {text-decoration: undeline;}
+a img {border-style: none;}
+
+.clear {clear: both;}
+
+
+  /* Layout */
+  #container {width: 703px; margin: 0 auto; text-align: left;}
+    #header {height: 320px; width: 703px; text-align: center; position: relative;}
+      #header a.home {border-style: none; width: 500px; height: 220px;}
+        #header a.home /images {border-style: none;}
+      #menusection {text-align: center; position: relative;}
+        #menusection a.menu_item {margin: 0 15px; text-decoration: none;}
+    #contentbg_top {background: transparent url(/images/main-up.png) no-repeat 0 0; width: 703px; padding-top: 39px;
+                   _background: transparent url(/images/main-up.gif) no-repeat 0 0; margin: 0 auto; margin-bottom: 25px;}
+      #contentbg_bottom {background: transparent url(/images/main-down.png) no-repeat 0 100%; padding-bottom: 39px;
+                        _background: transparent url(/images/main-down.gif) no-repeat 0 100%;}
+        #content {background: transparent url(/images/main.png) repeat-y 0 0; padding: 10px 20px; margin: 0 auto;
+                  _background: transparent url(/images/main.gif) repeat-y 0 0;}
+      
+
+
+}
+div.autocomplete {
+  position:absolute;
+  width:250px;
+  background-color:white;
+  margin:0;
+  padding:0;
+}
+div.autocomplete ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+div.autocomplete ul li.selected { background-color: #ffb;}
+div.autocomplete ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  padding:2px;
+  height:32px;
+  cursor:pointer;
+}
+#menu ul{
+  list-style-type:none;
+  margin-left:0;
+  padding-left:0.3em;
+  width:100em;  
+}
+#menu li, a, span{
+  float: left;}

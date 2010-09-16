@@ -1,0 +1,33 @@
+<%= calendar_date_select_includes "silver" %>
+
+<h1>New league</h1>
+
+<% form_for(@league) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :rounds %><br />
+    <%= f.text_field :rounds %>
+  </p>
+  <p>
+    <%= f.label :starts_at %><br />
+    <%= calendar_date_select_tag "starts_at" %>
+  </p>
+  <p>
+    <%= f.label :finishes_at %><br />
+    <%= calendar_date_select_tag "finishes_at" %>
+  </p>
+  <p>
+    <%= f.label :Sport %><br />
+    <%= f.select :sport_id, Sport.find(:all, :order => "name").collect {|p| [p.name, p.id]}, {:prompt => 'Povinne pole'} %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', leagues_path %>

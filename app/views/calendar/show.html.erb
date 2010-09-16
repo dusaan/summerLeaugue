@@ -1,0 +1,19 @@
+<p>
+  <b>Name:</b>
+  <%=h @event.name %>
+</p>
+
+<p>
+  <b>Start at:</b>
+  <%=h @event.start_at %>
+</p>
+
+<p>
+  <b>End at:</b>
+  <%=h @event.end_at %>
+</p>
+
+<DOPLNIT USERA???>
+
+<%= link_to 'Back', calendar_path %> |
+<%= link_to 'Edit', edit_calendar_path(@event) %> 

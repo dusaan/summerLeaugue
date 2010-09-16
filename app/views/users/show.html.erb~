@@ -1,0 +1,32 @@
+<p>
+  <b>First name:</b>
+  <%=h @user.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @user.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Reg date:</b>
+  <%=h @user.reg_date %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%=h @user.gender %>
+</p>
+
+<p>
+  <%=(image_tag(@user.foto_path, :alt => "Profile Image")) %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

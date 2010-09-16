@@ -1,0 +1,24 @@
+<h1>Editing match_part</h1>
+
+<% form_for(@match_part) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :part_nr %><br />
+    <%= f.text_field :part_nr %>
+  </p>
+  <p>
+    <%= f.label :score1 %><br />
+    <%= f.text_field :score1 %>
+  </p>
+  <p>
+    <%= f.label :score2 %><br />
+    <%= f.text_field :score2 %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @match_part %> |
+<%= link_to 'Back', match_parts_path %>

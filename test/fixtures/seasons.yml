@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: 1
+  id_league: 1
+  period: 1
+  act_period: 1
+
+two:
+  id: 1
+  name: 1
+  id_league: 1
+  period: 1
+  act_period: 1

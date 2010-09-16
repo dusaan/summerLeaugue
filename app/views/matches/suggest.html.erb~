@@ -1,0 +1,3 @@
+%ul.autocomplete
+  - @partners.each do |partner|
+    %li= partner.name

@@ -1,0 +1,11 @@
+<%= render :partial => "layouts/head" %>
+
+
+<%= render :partial => "layouts/menu" %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+</body>
+</html>

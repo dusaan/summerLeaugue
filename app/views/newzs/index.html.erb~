@@ -1,0 +1,20 @@
+<h1>Listing newzs</h1>
+
+<table>
+  <tr>
+    <th>Sport</th>
+    <th>Header</th>
+  </tr>
+
+<% @newzs.each do |newz| %>
+  <tr>
+    <td><%=h newz.sport.name.capitalize %></td>
+    <td><%= link_to "<b> #{newz.header} </b> </td><td>&nbsp;&nbsp;&nbsp;#{newz.text[0..30]}....", newz %></td>
+  </tr>
+
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New newz', new_newz_path %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @season.name %>
+</p>
+
+<p>
+  <b>League:</b>
+  <%=h @season.league_id %>
+</p>
+
+<p>
+  <b>Period:</b>
+  <%=h @season.period %>
+</p>
+
+<p>
+  <b>Act period:</b>
+  <%=h @season.act_period %>
+</p>
+
+
+<%= link_to 'Edit', edit_season_path(@season) %> |
+<%= link_to 'Back', seasons_path %>

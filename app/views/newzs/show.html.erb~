@@ -1,0 +1,13 @@
+<p>
+  <b>Header:</b>
+  <%=h @newz.header %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @newz.text %>
+</p>
+
+<%= link_to 'Edit', edit_newz_path(@newz) %> &nbsp;|
+<%= link_to 'Back', newzs_path %> |
+<%= link_to 'Destroy', @newz, :confirm => 'Are you sure?', :method => :delete %>

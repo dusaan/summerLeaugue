@@ -1,0 +1,35 @@
+<h1>Editing match</h1>
+
+<% form_for(@match) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :team_id %><br />
+    <%= text_field_with_auto_complete :team1, :name %>  </p>
+  <p>
+    <%= f.label :team2_id %><br />
+    <%= f.text_field :team2_id %>
+  </p>
+  <p>
+    <%= f.label :score1 %><br />
+    <%= f.text_field :score1 %>
+  </p>
+  <p>
+    <%= f.label :score2 %><br />
+    <%= f.text_field :score2 %>
+  </p>
+  <p>
+    <%= f.label :points1 %><br />
+    <%= f.text_field :points1 %>
+  </p>
+  <p>
+    <%= f.label :points2 %><br />
+    <%= f.text_field :points2 %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @match %> |
+<%= link_to 'Back', matches_path %>

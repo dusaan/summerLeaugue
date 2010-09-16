@@ -1,0 +1,23 @@
+<h1>New newz</h1>
+
+<% form_for(@newz) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Sport %><br />
+       <%= f.select :id, Sport.find(:all, :order => "name").collect {|p| [p.name, p.id]}, {:prompt => 'Povinne pole'} %>
+  </p>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </p>
+  <p>
+    <%= f.label :header %><br />
+    <%= f.text_field :header %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', newzs_path %>

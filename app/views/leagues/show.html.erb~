@@ -1,0 +1,37 @@
+<p>
+  <b>Name:</b>
+  <%=h @league.name %>
+</p>
+
+<p>
+  <b>Rounds:</b>
+  <%=h @league.rounds %>
+</p>
+
+<p>
+  <b>Starts at:</b>
+  <%=h @league.starts_at.to_date %>
+</p>
+
+<p>
+  <b>Finishes at:</b>
+  <%=h @league.finishes_at.to_date %>
+</p>
+
+<p>
+  <b>Rounds played:</b>
+  <%=h @league.rounds_played %>
+</p>
+
+<p>
+  <b>Sport:</b>
+  <%=h @league.sport_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_league_path(@league) %> <span>|</span>
+<%= link_to 'Back', leagues_path %> <span>|</span>
+<%= link_to 'Teams', edit_league_teams_path(@league)  %>
+
+
+
