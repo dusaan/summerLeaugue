@@ -13,6 +13,8 @@ puts "\nCreating dusan:"
       puts "Creating admin:"
       User.create! :email=> "admin@trt.sk", :password => "admin", :password_confirmation => "admin", :first_name => "alfonz"
       puts "Creating random users:"
+			User.create! :email=> "admin@trt.sk", :password => "aiwen", :password_confirmation => "aiwen", :first_name => "ivanko"
+      puts "Creating random users:"
 
 
       20.times { User.create! :email=> "#{randomStr(5)}@#{randomStr(5)}.sk", :password => "xxxx", :password_confirmation => "xxxxx", :first_name => "#{randomStr(5)}" }

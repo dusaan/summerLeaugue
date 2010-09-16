@@ -1,0 +1,22 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: summerLeague
+  username: aiwen
+  password: aiwen
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: summerLeague
+  username: aiwen
+  password: aiwen
+  
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: summerLeague
+  username: aiwen
+  password: aiwen
+
