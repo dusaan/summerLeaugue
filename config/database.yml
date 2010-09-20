@@ -4,7 +4,6 @@ development:
   database: summerLeague
   username: aiwen
   password: aiwen
-  port: 5432
 
 test:
   adapter: postgresql
