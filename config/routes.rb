@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'users' do |users|
     users.users_    'users_/:sport', :action => 'index', :conditions => { :method => :get }
+  users.user            'users/:id',           :action => 'show',            :conditions => { :method => :get }
   end
 
   map.with_options :controller => 'leagues' do |leagues|
@@ -46,6 +47,8 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :controller => 'sessions' do |session|
     session.new_session    'session/new', :action => 'new',     :conditions => { :method => :get }
     session.session        'session',     :action => 'create',  :conditions => { :method => :post }
+    session.connect        'session',     :action => 'destroy', :conditions => { :method => :delete }
+    session.update_selected    'session/update/:sport', :action => 'update_selected_sport',     :conditions => { :method => :get }
   end
 
   map.resources :seasons

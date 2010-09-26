@@ -1,9 +1,11 @@
 class NewzsController < ApplicationController
   # GET /newzs
   # GET /newzs.xml
+ skip_before_filter :authenticate
   def index
-    @newzs = Newz.all
-
+   
+    @newzs = params[:sport].blank? ? (Newz.find :all) : (Newz.find_all_by_sport_id params[:sport])
+  
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @newzs }

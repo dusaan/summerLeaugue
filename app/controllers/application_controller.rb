@@ -5,12 +5,11 @@ class ApplicationController < ActionController::Base
   include Authentication
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :authenticate
-#  layout :based_on_authentication
+  before_filter :based_on_authentication
 
   def based_on_authentication
     @current_user = current_user if signed_in?
-    @timezone = TimeZone.new('UTC')
-    signed_in? ? 'application' : 'anonymous'
+    @selected_sport = selected_sport
   end
 
 end

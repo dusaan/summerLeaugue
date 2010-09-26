@@ -199,16 +199,20 @@ width: 59px;
 
 /* meniace sa ikony sportov */
 #badm a{background: url("/images/badm_b.png") no-repeat top left;}
+#badmi {background: url("/images/badm.png") no-repeat top left;}
 #badm a:hover{background: url("/images/badm.png") no-repeat top left;}
 #bask a{background: url("/images/bask_b.png") no-repeat top left;}
 #bask a:hover{background: url("/images/bask.png") no-repeat top left;}
-#futb a{background: url("/images/futb_b.png") no-repeat top left;}
-#futb a:hover{background: url("/images/futb.png") no-repeat top left;}
+#baske {background: url("/images/bask.png") no-repeat top left;}
+#socc a{background: url("/images/futb_b.png") no-repeat top left;}
+#socc a:hover{background: url("/images/futb.png") no-repeat top left;}
+#socce {background: url("/images/futb.png") no-repeat top left;}
 #vole a{background: url("/images/vole_b.png") no-repeat top left;}
 #vole a:hover{background: url("/images/vole.png") no-repeat top left;}
+#voley {background: url("/images/vole.png") no-repeat top left;}
 #bowl a{background: url("/images/bowl_b.png") no-repeat top left;}
 #bowl a:hover{background: url("/images/bowl.png") no-repeat top left;}
-
+#bowli {background: url("/images/bowl.png") no-repeat top left;}
 /* -------------Main Menu-------------------------------------------------------------- */
 
 #menu, #submenu{

@@ -28,4 +28,19 @@ class SessionsController < ApplicationController
     render :action => 'new'
   end
 
+
+  def destroy
+    reset_session
+    redirect_to default_path
+  end
+  
+  def update_selected_sport
+    if (!params[:sport].blank? && @selected_sport != params[:sport])
+      session[:selected_sport_id] = params[:sport] 
+      
+    end
+  redirect_to news_path(params[:sport])
+  end
+
+
 end
