@@ -1,0 +1,13 @@
+config/database.yml
+db/*.sqlite3
+db/migration_snapshot.yml
+db/geonames/duplicates.txt
+db/geonames/export*
+db/geonames/new.txt
+db/schema.rb
+doc/*
+log/*.log*
+private/*
+public/export/*
+tmp/*
+.gitignore

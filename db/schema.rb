@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100901101613) do
+ActiveRecord::Schema.define(:version => 20100908000001) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "skill_id"
+    t.integer  "worker_id"
+    t.integer  "priority"
+    t.integer  "landmark_id"
+    t.datetime "starts_at"
+    t.datetime "finishes_at"
+    t.integer  "duration"
+  end
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -23,6 +35,14 @@ ActiveRecord::Schema.define(:version => 20100901101613) do
   create_table "events_users", :force => true do |t|
     t.integer  "event_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "landmarks", :force => true do |t|
+    t.string   "name"
+    t.integer  "x_val"
+    t.integer  "y_val"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,6 +104,17 @@ ActiveRecord::Schema.define(:version => 20100901101613) do
     t.datetime "updated_at"
   end
 
+  create_table "skills", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills_workers", :id => false, :force => true do |t|
+    t.integer "worker_id", :null => false
+    t.integer "skill_id",  :null => false
+  end
+
   create_table "sports", :force => true do |t|
     t.string   "name"
     t.integer  "parts"
@@ -120,6 +151,14 @@ ActiveRecord::Schema.define(:version => 20100901101613) do
     t.datetime "reg_date"
     t.string   "gender"
     t.string   "foto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workers", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "schedule_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
