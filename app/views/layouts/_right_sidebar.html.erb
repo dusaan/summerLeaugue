@@ -1,16 +1,27 @@
-   <!--... right sidebar goes here ...-->
+<!--... right sidebar goes here ...-->
    <div class="sidebardata">
-    <p><img src="images/smallthumb.jpg" alt="Image" width="80" height="80" class="image" title="Image" /><b>Lorem ipsum dolor sit </b><br />
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat..</p>
+		<h2>Najbližší program</h2>
+	<% e = Event.find(:all, :conditions => ["user_id = 1 AND start_at >= ?", Time.now], :limit => 7) %>
+		<table>
+				 <% e.each do |event| %><tr>
+				
+
+	      	<td>
+              <%= event.start_at %>&nbsp;&nbsp;<%= link_to event.name, 'calendar_path' %>
+	</td>
+           
+				
+				</tr>		 <% end %>
+		
+		</table>
+		</div>
+    
+    <div class="sidebardata">
+    <p>eet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat..</p>
     </div>
     
     <div class="sidebardata">
-    <p><img src="images/smallthumb.jpg" alt="Image" width="80" height="80" class="image" title="Image" /><b>Lorem ipsum dolor sit </b><br />
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat..</p>
-    </div>
-    
-    <div class="sidebardata">
-    <p><img src="images/smallthumb.jpg" alt="Image" width="80" height="80" class="image" title="Image" /><b>Lorem ipsum dolor sit </b><br />
+    <p>
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
   </div>
 

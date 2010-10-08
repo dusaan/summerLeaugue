@@ -11,18 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20100908000001) do
 
-  create_table "activities", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "skill_id"
-    t.integer  "worker_id"
-    t.integer  "priority"
-    t.integer  "landmark_id"
-    t.datetime "starts_at"
-    t.datetime "finishes_at"
-    t.integer  "duration"
-  end
-
   create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "start_at"

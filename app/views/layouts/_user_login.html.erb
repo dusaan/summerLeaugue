@@ -1,10 +1,14 @@
 <div id="loginarea">
-  <form id="loginform" method="get" action="" >
-    <fieldset >
+  <form id="loginform" method="post" action="/session" >
+ <% if @current_user %>
+  <%= "Vitaj #{@current_user.name}, "%><%= link_to "[Odhlásiť]", session_path, :method => :delete%>
+<% else %>
+    <fieldset>
       <legend>Login</legend>
       <input id="login" type="text" name="login" value="login" onBlur = "checkEmptyAndFill(this,'login');"onClick = "focusedAction(this, 'login');" />
-      <input id="passwd" type="text" name="passwd" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />
-      <input id="loginsubmit" class="button" type="submit" value="prihlásiť" />
+      <input id="passwd" type="password" name="passwd" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />
+      <input id="submit" class="button" type="submit" value="prihlásiť" />
     </fieldset>
+<% end %>
   </form>
 </div>

@@ -6,8 +6,12 @@ module Authentication
     current_user != nil
   end
 
-   def current_user
+  def current_user
     @current_user ||= login_from_session || nil
+  end
+
+  def selected_sport
+    @selected_sport = session[:selected_sport_id] || nil
   end
 
   protected
@@ -18,8 +22,7 @@ module Authentication
   end
 
   def authenticate
-return
-    logger.debug "Signed in? #{signed_in?}"
+   logger.error "Signed in? #{signed_in?}"
     if !signed_in?
       respond_to do |format|
         format.html do

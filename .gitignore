@@ -9,5 +9,4 @@ doc/*
 log/*.log*
 private/*
 public/export/*
-tmp/*
 .gitignore

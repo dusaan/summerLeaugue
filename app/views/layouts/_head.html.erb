@@ -40,6 +40,7 @@
   <body>
 <div id="content">
   <div id="header">
+
     <%= render :partial => "layouts/user_login" %>
 
     <div id="headermenu">
@@ -51,16 +52,15 @@
       </ul>
     </div>
   </div>
+<%= (@selected_sport ) %>
   <div id="pic">
     <div id="firstrow">
       <div id="sportsmenu">
+ <% (Sport.find :all ).each do |sport| %>
         <ul>
-          <li><div id="badm"><a href="#" title="Lorem Ipsum"></a></div></li>
-          <li><div id="bask"><a href="#" title="Lorem Ipsum"></a></div></li>
-          <li><div id="futb"><a href="#" title="Lorem Ipsum"></a></div></li>
-          <li><div id="vole"><a href="#" title="Lorem Ipsum"></a></div></li>
-          <li><div id="bowl"><a href="#" title="Lorem Ipsum"></a></div></li>
+          <li><div id="<%= (@selected_sport.to_s == sport.id.to_s) ? sport.name[0..4] : sport.name[0..3] %>"><%= link_to sport.id, update_selected_path(sport) %></div></li>
         </ul>
+<% end %>
       </div>
       <div id="logo">
         <h1>logo aliga.sk</h1>
