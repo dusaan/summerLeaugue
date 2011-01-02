@@ -7,7 +7,9 @@ class CreateLeagues < ActiveRecord::Migration
       t.timestamp :finishes_at
       t.integer :rounds_played
       t.integer :sport_id
-
+      t.integer :teams_count
+      t.integer :users_count
+      t.integer :league_level
       t.timestamps
     end
   end

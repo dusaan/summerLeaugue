@@ -1,5 +1,7 @@
 class CalendarController < ApplicationController
-  
+ 
+  skip_before_filter :verify_authenticity_token, :only => [:create]
+ 
   def index
     @month = (params[:month] || Time.zone.now.month).to_i
     @year = (params[:year] || Time.zone.now.year).to_i
@@ -29,16 +31,13 @@ class CalendarController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
-    respond_to do |format|
       if @event.save
         flash[:notice] = 'Event was successfully created.'
-        format.html { redirect_to(@event) }
-        format.xml  { render :xml => @event, :status => :created, :location => @event }
+        redirect_to calendar__path       
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
+        render :action => "new" 
       end
-    end
+   
   end
 
   # PUT /event/1

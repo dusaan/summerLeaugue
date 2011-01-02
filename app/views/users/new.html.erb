@@ -13,11 +13,11 @@
   </p>
   <p>
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
   <p>
     <%= f.label :password_confirmation %><br />
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </p>
   <p>
     <%= f.label :email %><br />
@@ -25,13 +25,8 @@
   </p>
 
   <p>
-    <%= f.label :reg_date %><br />
-    <%= f.datetime_select :reg_date %>
-  </p>
-  <p>
     <%= f.label :gender %><br />
     <%= f.select :gender, ["male", "female"] %>
- 
   </p>
 
   <p>

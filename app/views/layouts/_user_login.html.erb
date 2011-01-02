@@ -1,14 +1,12 @@
-<div id="loginarea">
+<div id="headerlinks">
   <form id="loginform" method="post" action="/session" >
  <% if @current_user %>
   <%= "Vitaj #{@current_user.name}, "%><%= link_to "[Odhlásiť]", session_path, :method => :delete%>
 <% else %>
-    <fieldset>
-      <legend>Login</legend>
-      <input id="login" type="text" name="login" value="login" onBlur = "checkEmptyAndFill(this,'login');"onClick = "focusedAction(this, 'login');" />
-      <input id="passwd" type="password" name="passwd" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />
-      <input id="submit" class="button" type="submit" value="prihlásiť" />
-    </fieldset>
+      <input id="login" size = 8 type="text" name="login" value="login" onBlur = "checkEmptyAndFill(this,'login');"onClick = "focusedAction(this, 'login');" />
+      <input id="password" size = 8 type="password" name="password" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />
+      <input id="submit" class="button" type="image" value="prihlásiť" src="/images/menu_vrchne_registracia.png"/>
+      <%= link_to "registrácia", new_user_path, :id=> "register_link", :class=> "nodecoration" %>
 <% end %>
   </form>
 </div>

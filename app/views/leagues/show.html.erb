@@ -9,29 +9,38 @@
 </p>
 
 <p>
-  <b>Starts at:</b>
-  <%=h @league.starts_at.to_date %>
-</p>
-
-<p>
-  <b>Finishes at:</b>
-  <%=h @league.finishes_at.to_date %>
-</p>
-
-<p>
   <b>Rounds played:</b>
   <%=h @league.rounds_played %>
 </p>
 
 <p>
   <b>Sport:</b>
-  <%=h @league.sport_id %>
+  <%=h @league.sport_name %>
 </p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Ranking</th>
+    <th>Email at</th>
+    <th></th>
+  </tr>
+
+<% @league.users.each do |user| %>
+  <tr>
+    <td><%=h user.name %></td>
+    <td><%=h user.ranking %></td>
+    <td><%=h user.email %></td>
+    <td><%= link_to 'Show', user %></td>
+  </tr>
+<% end %>
+</table>
 
 
 <%= link_to 'Edit', edit_league_path(@league) %> <span>|</span>
 <%= link_to 'Back', leagues_path %> <span>|</span>
-<%= link_to 'Teams', edit_league_teams_path(@league)  %>
-
-
+<% if @league.sport.team %>
+  <%= link_to 'Teams', edit_league_teams_path(@league)  %>
+<% else%>
+  <%= link_to 'Users', edit_league_teams_path(@league)  %>
+<% end %>
 

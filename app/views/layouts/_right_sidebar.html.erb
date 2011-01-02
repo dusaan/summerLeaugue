@@ -1,19 +1,20 @@
 <!--... right sidebar goes here ...-->
    <div class="sidebardata">
 		<h2>Najbližší program</h2>
-	<% e = Event.find(:all, :conditions => ["user_id = 1 AND start_at >= ?", Time.now], :limit => 7) %>
+	<% if(@current_user) %>
+  <% e = Event.find(:all, :conditions => ["user_id = ? AND start_at >= ?", @current_user.id,Time.now], :limit => 7) %>
 		<table>
 				 <% e.each do |event| %><tr>
-				
-
 	      	<td>
-              <%= event.start_at %>&nbsp;&nbsp;<%= link_to event.name, 'calendar_path' %>
+              <%= event.start_at.strftime("%d.%m. %H:%M") %>&nbsp;&nbsp;<%= link_to event.name, calendar_path(event) %>
 	</td>
            
 				
 				</tr>		 <% end %>
 		
 		</table>
+<% end %>
+<%= link_to "..vypísať všetky", calendar__path %>
 		</div>
     
     <div class="sidebardata">

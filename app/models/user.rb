@@ -1,13 +1,20 @@
 class User < ActiveRecord::Base
   include Security
   has_and_belongs_to_many :events
+  has_many :sport_players
+  has_many :sports, :through => :sport_players 
+
+  has_many :league_players
+  has_many :leagues, :through => :league_players 
+
+
   attr_accessor   :password, :password_confirmation
   validates_presence_of     :email
   validates_format_of       :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_blank => false
   validates_uniqueness_of   :email, :if => :email_changed?
   validates_presence_of     :password,              :if => :password_needed?
   validates_presence_of     :password_confirmation, :if => :password_needed?
-  after_validation :encrypt_password
+  after_validation :encrypt_password, :if => :password_needed?
 
   def name
     "#{first_name} #{last_name}".strip

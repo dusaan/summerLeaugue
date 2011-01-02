@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+skip_before_filter :authenticate, :only => [:new, :create]
   def index
-    @users = User.all
-
+   sport = Sport.find  @selected_sport
+    @users = sport.nil? ? [] : sport.users
+    @is_playing = !(@users.blank? || (@users.find_by_id @current_user.id).nil?)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -13,7 +15,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"+current_user.inspect
     @user = User.find(params[:id])
 
   end
@@ -36,6 +37,13 @@ class UsersController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @user }
     end
+  end
+
+  #User join   
+  def join
+    @current_user.sports << (Sport.find @selected_sport)
+    @current_user.save
+    redirect_to(@current_user) 
   end
 
   # GET /users/1/edit

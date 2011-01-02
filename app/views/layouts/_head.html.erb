@@ -1,20 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="sk">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Lorem" />
-    <meta name="Description" content="My Site" />
-    <meta name="Keywords" content="key, words" />	
-	  <meta name="robots" content="noindex,nofollow" />
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sk">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta id="Head_author" name="author" content="aLiga.sk — http://www.aLiga.sk" />
+		<meta name="description" content="aLiga.sk" />
+		<meta name="keywords" content="aLiga.sk, amatérska liga, bedmintonová liga, basketbalová liga" />
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-    <title><%=  @title || "Aliga" %></title>
+    <title><%=  @title || "aLiga.sk" %></title>
     <%= stylesheet_link_tag 'style' %>
     <script src='/javascripts/prototype.js' type='text/javascript'></script>
     <script src='/javascripts/effects.js' type='text/javascript'></script>
     <script src='/javascripts/controls.js' type='text/javascript'></script>
     <script src='/javascripts/dragdrop.js' type='text/javascript'></script>
-    <script type="text/javascript">
-    //<![CDATA[
+    <script type="text/javascript" src="script.css"> </script>
+    <script type="text/javascript">   //<![CDATA[
     var flashDiv = $("flash");
     if (flashDiv) {
       flashDiv.childElements().each(function(element) {
@@ -35,57 +37,37 @@
         el.value = val;
     }
     //]]>
-    </script>
-  </head>
-  <body>
-<div id="content">
-  <div id="header">
-
-    <%= render :partial => "layouts/user_login" %>
-
-    <div id="headermenu">
-      <ul>
-        <li><a href="#" title="This Page">domov</a></li>
-        <li><a href="#" title="This Page">o nas</a></li>
-        <li><a href="#" title="This Page">kontakt</a></li>
-        <li><a href="#" title="This Page">f.a.q.</a></li>
-      </ul>
-    </div>
-  </div>
-<%= (@selected_sport ) %>
-  <div id="pic">
-    <div id="firstrow">
-      <div id="sportsmenu">
- <% (Sport.find :all ).each do |sport| %>
-        <ul>
-          <li><div id="<%= (@selected_sport.to_s == sport.id.to_s) ? sport.name[0..4] : sport.name[0..3] %>"><%= link_to sport.id, update_selected_path(sport) %></div></li>
-        </ul>
+		</script>
+	</head>
+	<body>
+<div id="fb"> <iframe src="http://www.facebook.com/plugins/like.php?href=aliga.sk&amp;layout=standard&amp;show_faces=true&amp;width=200&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:70px;" allowTransparency="true"></iframe></div>
+      
+    <div id="container" <%= "class=\"#{@selected_sport_name}ova\"" unless @selected_sport_name.nil?  %>>
+      <div id="header">
+        <div id="sportsmen">
+         <% (["streetball","squash", "badminton", "petanque", "billiard", "golf"] ).each do |sport| %>
+          <div class= "sportsman" id = "sportsman_<%= sport %>">
+          <%= 
+              @sport = Sport.find_by_name sport.to_s      
+              link_to "", update_selected_path(@sport), :class=> (@selected_sport.to_s==@sport.id.to_s ? "sportsman_selected" : "")
+            %>
+          </div>
 <% end %>
-      </div>
-      <div id="logo">
-        <h1>logo aliga.sk</h1>
-      </div>
-    </div>
-      <div id="navcontainer">
-       
- <%= render :partial => "layouts/menu" %>
-        </ul>
-      </div>
-    </div>
-</div>
-      <!--
-  <div id="menusection,,,">
-              <a id="soccer" class="menu_item" href="index.html" title="Beach soccer">
-                <img src="/images/soccer.gifx" alt="Beach soccer" />
-              </a>
-              <a id="volley" class="menu_item" href="index.html" title="Beach volleyball">
-                <img src="/images/volleyball.gifx" alt="Beach volleyball" />
-              </a>
-              <a id="petanque" class="menu_item" href="index.html" title="Pétanque">
-                <img src="/images/petang.gifx" alt="Pétanque" />
-              </a>
-              <a id="sluzby" class="menu_item" href="/services" title="Služby">
-                <img src="/images/sluzby.gifx" alt="Služby" />
-              </a>
         </div>
-        -->
+        <div id="menu">
+<% (["streetball","squash", "badminton", "petanque", "billiard", "golf"] ).each do |sport| %>
+          <div class="menuitem" id="menu_<%= sport %>">
+            <%= 
+              @sport = Sport.find_by_name sport.to_s
+              link_to "", update_selected_path(@sport), :class=> (@selected_sport.to_s==@sport.id.to_s ? "menuitem_selected" : "")
+            %>
+          </div>
+<% end %>
+        </div>
+        <div id="submenu">
+          <%= render :partial => "layouts/menu" %>
+        </div>
+            <%= render :partial => "layouts/user_login" %>
+        <%= link_to "<img alt=\"aLiga.sk\" src=\"/images/logo.png\"/>", update_selected_path(0), :id => "logo", :class=>"noborder", :title=>"aLiga.sk Homepage" %>
+        <div id="liga"></div>
+        <a id="facebook" class="noborder" title="aLiga facebook" href="index.html"><img alt="aLiga facebook" src="/images/fb_ikonka.png"/></a> </div>

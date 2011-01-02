@@ -35,11 +35,20 @@ class SessionsController < ApplicationController
   end
   
   def update_selected_sport
-    if (!params[:sport].blank? && @selected_sport != params[:sport])
+    if (!params[:sport].blank?)
       session[:selected_sport_id] = params[:sport] 
-      
+      if params[:sport] != "0"
+        sport = Sport.find params[:sport] 
+        session[:selected_sport_name] = sport.nil? ? "" : sport.name
+        redirect_to news_path(params[:sport]) 
+      else
+        session[:selected_sport_name] = session[:selected_sport_id] = nil
+        redirect_to newzs_path
+      end
+    else
+      redirect_to newzs_path
     end
-  redirect_to news_path(params[:sport])
+  
   end
 
 

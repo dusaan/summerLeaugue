@@ -1,42 +1,13 @@
-<div id="menu">
-<ul id="soccer">
-  <li>
-    <span>
-      <%= link_to 'users', users__path('soccer')  %>
-    </span>
-| 
-  </li>
-  <li>
-    <span>
-      <%= link_to 'matches', matches__path('soccer')  %>
-    </span>
-| 
-  </li>
-  <li>
-    <span>
-       <%= link_to 'tabulka', scores_path('soccer')  %>
-    </span>
-| 
-  </li>
-  <li>
-    <span>
-      <%= link_to 'timy', teams__path('soccer')  %>
-    </span>
-| 
-  </li>
-  <li>
-    <span>
-      <%= link_to 'pravidla', rules_path('soccer')  %>
-    </span>
-| 
-  </li>
-  
-  </li>
-  <li class="last">
-  <span>
-      <%= link_to 'ligy', leagues__path('soccer')  %>
-    </span>
-  </li>
-</ul>
-</div>
-<br>
+<% case @selected_sport_name when "streetball"  %>
+  <%= link_to '<span>zápasy</span>', matches__path(@selected_sport.to_s) , :class => 'submenu_item' %>
+  <%= link_to '<span>tabuľka </span>', scores_path(@selected_sport.to_s) , :class => 'submenu_item' %>
+  <%= link_to '<span>tímy </span>', teams__path(@selected_sport.to_s)  , :class => 'submenu_item'%>
+  <%= link_to '<span>pravidlá</span>', rules_path(@selected_sport.to_s)  , :class => 'submenu_item'%>
+  <%= link_to '<span>ligy</span>', leagues__path(@selected_sport.to_s) , :class => 'submenu_item' %>
+<% when "squash", "badminton", "petanque", "billiard", "golf" %>
+  <%= link_to '<span> hráči </span>', users__path(@selected_sport.to_s) , :class => 'submenu_item submenu_item_selected' %>
+  <%= link_to '<span>zápasy</span>', matches__path(@selected_sport.to_s) , :class => 'submenu_item' %>
+  <%= link_to '<span>tabuľka </span>', scores_path(@selected_sport.to_s) , :class => 'submenu_item' %>
+  <%= link_to '<span>pravidlá</span>', rules_path(@selected_sport.to_s)  , :class => 'submenu_item'%>
+  <%= link_to '<span>ligy</span>', leagues__path(@selected_sport.to_s) , :class => 'submenu_item' %>
+<% end%>

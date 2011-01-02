@@ -1,423 +1,139 @@
+﻿@media screen, print {
+  body {background: #C4D2BC none; color: #333; font-size: 72%; font-weight: normal; line-height: 1.4em; font-family: "Arial", "Gadget CE", sans-serif; margin: 0; padding: 0;}
+  
+  a {color: #99CC00; text-decoration: underline;}
+  a img {border: 1px solid #99CC00;} 
+  a:hover {text-decoration: underline;}
+  a.noborder img {border: none;}
+  .clear {clear: both;}
+  #left a {color: #fff;}
+  a.nodecoration {text-decoration: none;}
+  a.nodecoration:hover {text-decoration: underline;}
+  
+  h1, h2, h3, h4, h5, h6 {color: #000; margin: 1em 0 0.5em; padding: 0; line-height: 1.4em; font-weight: bold;}
+  h1 {font-size: 150%; text-transform: uppercase;}
+  h2 {font-size: 140%; font-weight: normal;}
+  h3 {font-size: 120%}
+  h4 {font-size: 120%; font-weight: normal;}
+  h5 {font-size: 110%; color: #454545;}
+  h6 {font-size: 110%;color: #454545; font-weight: normal;}
+  
+ .heading {display: block; font-size: 175%; font-variant: small-caps; margin: 1em 0 0.5em; padding-right: 30px;}
+ #left .heading, #right .heading {color: #FFFFCC;}
+ .plus {background: transparent url(/images/plus.png) no-repeat 100% 50%; line-height: 22px; min-height: 33px; _height: 33px; font-weight: bold;}
+  
+  table.blackborder {background-color: #86A89B;}
+  table.blackborder tbody {background-color: #fff;}
+  table.blackborder th, tr.header, td.header {background-color: #437765; color: #FFFFFF; font-weight: bold;}
+  tr.alt {background-color: #F0F0F0;}
+  #left table.blackborder, #right table.blackborder {background: rgba(255, 255, 255, 0.3); color: #000;}
+  #left table.blackborder tbody, #right table.blackborder tbody {background: rgba(252, 255, 255, 0.5);}
+  #left table.blackborder th, #left tr.header, #left td.header,
+  #right table.blackborder th, #right tr.header, #right td.header {background: rgba(0, 0, 0, 0.8); color: #FFFFFF;}
+  #left tr.alt, #right tr.alt {background: rgba(255, 255, 255, 0.3);}
+ 
+  .news_header{ display: block; padding-top: 10px; color: #000; font-weight: bold;} 
 
-body { 
-padding: 0 0 0 0; 
-margin: 0; 
-font: .7em Arial, Verdana, Helvetica, sans-serif; 
-line-height: 1.7em; 
-background: #9FA9B3 url("/images/bg2.jpg") repeat-x; 
-background:url("/images/bg_main.jpg") no-repeat fixed right 0 #060606;
-color: #454545; 
+  /* position */
+      #fb {z-index: 300; position: absolute; top: 130px; right: 0px; background-color: #fff}
+
+  #container {margin: 0 auto; width: 960px; position: relative;}
+    #header {width: 960px; height: 333px; position: relative;}
+      #logo {z-index: 5; position: absolute; top: 36px; left: 0; font-size: 150%; font-weight: bold;}
+      #liga {z-index: 4; width: 399px; height: 119px; position: absolute; top: 133px; right: 0; background: transparent no-repeat 0 0;}
+      #facebook {z-index: 3; position: absolute; top: 125px; right: 0;}
+      #headerlinks {width: 380px; height: 20px; position: absolute; top: 0; right: 0;z-index:10;}
+        #about {float: left;width: 100px;size:10}
+        #login {float: left;}
+        #passwd {float: left;}
+        #submit {float: left;}
+        #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}
+      #sportsmen {width: 960px; height: 333px; position: relative;}
+      #menu {z-index: 2; position: absolute; top: 151px; width: 960px; height: 182px; background: transparent url(/images/menu_prazdne.png) no-repeat 0 100%;}
+      #submenu {z-index: 2; position: absolute; top: 302px; left: 0; width: 960px; height: 31px; padding-left: 10px;}
+    #content {width: 960px; background: transparent url(/images/mainbg_badminton.gif) repeat-y 0 0;}
+      #contentbg_top {background: transparent url(/images/contentbg_top.png) no-repeat 0 0; height: 17px;}
+      #left {float: left; width: 205px; margin-right: 10px; min-height: 300px; _height: 300px; padding: 20px 30px 20px 20px;}
+      #center {float: left; width: 370px; min-height: 300px; _height: 300px; padding: 20px 30px;}
+      #right {float: left; width: 205px; min-height: 300px; _height: 300px; padding: 20px 30px;}
+    
+  #footer {width: 100%; height: 240px; background: transparent url(/images/footer.png) no-repeat 50% 0;}
+
+
+
+
+/*---------------*/
+/* Sport figures */
+/*---------------*/
+  .sportsman a {position: absolute; display: block;}
+  .sportsman a:hover, .sportsman a.sportsman_selected {z-index: 1;}
+  #sportsman_streetball a {background: transparent url(/images/postavicky_streetball_inactive.png) no-repeat 0 0; width: 218px; height: 307px; top: 0px; left: 77px;}
+    #sportsman_streetball a.sportsman_selected, #sportsman_streetball a:hover {background-image: url(/images/postavicky_streetball.png);}
+  #sportsman_squash a {background: transparent url(/images/postavicky_squash_inactive.png) no-repeat 0 0; width: 243px; height: 266px; top: 0px; left: 225px;}
+    #sportsman_squash a.sportsman_selected, #sportsman_squash a:hover {background-image: url(/images/postavicky_squash.png);}
+  #sportsman_badminton a {background: transparent url(/images/postavicky_badminton_inactive.png) no-repeat 0 0;width: 222px; height: 240px; top: 0px; left: 373px;}
+    #sportsman_badminton a.sportsman_selected, #sportsman_badminton a:hover {background-image: url(/images/postavicky_badminton.png);}
+  #sportsman_petanque a {background: transparent url(/images/postavicky_petanque_inactive.png) no-repeat 0 0;width: 167px; height: 242px; top: 0px; left: 530px;}
+    #sportsman_petanque a.sportsman_selected, #sportsman_petanque a:hover {background-image: url(/images/postavicky_petanque.png);}
+  #sportsman_billiard a {background: transparent url(/images/postavicky_billiard_inactive.png) no-repeat 0 0;width: 221px; height: 234px; top: 0px; left: 722px;}
+    #sportsman_billiard a.sportsman_selected, #sportsman_billiard a:hover {background-image: url(/images/postavicky_billiard.png);}
+  #sportsman_golf a {background: transparent url(/images/postavicky_golf_inactive.png) no-repeat 0 0;width: 0px; height: 0px; top: 0px; left: 0px;}
+    #sportsman_golf a.sportsman_selected, #sportsman_golf a:hover {background-image: url(/images/postavicky_golf.png);}
+
+/*-----------*/
+/* Main menu */
+/*-----------*/
+  .menuitem a {position: absolute; display: block; top: 83px;}
+  #menu_streetball a {background: transparent url(/images/menu_streetbal.png) no-repeat 0 0; width: 214px; height: 61px; left: 1px;}
+    #menu_streetball a:hover, #menu_streetball a.menuitem_selected {background-image: url(/images/menu_streetbal_hover.png)}
+  #menu_squash a {background: transparent url(/images/menu_squash.png) no-repeat 0 0; width: 135px; height: 61px; left: 187px;}
+    #menu_squash a:hover, #menu_squash a.menuitem_selected {background-image: url(/images/menu_squash_hover.png)}
+  #menu_badminton a {background: transparent url(/images/menu_badminton.png) no-repeat 0 0; width: 169px; height: 61px; left: 321px;}
+    #menu_badminton a:hover, #menu_badminton a.menuitem_selected {background-image: url(/images/menu_badminton_hover.png)}
+  #menu_petanque a {background: transparent url(/images/menu_petanque.png) no-repeat 0 0; width: 148px; height: 61px; left: 471px;}
+    #menu_petanque a:hover, #menu_petanque a.menuitem_selected {background-image: url(/images/menu_petanque_hover.png)}
+  #menu_billiard a {background: transparent url(/images/menu_billiard.png) no-repeat 0 0; width: 145px; height: 61px; left: 598px;}
+    #menu_billiard a:hover, #menu_billiard a.menuitem_selected {background-image: url(/images/menu_billiard_hover.png)}
+  #menu_golf a {background: transparent url(/images/menu_golf.png) no-repeat 0 0; width: 90px; height: 61px; left: 729px;}
+    #menu_golf a:hover, #menu_golf a.menuitem_selected {background-image: url(/images/menu_golf_hover.png)}
+    
+/*---------*/
+/* Submenu */
+/*---------*/
+  #submenu a.submenu_item {float: left; display: block; margin: 0 5px; color: #dedede; text-transform: uppercase; font-weight: normal; font-size: 110%; text-decoration: none;}
+  a.submenu_item:hover, a.submenu_item_selected {background: transparent url(/images/menu_down_hover_left.png) no-repeat 0 0;}
+  a.submenu_item span {display: block; height: 31px; line-height: 27px; padding: 0 13px; background: transparent none; }
+  a.submenu_item:hover span, a.submenu_item_selected span {background: transparent url(/images/menu_down_hover_right.png) no-repeat 100% 0;}
+  
+  
+/*------------------*/
+/* aLiga decoration */
+/*------------------*/
+  .streetballova #liga {background-image: url(/images/nadpis_streetbalovAliga.png);}
+  .squashova #liga {background-image: url(/images/nadpis_squashovAliga.png);}
+  .badmintonova #liga {background-image: url(/images/nadpis_badmintonovAliga.png);}
+  .petanqueova #liga {background-image: url(/images/nadpis_petanqueovAliga.png);}
+  .billiardova #liga {background-image: url(/images/nadpis_billiardovAliga.png);}
+  .golfova #liga {background-image: url(/images/nadpis_golfovAliga.png);}
+  
+/*--------------------*/
+/* Content background */
+/*--------------------*/
+  .streetballova #content {background-image: url(/images/mainbg_streetball.gif)} 
+  .squashova #content {background-image: url(/images/mainbg_squash.gif)}
+  .badmintonova #content {background-image: url(/images/mainbg_badminton.gif)}
+  .petanqueova #content {background-image: url(/images/mainbg_petanque.gif)}
+  .billiardova #content {background-image: url(/images/mainbg_billiard.gif)}
+  .golfova #content {background-image: url(/images/mainbg_golf.gif)}
+  
+  
+/*-------------------------*/
+/* heading and link colors */
+/*-------------------------*/
+  .streetballova a, .streetballova h1 {color: #E97300;}  
+  .squashova a, .squashova h1 {color: #FFCC00;}
+  .badmintonova a, .badmintonova h1 {color: #99CC33;}
+  .petanqueova a, .petanqueova h1 {color: #4D8EAD;}
+  .billiardova a, .billiardova h1 {color: #246610;}
+  .golfova a, .golfova h1 {color: #3AB315;}
 }
-
-a { 
-color: #5d7ca1;
-font-weight:bold; 
-background: inherit; 
-}
-
-a:hover { 
-color: #fff; 
-background: inherit;
-text-decoration:underline;
-}
-
-p {	
-margin: 0 0 5px 0; 
-}
-
-h1 { 
-margin: 0; 
-padding: 0 0 8px 0; 
-font: normal 1.8em  "Trebuchet MS", Sans-Serif;
-color: #d3d3d3; 
-}
-
-h2 { 
-margin: 0; 
-padding: 0 0 8px 0; 
-font: bold 1.4em  "Trebuchet MS", Sans-Serif;
-color: #acacac; 
-}
-
-#header h1 {	
-font:bold 2.2em Arial, Verdana, Helvetica, sans-serif;
-color:#d3d3d3; 
-padding: 22px 0 0 22px; 
-margin: 0; 
-}
-
-ul { 
-margin: 0 0 0 25px; 
-padding: 0; 
-list-style: square; 
-}
-
-img { 
-border: 0; 
-}
-
-acronym {
-cursor:  help;
-}
-
-.highlight {
-color: #820304;
-font-weight: bolder;
-}
-
-/* --------------The goods---------------------------------------------------------------- */
-
-#content { 
-margin: 0 auto;
-width: 960px;
-background: #2a2a2a;
-border: 4px solid #2a2a2a;
-}
-
-#header {  
-height: 35px; 
-padding:0; 
-margin:0 0 1px 0; 
-background: #2a2a2a;
-}
-
-#logo {
-float: left;
-}
-
-#logo h1 { 
-margin: 0; 
-padding: 40px 50px; 
-font: normal 2.8em  "Trebuchet MS", Sans-Serif;
-color: #000000; 
-}
-
-#pic {  
-height: 200px; 
-margin: 0 0 10px 0;
-background: url("/images/test_head.png"); 
-}
-
-#thumbgallery {
-clear:both; 
-padding:0 0 0 9px; 
-margin: 0 0 2px 0; 
-background:inherit;
-}
-
-.thumbs img{
-position:relative;
-padding:0;
-margin:10px 2px 2px 2px;
-border:2px solid #d3d3d3;
-background:inherit;
-}
-
-.thumbs img:hover{
-border:2px solid #5d7ca1;
-}
-
-#firstrow{
-width:960px;
-height:120px;
-}
-
-/* Top Menu-------------------------------------------------------------- */
-
-#headermenu { 
-margin: 3px 5px 0 0;
-padding: 0;
-/*float: left;*/
-list-style-type: none;
-list-style-image: none;
-height:30px;
-}
-
-#headermenu ul { 
-margin: 0;
-padding: 0;
-list-style-type: none;
-list-style-image: none;
-margin: 10px 0 0 10px;
-float: left;
-}
-
-#headermenu li { 
-float: left;
-padding-right: 12px;
-}
-
-#headermenu li a {
-color: #999;
-font-weight: bold;
-height: 15px;
-text-align: left;
-font-size: 1.2em;
-font-family: Arial, Verdana, Helvetica, sans-serif; 
-background:none;
-text-decoration: none;
-}
-
-#headermenu li a:hover {
-color: #fff;
-font-weight: bold; 
-/*display: block;*/
-background:none;
-/*border-top: 4px solid #fff;*/
-text-decoration: none;
-}
-
-/* -------------Sports Menu-------------------------------------------------------------- */
-#sportsmenu
-{
-margin: 20px;
-width: 363px;
-height: 83px;
-background: url("/images/sportmenu.png") no-repeat;
-float: right;
-}
-
-#sportsmenu ul
-{
-margin: 0px;
-padding: 0 7px;
-list-style-type: none;
-}
-
-#sportsmenu ul li { 
-float: left; 
-margin: 11px 5px;
-}
-
-#sportsmenu ul li a
-{
-text-decoration: none;
-float: left;
-height: 59px;
-width: 59px;
-}
-
-/* meniace sa ikony sportov */
-#badm a{background: url("/images/badm_b.png") no-repeat top left;}
-#badmi {background: url("/images/badm.png") no-repeat top left;}
-#badm a:hover{background: url("/images/badm.png") no-repeat top left;}
-#bask a{background: url("/images/bask_b.png") no-repeat top left;}
-#bask a:hover{background: url("/images/bask.png") no-repeat top left;}
-#baske {background: url("/images/bask.png") no-repeat top left;}
-#socc a{background: url("/images/futb_b.png") no-repeat top left;}
-#socc a:hover{background: url("/images/futb.png") no-repeat top left;}
-#socce {background: url("/images/futb.png") no-repeat top left;}
-#vole a{background: url("/images/vole_b.png") no-repeat top left;}
-#vole a:hover{background: url("/images/vole.png") no-repeat top left;}
-#voley {background: url("/images/vole.png") no-repeat top left;}
-#bowl a{background: url("/images/bowl_b.png") no-repeat top left;}
-#bowl a:hover{background: url("/images/bowl.png") no-repeat top left;}
-#bowli {background: url("/images/bowl.png") no-repeat top left;}
-/* -------------Main Menu-------------------------------------------------------------- */
-
-#menu, #submenu{
-font: 1.5em Arial, Verdana, Helvetica, sans-serif;
-
-padding: 3px 0 ; 
-margin: 0 15px 0 0;
-float: right;
-}
-
-#menu li, #submenu li{ 
-list-style: none; 
-display: inline; 
-margin: 0;
-padding: 0px 10px;
-float: right;
-}
-#submenu li{border-right: 2px solid black;}
-
-#menu, #menu li {float: left;}
-#menu{margin: 0 0 0 15px;}
-
-#menu .last, #submenu .last{
-border-right: 0px;
-}
-
-#menu li a, #submenu li a{
-text-decoration: none;
-margin: 0;
-background:inherit;
-font-weight: bold;
-color: #5d7ca1;
-}
-
-#menu li a:hover, #submenu li a:hover{
-background: inherit;
-color: #483D8B;
-}
-
-#navcontainer {
-margin: 35px 0px 10px 0px;
-width: 960px;
-height: 30px;
-/*float: right;*/
-}
-
-/*---------Main Content-----------------------------------------------------------*/
-
-.maindata {
-margin: 0px 0 15px 0;
-border: 1px solid #d3d3d3;
-min-height: 220px;
-background:#2a2a2a;
-color: #acacac;
-padding: 15px 15px 5px 10px;
-}
-
-#middle {
-float: left;
-width: 960px;
-margin: 0 0 10px 0;
-}
-
-.middledata {
-border: 1px solid #acacac;
-margin: 0px 0 15px 0;
-min-height: 220px;
-background:#2a2a2a;
-color: #acacac;
-padding: 15px 15px 5px 10px;
-}
-
-.middlesubdata {
-clear: both;
-margin:0px 0 20px 0;	
-padding: 5px 20px;
-border: 1px solid #d3d3d3;
-background: #2a2a2a;
-color: #acacac;
-} 
-
-.thumb {
-margin: 0 12px 10px 0;
-width: 200px;
-height: 160px;
-float: left;
-clear: left;
-border: 4px solid #acacac;
-background: #eee;
-color: #000;
-}
-
-.thumb:hover {
-border:4px solid #5d7ca1;
-}
-
-.leftinfo {
-background: #2a2a2a;
-color: #acacac;
-border: 1px solid #d3d3d3;
-padding: 15px;
-margin: 0 0 15px 0;
-}
-
-		
-/* --------------------Sidebar Content----------------------------------------------- */
-
-.sidebardata {
-border: 1px solid #d3d3d3;
-padding: 8px;	
-margin: 0 0 10px 0;
-background:#2a2a2a;
-color: #acacac;
-}
-
-.image { 
-float: left; 
-margin: 0 9px 3px 0;
-border: 2px solid #acacac; 
-}
-
-/*---------The footer Data-------------------------------------------------------------------*/
-
-#footer { 
-clear: both; 
-color: #d3d3d3;
-background: #2a2a2a;
-padding: 10px 15px;
-border-top: 1px solid #d3d3d3;
-}
-
-#footer .right { 
-float: right; 
-}
-
-/* login */
-
-#loginarea {
-  float: right;
-}
-
-#loginarea fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
-
-#loginarea legend {
-	display: none;
-}
-
-#loginarea input {
-	/*float: right;*/
-	float: left;
-	margin-bottom: 5px;
-	background: #5A83AE;
-	border: 1px solid #CCCCCC;
-	text-transform: lowercase;
-	font: bold 100% Arial, Helvetica, sans-serif;
-	color: #000000;
-	background-image:url("/images/bg_inp.gif");
-}
-
-#loginarea input:focus {
-	background: #c0d3ff;
-	border: 1px solid #d1d5ff;
-}
-
-#loginform {
-	margin: 0;
-	padding: 10px 10px 0;
-}
-
-#login, #passwd {
-	width: 50px;
-	margin: 0px 3px 0 0;
-}
-
-#loginarea input.button{
-  background-image:url("/images/button2.png");
-}
-
-/*#header {
-   background: #369;
-   }*/
-#main-body {
-   float: left;
-   width: 75%;
-   }
-#main-content {
-   float: right;
-   width: 64.9%;
-   padding: 0 1%;
-   }
-#leftsidebar {
-   float: left;
-   width: 33%;
-   /*background: #9c3;*/
-   }
-#rightsidebar {
-   float: right;
-   width: 25%;
-   /*background: #df9f20;*/
-   }
-/*#footer {
-   clear: both;
-   background: #cc9;
-   }*/

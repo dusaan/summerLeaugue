@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
 
   def based_on_authentication
     @current_user = current_user if signed_in?
-    @selected_sport = selected_sport
+    @selected_sport = selected_sport_id
+    @selected_sport_name = selected_sport_name
   end
 
 end

@@ -15,11 +15,11 @@
   </p>
   <p>
     <%= f.label :starts_at %><br />
-    <%= calendar_date_select_tag "starts_at","#{@league.starts_at.to_date}" %>
+    <%= calendar_date_select_tag "starts_at","#{@league.starts_at ? @league.starts_at.to_date : ''}" %>
   </p>
   <p>
     <%= f.label :finishes_at %><br />
-    <%= calendar_date_select_tag "finishes_at", "#{@league.finishes_at.to_date}" %>
+    <%= calendar_date_select_tag "finishes_at", "#{@league.starts_at ? @league.finishes_at.to_date : '' }" %>
   </p>
   <p>
     <%= f.label :Sport %><br />

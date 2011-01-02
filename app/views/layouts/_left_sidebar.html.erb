@@ -1,13 +1,11 @@
-<div id="leftsidebar">
-<!--... left sidebar goes here ...-->
-  <div class="sidebardata">
-   <h2>Novinky </h2>
+<div id="left">
+   <span class = "heading plus">Novinky </span>
     <% (Newz.find :all, :limit => 5, :order => 'id').each do |newz| %>
-      <%=h newz.sport.name.capitalize %>:&nbsp&nbsp<%= link_to "<b> #{newz.header} </b>", newz %><br>
+      <%= "<span class = \"news_header\">#{newz.sport.name.capitalize}:</span>" %>&nbsp&nbsp<%= link_to "#{newz.header}", newz, :class => 'nodecoration' %><br>
     <% end %>
     <br>
-    <%= link_to "<b> ...vypísať všetky </b>", newzs_path %>
-  </div>
+    <%= link_to "<b> ...všetky </b>", newzs_path %>
+
 </div>
 
 <!--#{newz.text[0..30]}....", newz %>   alt="cicina"-->

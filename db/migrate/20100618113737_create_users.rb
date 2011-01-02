@@ -10,7 +10,8 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamp :reg_date
       t.string :gender
       t.string :foto
-
+      t.integer :league_level
+      t.integer :ranking
       t.timestamps
     end
   end

@@ -1,11 +1,12 @@
 <h1>Listing users</h1>
-
+<%= "Nie si členom #{@selected_sport_name}ovej ligy, chceš sa pridať?" unless @is_playing%>
+<%= link_to 'Pridať sa', join_sport_path unless @is_playing %>
+<%= @is_playing %>
 <table>
   <tr>
     <th>First name</th>
     <th>Last name</th>
     <th>Email</th>
-    <th>Reg date</th>
     <th>Gender</th>
   </tr>
 
@@ -14,7 +15,6 @@
     <td><%=h user.first_name %></td>
     <td><%=h user.last_name %></td>
     <td><%=h user.email %></td>
-    <td><%=h user.reg_date %></td>
     <td><%=h user.gender %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100908000001) do
+ActiveRecord::Schema.define(:version => 20101016000002) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "start_at"
     t.datetime "end_at"
     t.integer  "user_id"
+    t.integer  "match_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,10 +28,9 @@ ActiveRecord::Schema.define(:version => 20100908000001) do
     t.datetime "updated_at"
   end
 
-  create_table "landmarks", :force => true do |t|
-    t.string   "name"
-    t.integer  "x_val"
-    t.integer  "y_val"
+  create_table "league_players", :force => true do |t|
+    t.integer  "league_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(:version => 20100908000001) do
     t.datetime "finishes_at"
     t.integer  "rounds_played"
     t.integer  "sport_id"
+    t.integer  "teams_count"
+    t.integer  "users_count"
+    t.integer  "league_level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,8 +64,25 @@ ActiveRecord::Schema.define(:version => 20100908000001) do
     t.integer  "score2"
     t.integer  "points1"
     t.integer  "points2"
+    t.integer  "user1_id"
+    t.integer  "user2_id"
+    t.integer  "league_id"
+    t.boolean  "accepted_by_1"
+    t.boolean  "accepted_by_2"
+    t.boolean  "accepted_by_admin"
+    t.boolean  "played"
+    t.datetime "starts_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "subject",     :limit => 256
+    t.text     "body"
+    t.datetime "sent_at",                    :null => false
+    t.datetime "read_at"
   end
 
   create_table "newzs", :force => true do |t|
@@ -83,24 +103,11 @@ ActiveRecord::Schema.define(:version => 20100908000001) do
     t.datetime "updated_at"
   end
 
-  create_table "seasons", :force => true do |t|
-    t.integer  "name"
-    t.integer  "id_league"
-    t.integer  "period"
-    t.integer  "act_period"
+  create_table "sport_players", :force => true do |t|
+    t.integer  "sport_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "skills", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "skills_workers", :id => false, :force => true do |t|
-    t.integer "worker_id", :null => false
-    t.integer "skill_id",  :null => false
   end
 
   create_table "sports", :force => true do |t|
@@ -139,14 +146,8 @@ ActiveRecord::Schema.define(:version => 20100908000001) do
     t.datetime "reg_date"
     t.string   "gender"
     t.string   "foto"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "workers", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "schedule_id"
+    t.integer  "league_level"
+    t.integer  "ranking"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

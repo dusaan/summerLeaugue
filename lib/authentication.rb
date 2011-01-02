@@ -10,10 +10,12 @@ module Authentication
     @current_user ||= login_from_session || nil
   end
 
-  def selected_sport
+  def selected_sport_id
     @selected_sport = session[:selected_sport_id] || nil
   end
-
+  def selected_sport_name  
+    @selected_sport_name = session[:selected_sport_name] || nil
+  end
   protected
 
   def current_user=(user)

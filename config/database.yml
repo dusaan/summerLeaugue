@@ -10,8 +10,8 @@ test:
   encoding: unicode
   database: genetic_dev
   username: dusan
-  password: waldinko
- 
+  password: waldinko 
+
 production:
   adapter: postgresql
   encoding: unicode

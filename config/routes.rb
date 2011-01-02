@@ -1,14 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
+
+
   map.with_options :controller => 'calendar' do |calendar|
-    calendar.calendar            'calendar/:year/:month',      :action => 'index',           :requirements => {:year => /d{4}/, :month => /d{1,2}/}, :year => nil, :month => nil
+    calendar.calendar_            'calendar/:year/:month',      :action => 'index',           :requirements => {:year => /d{4}/, :month => /d{1,2}/}, :year => nil, :month => nil
     calendar.new_calendar        'calendars/new',              :action => 'new',             :conditions => { :method => :get }
-    calendar.connect             'calendars',                  :action => 'create',          :conditions => { :method => :post }
+    calendar.connect             'events'   ,                  :action => 'create',          :conditions => { :method => :post }
     calendar.calendar            'events/:event_id',           :action => 'show',            :conditions => { :method => :get }
     calendar.edit_calendar       'events/:event_id/edit',      :action => 'edit',            :conditions => { :method => :get }
-    calendar.event               'calendars/:event_id',        :action => 'update',          :conditions => { :method => :put }
+    calendar.event               'events/:event_id',           :action => 'update',          :conditions => { :method => :put }
     calendar.destroy_calendar    'calendars/:event_id',        :action => 'destroy',         :conditions => { :method => :delete }
     calendar.update_calendar     'calendars/update',           :action => 'update_inplace',  :conditions => { :method => :post }
   end
+
+
   map.with_options :controller => 'services' do |services|
     services.services      '/services',  :action => 'index', :conditions => { :method => :get }
   end
@@ -25,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'users' do |users|
     users.users_    'users_/:sport', :action => 'index', :conditions => { :method => :get }
-  users.user            'users/:id',           :action => 'show',            :conditions => { :method => :get }
+    users.join_sport    'join_sport', :action => 'join', :conditions => { :method => :get }
   end
 
   map.with_options :controller => 'leagues' do |leagues|
