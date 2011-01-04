@@ -32,6 +32,10 @@ ActionController::Routing::Routes.draw do |map|
     users.join_sport    'join_sport', :action => 'join', :conditions => { :method => :get }
   end
 
+  map.with_options :controller => 'matches' do |matches|
+    matches.join_free_match    'join_free_match/:match_id', :action => 'join', :conditions => { :method => :get }
+  end
+
   map.with_options :controller => 'leagues' do |leagues|
     leagues.leagues_             'leagues_/:sport',            :action => 'index',               :conditions => { :method => :get }
     leagues.edit_league_teams    'leagues_/:league_id/edit',   :action => 'edit_league_teams',   :conditions => { :method => :get }

@@ -5,11 +5,22 @@ class MatchesController < ApplicationController
   	
   def index
     @matches = Match.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @matches }
     end
+  end
+
+  def join
+    @match = Match.find(params[:match_id])
+    Match.transaction do
+      return unless @match.user2.blank?
+      @match.user2 = @current_user 
+      @match.save
+      Event.create! :user_id =>@current_user.id, :match_id => @match.id, :start_at => @match.starts_at
+      Event.create! :user_id =>@match.user1.id, :match_id => @match.id, :start_at => @match.starts_at
+    end
+    redirect_to(@match) 
   end
 
   # GET /matches/1

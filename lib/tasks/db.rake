@@ -88,7 +88,7 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       User.destroy_all
       puts "\nCreating dusan:"
       User.create! :email=> "dusan@trt.sk", :password => "dusan", :password_confirmation => "dusan", :first_name => "dusan"
-      User.create! :email=> "dnieeli@gmail.com", :password => "danielko", :password_confirmation => "danielko", :first_name => "dano"
+      User.create! :email=> "danieeli@gmail.com", :password => "danielko", :password_confirmation => "danielko", :first_name => "dano"
       puts "Creating admin:"
       User.create! :email=> "admin@trt.sk", :password => "admin", :password_confirmation => "admin", :first_name => "alfonz"
       puts "Creating random users:"

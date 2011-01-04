@@ -12,5 +12,5 @@ class ApplicationController < ActionController::Base
     @selected_sport = selected_sport_id
     @selected_sport_name = selected_sport_name
   end
-
+ 
 end

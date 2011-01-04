@@ -15,6 +15,8 @@ class CreateMatches < ActiveRecord::Migration
       t.boolean :accepted_by_admin
       t.boolean :accepted_by_2
       t.boolean :played
+      t.boolean :free
+      t.integer :sport_id
       t.timestamp :starts_at
 
       t.timestamps

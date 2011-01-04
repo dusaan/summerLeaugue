@@ -1,46 +1,30 @@
-<h1>New match</h1>
+<%= calendar_date_select_includes "silver" %>
+<h1>New free match</h1>
 
 <% form_for(@match) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :team %><br />
-    <input type="text" id="match_team1" name="match[team1]"/>
-    <span id="indicator1" style="display: none">
-      <img src="/images/spinner.gif" alt="Working..." />
-    </span>
-    <div id="autocomplete_choices" class="autocomplete"></div>
-  	<script type="text/javascript">  
-    	new Ajax.Autocompleter("match_team1", "autocomplete_choices", "/teams/suggest", {paramName: "name",   indicator: 'indicator1'});
-  	</script>
+    
+  <% if((Sport.find @selected_sport).team && false) %>
+    <%= f.label :Domáci %><br />
+    <%= f.label @match.team1_name %>
+<%= f.label :Domáci %><br />
+    <%= f.label @match.user1_name %>
+  <% else %>
+    
+  <% end %>
   </p>
   <p>
-    <%= f.label :team2 %><br />
-    <input type="text" id="match_team2" name="match[team2]"/>
-    <span id="indicator1" style="display: none">
-      <img src="/images/spinner.gif" alt="Working..." />
-    </span>
-    <div id="autocomplete_choices" class="autocomplete"></div>
-  	<script type="text/javascript">  
-    	new Ajax.Autocompleter("match_team2", "autocomplete_choices", "/teams/suggest", {paramName: "name",   indicator: 'indicator1'});
-  	</script>
+    <%= f.label :Datum %><br />
+    <%= calendar_date_select_tag "starts_at","#{@match.starts_at ? @match.starts_at.to_date : ''}" %>
   </p>
   <p>
-    <%= f.label :score1 %><br />
-    <%= f.text_field :score1 %>
+    <%= f.label :Cas %><br />
+    <%= select_time(Time.now, :prefix => "match[time]") %>
+
   </p>
-  <p>
-    <%= f.label :score2 %><br />
-    <%= f.text_field :score2 %>
-  </p>
-  <p>
-    <%= f.label :points1 %><br />
-    <%= f.text_field :points1 %>
-  </p>
-  <p>
-    <%= f.label :points2 %><br />
-    <%= f.text_field :points2 %>
-  </p>
+
   <p>
     <%= f.submit 'Create' %>
   </p>

@@ -2,8 +2,7 @@
 
 <table>
   <tr>
-    <th>Team</th>
-    <th>Team2</th>
+    <th> </th>
     <th>Score1</th>
     <th>Score2</th>
     <th>Points1</th>
@@ -11,9 +10,13 @@
   </tr>
 
 <% @matches.each do |match| %>
-  <tr>
-    <td><%=h match.team_id %></td>
-    <td><%=h match.team2_id %></td>
+  <tr><td>
+    <% unless(match.team1.blank?) %>
+      <%=h "#{match.team1_name} vs. #{match.team2_name}"  %>
+    <% else %>
+      <%=h "#{match.user1_name} vs. #{match.user2_name}"  %>
+    <% end %>
+    </td>
     <td><%=h match.score1 %></td>
     <td><%=h match.score2 %></td>
     <td><%=h match.points1 %></td>

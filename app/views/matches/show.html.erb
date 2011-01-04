@@ -1,6 +1,10 @@
 <p>
-  <b>Team:</b>
-  <%=h @match.team_id %>
+  <% unless(@match.team1.blank?) %>
+    <%=h "#{@match.team1_name} vs. #{@match.team2_name}"  %>
+  <% else %>
+    <%=h "#{@match.user1_name} vs. #{@match.user2_name}"  %>
+  <% end %>
+
 </p>
 
 <p>

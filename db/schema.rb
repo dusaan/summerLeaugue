@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20101016000002) do
     t.boolean  "accepted_by_2"
     t.boolean  "accepted_by_admin"
     t.boolean  "played"
+    t.boolean  "free"
+    t.integer  "sport_id"
     t.datetime "starts_at"
     t.datetime "created_at"
     t.datetime "updated_at"
