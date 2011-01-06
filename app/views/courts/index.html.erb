@@ -1,0 +1,30 @@
+<h1>Ihriská</h1>
+
+<table>
+  <tr>
+    <th>Názov</th>
+    <th>Mesto</th>
+    <th>Ulica</th>
+    <th>Povrch</th>
+    <th>Rating</th>
+  </tr>
+
+<% @courts.each do |court| %>
+  <tr>
+    <td><%= link_to (court.name || court.street) , court %></td>
+    <td><%=h court.city %></td>
+    <td><%=h court.street %></td>
+    <td><%=h court.surface %></td>
+    <td><%=h court.rating %></td>
+  <% if @current_user.id == court.user_id %>
+    <td><%= link_to 'Edit', edit_court_path(court) %></td>
+    <td><%= link_to 'Destroy', court, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Pridaj "svoj" court', new_court_path %>

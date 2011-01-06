@@ -1,0 +1,44 @@
+<p>
+  <b>Do systému zaregistroval:</b>
+  <%= link_to @court.user.name, @court.user %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @court.name %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%=h @court.street %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @court.city %>
+</p>
+
+<p>
+  <b>Surface:</b>
+  <%=h @court.surface %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @court.description %>
+</p>
+
+<p>
+  <b>Courts:</b>
+  <%=h @court.courts %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%=h @court.rating %>
+</p>
+
+<% if @current_user.id == @court.user_id %>
+  <%= link_to 'Edit', edit_court_path(@court) %> |
+<% end %>
+<%= link_to 'Back', courts_path %>

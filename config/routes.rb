@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tournaments
+
+  map.resources :tournaments
+
+  map.resources :courts
+
 
 
   map.with_options :controller => 'calendar' do |calendar|

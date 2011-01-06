@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :events
   has_many :sport_players
   has_many :sports, :through => :sport_players 
-
+  has_many :courts
   has_many :league_players
   has_many :leagues, :through => :league_players 
 
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   after_validation :encrypt_password, :if => :password_needed?
 
   def name
-    "#{first_name} #{last_name}".strip
+    "#{first_name} #{last_name}".strip.capitalize
   end
 
   def password_needed?

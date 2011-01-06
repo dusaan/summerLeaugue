@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :authenticate
   before_filter :based_on_authentication
-
+puts "___________________________________________________________________________________"
   def based_on_authentication
     @current_user = current_user if signed_in?
     @selected_sport = selected_sport_id

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  court_id: 1
+  name: MyString
+  sport_id: 1
+  description: MyString
+  user_id: 1
+
+two:
+  court_id: 1
+  name: MyString
+  sport_id: 1
+  description: MyString
+  user_id: 1

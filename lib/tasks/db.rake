@@ -11,18 +11,19 @@ namespace(:db) do
       leagues = League.find :all, :conditions => ["sport_id = ?", (Sport.find_by_name "badminton").id]
       leagues.each do |league|
         league.matches = []
-        users = league.users
-          while user = users.pop do 
-            users.each do |looser|
-             puts 1# Match.create! :league_id => league.id, :user1_id => user.id, :user2_id => looser.id
-            end
+        league.save
+        puts "generating matches for league: #{league.name}"
+        users = league.users.collect {|aa| aa.id}
+        users2 = league.users.collect {|aa| aa.id}
+        users.each do |user|
+          users2.shift
+          users2.each do |user2|    
+            Match.create! :league_id => league.id, :user1_id => user, :user2_id => user2, :sport_id => league.sport_id
           end
+        end
       end      
-      Match.create
     end
-
   end
-
 
   desc("Create badminton players")
   task(:create_players_badminton => :environment) do
@@ -118,10 +119,9 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       puts "#{Newz.count} news created\nCreating ..."
       
       Event.destroy_all
-      ids = (User.find :all).collect {|aa| aa.id}
-      100.times { Event.create! :name => randomStr(rand 20 + 5), :start_at => (Time.now + (rand 40).hours), :end_at => (Time.now + (rand 40).hours), :user_id => ids.rand}
-      puts "#{Event.count} events created\nCreating ..."
-
+      Match.destroy_all
+      puts "#{Event.count} events destroyed ..."
+#Event.create! :name => randomStr(rand 20 + 5), :start_at => (Time.now + (rand 40).hours), :end_at => (Time.now + (rand 40).hours), :user_id =>
     rescue Exception => e
       puts e.inspect
     end

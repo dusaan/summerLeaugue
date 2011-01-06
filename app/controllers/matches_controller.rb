@@ -37,7 +37,7 @@ class MatchesController < ApplicationController
   # GET /matches/new
   # GET /matches/new.xml
   def new
-    @match = Match.new
+    @match = Match.new :user1 => @current_user, :free => true
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,8 +53,9 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.xml
   def create
-    @match = Match.new(params[:match])
-
+  puts params.inspect
+    starts_at = Time.parse("#{params[:starts_at]} #{params[:match][:time][:hour]}:#{params[:match][:time][:minute]}")
+    @match = Match.new :free => true, :starts_at => starts_at, :user1=> @current_user, :sport_id => @selected_sport
     respond_to do |format|
       if @match.save
         flash[:notice] = 'Match was successfully created.'

@@ -16,7 +16,7 @@
   <% end %>
   <h2 >Free match</h2>
 	<% if(@selected_sport) %>
-  <% matches = Match.find(:all, :conditions => ["user1_id <> ? AND sport_id  = ? AND free = ? AND starts_at >= ? AND user2_id is NULL", @current_user.id, @selected_sport, true ,Time.now + 1.hour], :limit => 7) %>
+  <% matches = Match.find(:all, :conditions => ["user1_id <> ? AND sport_id  = ? AND free = ? AND starts_at >= ? AND user2_id is NULL", (@current_user ? @current_user.id : 0), @selected_sport, true ,Time.now + 1.hour], :limit => 7) %>
 		<table>
 			<% matches.each do |match| %>
         <tr>
