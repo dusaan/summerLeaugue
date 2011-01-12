@@ -7,7 +7,10 @@ class CreateTournaments < ActiveRecord::Migration
       t.string :description
       t.integer :user_id
       t.timestamp :starts_at
-
+      t.boolean :male
+      t.boolean :female
+      t.boolean :mix
+      t.boolean :played
       t.timestamps
     end
   end

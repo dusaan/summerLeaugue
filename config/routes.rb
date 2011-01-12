@@ -73,6 +73,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :match_parts
 
+  map.resources :messages
+
   map.resources :matches
 
   map.resources :teams

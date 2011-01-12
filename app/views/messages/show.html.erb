@@ -1,0 +1,24 @@
+<p>
+  <b>Od:</b>
+  <%= link_to @message.sender_name, @message.sender %>
+</p>
+<p>
+  <b>Komu:</b>
+  <%= link_to @message.receiver_name, @message.receiver %>
+</p>
+<p>
+  <b>Predmet:</b><br />
+  <%=h @message.subject %>
+</p>
+
+<p>
+  <b>Odoslaná o:</b>
+  <%= @message.sent_at ? @message.sent_at.strftime("%d.%m.%Y o %H:%M") : '' %>
+</p>
+</p>
+
+<p>
+  <b>Text správy:</b><br />
+  <%=h @message.body %>
+</p>
+<%= link_to 'Back', messages_path %>

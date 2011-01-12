@@ -7,6 +7,7 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :league_id
       t.integer :sport_id
 	    t.string  :ascii_name, :unique => true 
+      t.integer :user_id
       t.timestamps
     end
   end

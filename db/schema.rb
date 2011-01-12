@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20110106203441) do
   create_table "sport_players", :force => true do |t|
     t.integer  "sport_id"
     t.integer  "user_id"
+    t.integer  "ranking"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -147,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20110106203441) do
     t.integer  "league_id"
     t.integer  "sport_id"
     t.string   "ascii_name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -158,6 +160,10 @@ ActiveRecord::Schema.define(:version => 20110106203441) do
     t.string   "description"
     t.integer  "user_id"
     t.datetime "starts_at"
+    t.boolean  "male"
+    t.boolean  "female"
+    t.boolean  "mix"
+    t.boolean  "played"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -168,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20110106203441) do
     t.string   "salt"
     t.string   "digest"
     t.string   "email"
+    t.string   "phone_number"
     t.string   "user_role"
     t.datetime "reg_date"
     t.string   "gender"

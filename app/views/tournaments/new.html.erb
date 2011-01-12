@@ -1,31 +1,37 @@
-<h1>New tournament</h1>
+<%= calendar_date_select_includes "silver" %>
+<h1>Vytvor si vlastný turnaj!</h1>
 
 <% form_for(@tournament) do |f| %>
   <%= f.error_messages %>
-
   <p>
-    <%= f.label :court_id %><br />
-    <%= f.text_field :court_id %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
+    <%= f.label :Názov %><br />
     <%= f.text_field :name %>
   </p>
-  <p>
-    <%= f.label :sport_id %><br />
-    <%= f.text_field :sport_id %>
+   <p>
+    <%= f.label :Začiatok %><br />
+    <%= calendar_date_select_tag "starts_at","" %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label :Čas %><br />
+    <%= select_time(Time.gm(2000,1,1,9,0,0) , :prefix => "tournament[time]") %>
+
   </p>
   <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= f.label :Ihrisko %><br />
+    <%= f.select("court_id", Court.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Vyber ihrisko'})
+ %>
   </p>
   <p>
-    <%= f.label :starts_at %><br />
-    <%= f.datetime_select :starts_at %>
+    <%= f.label :Info %><br />
+    <%= f.text_area :description, :size=> "40x8",:maxlength => 140 %>
+  </p>
+  <p>
+    <%= f.label :Kategórie %><br />
+<table>
+    <tr><td>&nbsp;&nbsp;Muži:</td><td><%= f.check_box :male %></td></tr>
+    <tr><td>&nbsp;&nbsp;Ženy:</td><td><%= f.check_box :female %></td></tr>
+    <tr><td>&nbsp;&nbsp;Mix:</td><td><%= f.check_box :mix %></td></tr>
+</table>
   </p>
   <p>
     <%= f.submit 'Create' %>

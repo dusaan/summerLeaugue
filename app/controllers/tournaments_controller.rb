@@ -40,8 +40,10 @@ class TournamentsController < ApplicationController
   # POST /tournaments
   # POST /tournaments.xml
   def create
-    @tournament = Tournament.new(params[:tournament])
-
+    @tournament = Tournament.new(params[:tournament].except(:time))
+    @tournament.starts_at = Time.parse("#{params[:tournament][:starts_at]} #{params[:tournament][:time][:hour]}:#{params[:tournament][:time][:minute]}") + 1.hour
+    @tournament.user_id = 
+  
     respond_to do |format|
       if @tournament.save
         flash[:notice] = 'Tournament was successfully created.'
@@ -58,9 +60,10 @@ class TournamentsController < ApplicationController
   # PUT /tournaments/1.xml
   def update
     @tournament = Tournament.find(params[:id])
+    @tournament.starts_at = Time.parse("#{params[:tournament][:starts_at]} #{params[:tournament][:time][:hour]}:#{params[:tournament][:time][:minute]}") + 1.hour
 
     respond_to do |format|
-      if @tournament.update_attributes(params[:tournament])
+      if @tournament.update_attributes(params[:tournament].except(:time))
         flash[:notice] = 'Tournament was successfully updated.'
         format.html { redirect_to(@tournament) }
         format.xml  { head :ok }

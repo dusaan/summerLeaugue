@@ -53,7 +53,6 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.xml
   def create
-  puts params.inspect
     starts_at = Time.parse("#{params[:starts_at]} #{params[:match][:time][:hour]}:#{params[:match][:time][:minute]}")
     @match = Match.new :free => true, :starts_at => starts_at, :user1=> @current_user, :sport_id => @selected_sport
     respond_to do |format|

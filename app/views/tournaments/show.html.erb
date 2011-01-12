@@ -1,31 +1,28 @@
+Bližšie info k turnaju:<h1><%=h @tournament.name %>
+</h1>
 <p>
-  <b>Court:</b>
-  <%=h @tournament.court_id %>
+  <b>Ihrisko:</b>
+  <%= link_to @tournament.court_name,@tournament.court %>
+</p>
+<p>
+  <b>Dodatočné info:</b>
+  <%= @tournament.description %>
+</p>
+<p>
+  <b>Kategórie:</b>
+<table>
+    <tr><td>&nbsp;&nbsp;Muži:</td><td> <%= image_tag(@tournament.male ? "tick.png" : "cross.png") %></td></tr>
+    <tr><td>&nbsp;&nbsp;Ženy:</td><td> <%= image_tag(@tournament.female ? "tick.png" : "cross.png") %> </td></tr>
+    <tr><td>&nbsp;&nbsp;Mix:</td><td> <%= image_tag(@tournament.mix ? "tick.png" : "cross.png") %> </td></tr>
+</table> 
+</p><p>
+  <b>Turnaj vytvoril:</b>
+  <%= link_to @tournament.user_name, @tournament.user %>
 </p>
 
 <p>
-  <b>Name:</b>
-  <%=h @tournament.name %>
-</p>
-
-<p>
-  <b>Sport:</b>
-  <%=h @tournament.sport_id %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%=h @tournament.description %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%=h @tournament.user_id %>
-</p>
-
-<p>
-  <b>Starts at:</b>
-  <%=h @tournament.starts_at %>
+  <b>Začiatok:</b>
+  <%=h @tournament.starts_at.strftime("%d.%m.%Y o %H:%M") %>
 </p>
 
 

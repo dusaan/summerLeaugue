@@ -8,11 +8,11 @@ class Match < ActiveRecord::Base
   belongs_to :league
   after_save :update_events
   def user1_name
-    user1 ? user1.name.capitalize : ""
+    user1 ? user1.name.capitalize : "?"
   end  
 
   def user2_name
-    user2 ? user2.name.capitalize : ""
+    user2 ? user2.name.capitalize : "?"
   end  
 
   def team1_name

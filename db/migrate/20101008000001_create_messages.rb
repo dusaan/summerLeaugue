@@ -5,7 +5,7 @@ class CreateMessages < ActiveRecord::Migration
       t.integer  "receiver_id"
       t.string   "subject",     :limit => 256
       t.text     "body"
-      t.datetime "sent_at",                                   :null => false
+      t.datetime "sent_at",     :null => false
       t.datetime "read_at"
     end
   end

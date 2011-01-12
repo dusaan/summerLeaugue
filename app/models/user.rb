@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :sport_players
   has_many :sports, :through => :sport_players 
   has_many :courts
+  has_many :tournaments
   has_many :league_players
   has_many :leagues, :through => :league_players 
 
@@ -40,7 +41,9 @@ class User < ActiveRecord::Base
   def foto_path
     return foto.blank? ? "default.jpg" : foto
   end
-
+ def messages
+    Message.find :all, :conditions => ["messages.sender_id = ? or messages.receiver_id = ?", id, id], :order => "messages.sent_at desc"
+  end
   def encrypt_password
 
     self.salt = encrypt(Time.now.to_s, String.random(40))

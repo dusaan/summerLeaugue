@@ -3,7 +3,7 @@ class CreateSportPlayers < ActiveRecord::Migration
     create_table :sport_players do |t|
       t.integer :sport_id
       t.integer :user_id
-
+      t.integer :ranking
       t.timestamps
     end
   end

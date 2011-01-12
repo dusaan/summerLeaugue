@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :salt
       t.string :digest
       t.string :email
+      t.string :phone_number
       t.string :user_role
       t.timestamp :reg_date
       t.string :gender

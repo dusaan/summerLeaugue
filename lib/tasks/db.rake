@@ -38,7 +38,11 @@ namespace(:db) do
 
       24.times { User.create! :email=> "#{randomStr(5)}@#{randomStr(5)}.sk", :password => "xxxx", :password_confirmation => "xxxxx", :first_name => "#{randomStr(5)}", :sports => [sport], :league_level => 3, :ranking => (rand 50 + 1)}
       sport.reload   
-
+      sps = SportPlayer.find :all
+      sps.collect do |sp|
+        sp.ranking = rand 50
+        sp.save
+      end
     puts "#{sport.users.count} users belongs to #{sport.name}"
     end
 
@@ -103,11 +107,11 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
 
       Sport.destroy_all
       Sport.create! :name=> 'badminton', :parts=> 2, :team => false
-      Sport.create! :name=> 'streetball', :parts=> 3, :team => true
-      Sport.create! :name=> 'petanque', :parts=> 2, :team => true
-      Sport.create! :name=> 'billiard', :parts=> 3, :team => true
-      Sport.create! :name=> 'squash', :parts=> 1, :team => true
-      Sport.create! :name=> 'golf', :parts=> 1, :team => true
+      Sport.create! :name=> 'streetball', :parts=> 1, :team => true
+      Sport.create! :name=> 'petanque', :parts=> 2, :team => false
+      Sport.create! :name=> 'billiard', :parts=> 3, :team => false
+      Sport.create! :name=> 'squash', :parts=> 1, :team => false
+      Sport.create! :name=> 'golf', :parts=> 1, :team => false
       puts "#{Sport.count} sports created\nCreating news"
 
       Newz.destroy_all
@@ -134,6 +138,7 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       Rake::Task['db:create_players_badminton'].invoke
       Rake::Task['db:populate_badminton'].invoke    
       Rake::Task['db:assign_players_badminton'].invoke
+      Rake::Task['db:create_matches_for_badminton_leagues'].invoke
     end
   end
 end

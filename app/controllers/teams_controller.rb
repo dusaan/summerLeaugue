@@ -12,7 +12,6 @@ class TeamsController < ApplicationController
   def suggest
 	    @token = params[:name].ascii
 	    @teams = Team.find :all, :conditions => ["' ' || ascii_name like ?", "% #{@token}%"], :order => 'name', :limit => 20
-      puts "KOKOOOOOOT:  #{@teams.inspect}"
 	    render :layout => false
 	  end
 
@@ -47,7 +46,7 @@ class TeamsController < ApplicationController
   # POST /teams.xml
   def create
     @team = Team.new(params[:team])
-
+    @team.user_id = @current_user.id
     respond_to do |format|
       if @team.save
         flash[:error] = 'Team was successfully created.'

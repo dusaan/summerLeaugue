@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Od</th>
+    <th>Komu</th>
+    <th>Čas odoslania</th>
+    <th>Predmet</th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr>
+    <td><%=h message.sender.name %></td>
+    <td><%=h message.receiver.name %></td>
+    <td><%=h message.sent_at ? message.sent_at.strftime("%d.%m.%Y o %H:%M") : ''%></td>
+    <td><%= link_to message.subject, message %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Napísať správu', new_message_path %>

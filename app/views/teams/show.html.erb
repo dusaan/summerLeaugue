@@ -1,6 +1,14 @@
 <p>
-  <b>Name:</b>
+  <b>Názov:</b>
   <%=h @team.name %>
+</p>
+<p>
+  <b>Kapitán tímu:</b>
+  <%= link_to "#{@team.user_name} - #{@team.phone_number}", @team.user %>
+</p>
+<p>
+  <b>Hráči:</b><br />
+  <%= link_to @team.user_name, @team.user %>
 </p>
 
 <p>
@@ -11,15 +19,11 @@
 </p>
 
 <p>
-  <b>Max players:</b>
-  <%=h @team.max_players %>
-</p>
-
-<p>
-  <b>League:</b>
+  <b>Liga:</b>
   <%=h @team.league_id %>
 </p>
 
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
+<% if @team.user_id ==@current_user.id %>
+  <%= link_to 'Edit', edit_team_path(@team) %> |
+<% end %>
 <%= link_to 'Back', teams_path %>
