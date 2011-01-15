@@ -1,0 +1,29 @@
+<p>
+  <b>Name:</b>
+  <%=h @tournament.name %>
+</p>
+<table>
+<tr>
+    <td><b>Pridané tímy:</b></td>
+    <td></td>
+</tr>
+<% @tournament_teams.each do |team| %>
+  <tr>
+    <td><%=h team.name %></td>
+    <td><%= link_to 'Odstrániť', tournament_team_remove_path(team,@tournament), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<hr>
+<table>
+<tr>
+    <td><b>Voľné tímy:</b></td>
+    <td></td>
+</tr>
+<% @other_teams.each do |team| %>
+  <tr>
+    <td><%=h team.name %></td>
+    <td><%= link_to 'Pridať', tournament_team_add_path(@tournament, team),  :method => :put %></td>
+  </tr>
+<% end %>
+</table>

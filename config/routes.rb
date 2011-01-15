@@ -1,7 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :tournaments
+  map.with_options :controller => 'tournaments' do |tournaments|
+    tournaments.tournaments_            'tournaments_/:sport',                          :action => 'index', :conditions => { :method => :get }
+    tournaments.edit_tournament_teams   'tournaments_/:tournament_id/edit',             :action => 'edit_tournament_teams',   :conditions => { :method => :get }
+    tournaments.tournament_team_remove  'tournament_team/:team_id/:tournament_id',      :action => 'remove_tournament_team',  :conditions => { :method => :delete }
+    tournaments.tournament_team_add     'tournament_team_add/:tournament_id/:team_id',  :action => 'tournament_team_add', :conditions => { :method => :put }
+  end
 
-  map.resources :tournaments
+  map.resources :tournaments, :except => [:index]
 
   map.resources :courts
 
@@ -40,6 +45,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'matches' do |matches|
     matches.join_free_match    'join_free_match/:match_id', :action => 'join', :conditions => { :method => :get }
+  end
+
+  map.with_options :controller => 'leagues' do |leagues|
+    leagues.leagues_             'leagues_/:sport',            :action => 'index',               :conditions => { :method => :get }
+    leagues.edit_league_teams    'leagues_/:league_id/edit',   :action => 'edit_league_teams',   :conditions => { :method => :get }
+    leagues.league_team_remove   'league_team/:team_id',       :action => 'remove_league_team',  :conditions => { :method => :delete }
+    leagues.league_team_add 'league_team_add/:league_id/:team_id', :action => 'league_team_add', :conditions => { :method => :put }
   end
 
   map.with_options :controller => 'leagues' do |leagues|

@@ -2,7 +2,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments
   # GET /tournaments.xml
   def index
-    @tournaments = Tournament.all
+    @tournaments = Tournament.find :all, :conditions => ["sport_id = #{@selected_sport}"], :order => "played desc, starts_at"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,12 +37,39 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
   end
 
+  def edit_tournament_teams
+    @tournament = Tournament.find(params[:tournament_id])
+    @tournament_teams = @tournament.teams
+    ids = ""
+    @tournament_teams.collect {|team| ids << " AND id <> #{team.id}"}
+    @other_teams = Team.find :all, :conditions => ["sport_id = ? #{ids}", @tournament.sport_id]
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @leagues }
+    end
+  end
+  
+  def tournament_team_add
+    team = Team.find(params[:team_id])
+    tournament = Tournament.find(params[:tournament_id])
+    team.tournaments << tournament
+    team.save
+    redirect_to edit_tournament_teams_path(tournament)
+  end
+
+  def remove_tournament_team
+    x = TeamsTournament.find :first, :conditions=> ["team_id =? AND tournament_id = ?", params[:team_id],params[:tournament_id]]
+    x.destroy
+    redirect_to edit_tournament_teams_path(params[:tournament_id])
+  end
+
   # POST /tournaments
   # POST /tournaments.xml
   def create
     @tournament = Tournament.new(params[:tournament].except(:time))
     @tournament.starts_at = Time.parse("#{params[:tournament][:starts_at]} #{params[:tournament][:time][:hour]}:#{params[:tournament][:time][:minute]}") + 1.hour
-    @tournament.user_id = 
+    @tournament.user_id = @current_user.id
+    @tournament.sport_id = @selected_sport
   
     respond_to do |format|
       if @tournament.save

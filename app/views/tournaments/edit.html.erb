@@ -22,7 +22,7 @@
   </p>
   <p>
     <%= f.label :Info %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :size=> "40x8",:maxlength => 140 %>
   </p>
   <p>
     <%= f.label :Kategórie %><br />
@@ -33,9 +33,7 @@
 </table>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Ulož zmeny' %> | <%= link_to 'Detail', @tournament %> |
+<%= link_to 'Späť', tournaments_path %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @tournament %> |
-<%= link_to 'Back', tournaments_path %>

@@ -2,9 +2,13 @@ class Team < ActiveRecord::Base
 
   has_many :matches
   belongs_to :league
+
   before_save :set_ascii_name
   belongs_to :user
-
+ 
+  has_many :teams_tournaments
+  has_many :tournaments, :through => :teams_tournaments 
+ 
   def logo_path
     return logo.blank? ? "default.jpg" : logo
   end
