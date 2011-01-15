@@ -44,6 +44,9 @@ class User < ActiveRecord::Base
  def messages
     Message.find :all, :conditions => ["messages.sender_id = ? or messages.receiver_id = ?", id, id], :order => "messages.sent_at desc"
   end
+  def unread_messages
+    Message.find :all, :conditions => ["messages.receiver_id = ? AND read_at is null", id], :order =>     "messages.sent_at desc"
+  end
   def encrypt_password
 
     self.salt = encrypt(Time.now.to_s, String.random(40))

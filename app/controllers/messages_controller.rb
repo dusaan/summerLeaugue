@@ -13,6 +13,13 @@ class MessagesController < ApplicationController
   # GET /messages/1.xml
   def show
     @message = Message.find(params[:id])
+    puts @message.read_at    
+    if @message.read_at == nil and @message.receiver_id == @current_user.id
+      @message.read_at = Time.now.utc
+      @message.save
+    end
+    
+    
   end
 
   def new

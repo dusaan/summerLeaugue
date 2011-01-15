@@ -32,7 +32,8 @@
   #right table.blackborder th, #right tr.header, #right td.header {background: rgba(0, 0, 0, 0.8); color: #FFFFFF;}
   #left tr.alt, #right tr.alt {background: rgba(255, 255, 255, 0.3);}
  
-  .news_header{ display: block; padding-top: 10px; color: #000; font-weight: bold;} 
+  .news_header { display: block; padding-top: 10px; color: #000; font-weight: bold;} 
+  .unread_message {background: transparent url(/images/email_open.png) no-repeat 100% 50%; padding-right: 22px; font-size: 110%;}
 
   /* position */
       #fb {z-index: 300; position: absolute; top: 130px; right: 0px; background-color: #fff}
@@ -45,7 +46,7 @@
       #headerlinks {width: 380px; height: 20px; position: absolute; top: 0; right: 0;z-index:10;}
         #about {float: left;width: 100px;size:10}
         #login {float: left;}
-        #passwd {float: left;}
+        #password {float: left;}
         #submit {float: left;}
         #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}
       #sportsmen {width: 960px; height: 333px; position: relative;}

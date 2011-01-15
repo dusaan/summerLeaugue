@@ -43,12 +43,29 @@
 <div id="fb"> <iframe src="http://www.facebook.com/plugins/like.php?href=aliga.sk&amp;layout=standard&amp;show_faces=true&amp;width=200&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:70px;" allowTransparency="true"></iframe></div>
       
     <div id="container" <%= "class=\"#{@selected_sport_name}ova\"" unless @selected_sport_name.nil?  %>>
+      <map id="menu_map" name="menu_map">
+        <area shape="poly" coords="243,149,285,207,308,247,309,286,270,290,241,296,230,313,247,374,324,377,303,348,351,361,383,352,395,375,424,368,429,314,413,235,395,209,378,205,345,146," href="streetball" alt="streetball" title="streetball"   />
+        <area shape="poly" coords="388,221,380,233,382,249,399,255,443,244,456,248,447,286,431,317,424,362,409,380,435,381,506,385,593,382,554,320,552,280,601,295,619,289,608,275,558,250,582,242,592,220,577,202,552,219,526,214,496,197,475,191,468,200,473,221,461,224,450,232,416,220," href="squash" alt="squash" title="squash"   />
+        <area shape="poly" coords="646,182,631,190,627,206,630,226,614,243,615,273,618,301,615,318,591,325,550,340,542,360,555,379,591,374,614,335,627,361,624,377,681,370,689,345,688,295,681,283,691,241,723,217,727,203,716,198,680,217,668,214,662,189," href="badminton" alt="badminton" title="badminton"   />
+        <area shape="poly" coords="742,180,725,195,721,209,725,226,697,272,708,289,711,364,823,343,820,280,834,271,840,253,828,219,816,177,795,164,772,173," href="petanque" alt="petanque" title="petanque"   />
+        <area shape="poly" coords="1000,174,973,172,963,187,959,234,951,268,914,333,1064,309,1039,219,1029,204,1014,199," href="billiard" alt="billiard" title="billiard"   />
+        <area shape="poly" coords="220,381,347,388,355,436,175,435," href="streetball" alt="streetball" title="streetball"   />
+        <area shape="poly" coords="354,389,471,396,471,435,359,433," href="suqash" alt="suqash" title="suqash"   />
+        <area shape="poly" coords="481,395,547,398,622,385,638,436,476,434," href="badminton" alt="badminton" title="badminton"   />
+        <area shape="poly" coords="631,384,766,399,756,433,643,432," href="petanque" alt="petanque" title="petanque"   />
+        <area shape="poly" coords="776,399,876,400,883,433,762,433," href="billiard" alt="billiard" title="billiard"   />
+        <area shape="poly" coords="882,398,963,401,955,434,890,434," href="golf" alt="golf" title="golf"   />
+</map>      
+
+
       <div id="header">
         <div id="sportsmen">
          <% (["streetball","squash", "badminton", "petanque", "billiard", "golf"] ).each do |sport| %>
           <div class= "sportsman" id = "sportsman_<%= sport %>">
+          
           <%= 
-              @sport = Sport.find_by_name sport.to_s      
+              @sport = Sport.find_by_name sport.to_s
+              debugger
               link_to "", update_selected_path(@sport), :class=> (@selected_sport.to_s==@sport.id.to_s ? "sportsman_selected" : "")
             %>
           </div>

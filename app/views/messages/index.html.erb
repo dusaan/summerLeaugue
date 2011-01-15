@@ -11,7 +11,11 @@
     <td><%=h message.sender.name %></td>
     <td><%=h message.receiver.name %></td>
     <td><%=h message.sent_at ? message.sent_at.strftime("%d.%m.%Y o %H:%M") : ''%></td>
+    <% if message.read_at == nil and message.receiver_id == @current_user.id %>    
+    <td><%= link_to message.subject, message, :class => 'unread_message' %></td>
+    <% else %>
     <td><%= link_to message.subject, message %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
