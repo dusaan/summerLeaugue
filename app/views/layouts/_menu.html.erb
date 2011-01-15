@@ -3,9 +3,7 @@
   <%= link_to '<span>tabuľka </span>', scores_path(@selected_sport.to_s) , :class => (params[:controller] == "scores" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
   <%= link_to '<span>tímy </span>', teams__path(@selected_sport.to_s)  , :class => (params[:controller] == "teams" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
   <%= link_to '<span>ihriská </span>', courts_path  , :class => (params[:controller] == "courts" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
-
-  <%= link_to '<span>pravidlá</span>', rules_path(@selected_sport.to_s)  , :class => (params[:action] == "rules" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
-  <%= link_to '<span>ligy</span>', leagues__path(@selected_sport.to_s) , :class => (params[:controller] == "leagues" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
+  <%= link_to '<span>pravidlá</span>', rules_path(@selected_sport_name)  , :class => (params[:action] == "rules" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
   <%= link_to '<span>Turnaje</span>', tournaments_path , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
 

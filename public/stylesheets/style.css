@@ -1,5 +1,5 @@
 ﻿@media screen, print {
-  body {background: #C4D2BC none; color: #333; font-size: 72%; font-weight: normal; line-height: 1.4em; font-family: "Arial", "Gadget CE", sans-serif; margin: 0; padding: 0;}
+  body {background: #C4D2BC  url(/images/bg.jpg) no-repeat ; color: #333; font-size: 72%; font-weight: normal; line-height: 1.4em; font-family: "Arial", "Gadget CE", sans-serif; margin: 0; padding: 0;}
   
   a {color: #99CC00; text-decoration: underline;}
   a img {border: 1px solid #99CC00;} 
