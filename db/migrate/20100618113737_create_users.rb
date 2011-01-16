@@ -13,6 +13,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :foto
       t.integer :league_level
       t.integer :ranking
+      t.string :register_link
       t.timestamps
     end
   end

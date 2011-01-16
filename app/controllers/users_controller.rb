@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-skip_before_filter :authenticate, :only => [:new, :create]
+  skip_before_filter :authenticate, :only => [:new, :create]
+
   def index
    sport = Sport.find  @selected_sport
     @users = sport.nil? ? [] : sport.users
@@ -51,14 +52,20 @@ skip_before_filter :authenticate, :only => [:new, :create]
     @user = User.find(params[:id])
   end
 
+  def join_league
+    @user = User.find_by_register_link(params[:join_string])
+    redirect_to new_user_path unless @user
+    @user.register_link = ""
+    @user.save
+    redirect_to edit_user_path(@user)
+  end
   # POST /users
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save
-        flash[:notice] = 'User was successfully created.'
+        flash[:notice] = 'Vítame Ťa na portáli aLiga.SK Pozri si email, máš v ňom link na potvrdenie registrácie'
         format.html { redirect_to(@user) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else

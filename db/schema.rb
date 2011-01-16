@@ -188,6 +188,7 @@ ActiveRecord::Schema.define(:version => 20110115203441) do
     t.string   "foto"
     t.integer  "league_level"
     t.integer  "ranking"
+    t.string   "register_link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,17 +3,18 @@
  <% if @current_user %>
   <%= "Vitaj #{@current_user.name}, "%><%= link_to "[Odhlásiť]", session_path, :method => :delete%>
 <% else %>
-      <input id="login" size = 8 type="text" name="login" value="login" onBlur = "checkEmptyAndFill(this,'login');"onClick = "focusedAction(this, 'login');" />
+      <input id="login" size = 8 type="text" name="login" value="email" onBlur = "checkEmptyAndFill(this,'email');"onClick = "focusedAction(this, 'email');" />
       <input id="password" size = 8 type="password" name="password" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />
       <input id="submit" class="button" type="image" value="prihlásiť" src="/images/menu_vrchne_registracia.png"/>
       <%= link_to "registrácia", new_user_path, :id=> "register_link", :class=> "nodecoration" %>
 <% end %>
-  </form>
-  <% if @current_user %>
+ <% if @current_user %>
     <% if @current_user.unread_messages.length > 0 %>
       <%= link_to "<img src=\"/images/email_open.png\" style=\"border: none;\">", messages_path %> 
     <% else %>
       <%= link_to "<img src=\"/images/email.png\" style=\"border: none;\">", messages_path %>
     <% end %>
  <% end %>
+  </form>
+ 
 </div>

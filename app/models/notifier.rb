@@ -1,12 +1,11 @@
 class Notifier < ActionMailer::Base
- 
-  default :from => 'no-reply@example.com',
-           :return_path => 'system@example.com'
-
-   def welcome(recipient)
-     @account = recipient
-     mail(:to => recipient.email_address_with_name,
-          :bcc => ["bcc@example.com", "Order Watcher <watcher@example.com>"])
-     end
-   end
+#require 'net/smtp'
+  def feedback(user)
+    from "dusaan@gmail.com"
+    recipients "#{user}"
+    subject "Vitajte na portali Aliga!"
+    body :user => user
+    content_type 'text/html'
+  end
+end
 

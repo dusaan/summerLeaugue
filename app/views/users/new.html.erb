@@ -1,14 +1,14 @@
-<h1>New user</h1>
+<h1>Registrácia nového používateľa</h1>
 
+Precitajte si podmienky!!! Ktore nemame napisane!!!
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
-
   <p>
-    <%= f.label :first_name %><br />
+    <%= f.label :Meno %><br />
     <%= f.text_field :first_name %>
   </p>
   <p>
-    <%= f.label :last_name %><br />
+    <%= f.label :Priezvisko %><br />
     <%= f.text_field :last_name %>
   </p>
   <p>
@@ -16,25 +16,25 @@
     <%= f.text_field :phone_number %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label :Heslo %><br />
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "Potvrdenie hesla" %><br />
     <%= f.password_field :password_confirmation %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :Email %><br />
     <%= f.text_field :email %>
   </p>
 
   <p>
-    <%= f.label :gender %><br />
+    <%= f.label :Pohlavie %><br />
     <%= f.select :gender, ["male", "female"] %>
   </p>
 
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Zaregistruj' %>
   </p>
 <% end %>
 

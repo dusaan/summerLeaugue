@@ -16,6 +16,9 @@ class NewzsController < ApplicationController
     @sport_type = params[:sport]
   end
 
+  def default
+  end
+
   # GET /newzs/1
   # GET /newzs/1.xml
   def show

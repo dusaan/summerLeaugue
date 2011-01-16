@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   include Security
+  include ApplicationHelper
+
   has_and_belongs_to_many :events
   has_many :sport_players
   has_many :sports, :through => :sport_players 
@@ -16,9 +18,16 @@ class User < ActiveRecord::Base
   validates_presence_of     :password,              :if => :password_needed?
   validates_presence_of     :password_confirmation, :if => :password_needed?
   after_validation :encrypt_password, :if => :password_needed?
+  before_create :generate_link
 
+  def generate_link
+    self.register_link =  randomStr(20)
+    mail = Notifier.create_feedback(self)
+    Notifier.deliver(mail)
+  end
+  
   def name
-    "#{first_name} #{last_name}".strip.capitalize
+    "#{first_name ? first_name.strip.capitalize : ""} #{last_name ? last_name.strip.capitalize : "" }"
   end
 
   def password_needed?

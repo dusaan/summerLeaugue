@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.with_options :controller => 'newzs' do |newzs|
-    newzs.default   '/',            :action => 'index', :conditions => { :method => :get }
+    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
     newzs.news      'news/:sport',  :action => 'index', :conditions => { :method => :get }
     newzs.rules     'rules/:sport', :action => 'rules', :conditions => { :method => :get }
   end
@@ -39,8 +39,9 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.with_options :controller => 'users' do |users|
-    users.users_    'users_/:sport', :action => 'index', :conditions => { :method => :get }
-    users.join_sport    'join_sport', :action => 'join', :conditions => { :method => :get }
+    users.users_        'users_/:sport',  :action => 'index', :conditions => { :method => :get }
+    users.join_sport    'join_sport',     :action => 'join',  :conditions => { :method => :get }
+    users.join_league   'jo/:join_string',    :action => 'join_league',  :conditions => { :method => :get }
   end
 
   map.with_options :controller => 'matches' do |matches|
