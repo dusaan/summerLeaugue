@@ -40,7 +40,7 @@
 
   #container {margin: 0 auto; width: 960px; position: relative;}
     #header {width: 960px; height: 333px; position: relative; background: transparent url(/images/header.png) no-repeat 0 0;}
-      #header_img {border: 0; z-index: 100; position: absolute; top: 0; left: 0;}
+      #header_img {border: 0; position: absolute; top: 0; left: 0;}
       #header_over {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #header_over2 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #header_over3 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
@@ -71,7 +71,7 @@
 /* Sport figures */
 /*---------------*/
     
-    #header_over .sportsman_streetballsportsman_streetball {background-image: url(/images/postavicky_streetball.png); background-position: 47px 0;}  
+    #header_over .sportsman_streetball {background-image: url(/images/postavicky_streetball.png); background-position: 47px 0;}  
     #header_over .sportsman_squash {background-image: url(/images/postavicky_squash.png); background-position: 195px 0;}
     #header_over .sportsman_badminton {background-image: url(/images/postavicky_badminton.png); background-position: 343px 0;}
     #header_over .sportsman_petanque {background-image: url(/images/postavicky_petanque.png); background-position: 500px 0;}
