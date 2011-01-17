@@ -4,10 +4,9 @@
 <%= @is_playing %>
 <table>
   <tr>
-    <th>First name</th>
-    <th>Last name</th>
+    <th>Meno</th>
+    <th>Priezvisko</th>
     <th>Email</th>
-    <th>Gender</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -15,10 +14,9 @@
     <td><%=h user.first_name %></td>
     <td><%=h user.last_name %></td>
     <td><%=h user.email %></td>
-    <td><%=h user.gender %></td>
-    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Detial', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Zmaž', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

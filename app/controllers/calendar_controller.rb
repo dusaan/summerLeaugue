@@ -32,7 +32,7 @@ class CalendarController < ApplicationController
     @event = Event.new(params[:event])
 
       if @event.save
-        flash[:notice] = 'Event was successfully created.'
+        flash[:notice] = 'Event bol úspešne vytvorený.'
         redirect_to calendar__path       
       else
         render :action => "new" 
@@ -45,10 +45,10 @@ class CalendarController < ApplicationController
   def update
     @event = Event.find(params[:event_id])
     if @event.update_attributes(params[:event])
-      flash[:notice] = 'Event was successfully updated.'
+      flash[:notice] = 'Event bol úspešne zmenený.'
       redirect_to calendar_path
     else
-      flash[:error] = 'Prdlo to, ty HAD!.'
+      flash[:error] = 'Nepodarilo sa uložiť zmeny'
       redirect_to edit_calendar_path(@event)
     end
   end

@@ -19,12 +19,11 @@ class SessionsController < ApplicationController
     password = params[:password]
     unless (login.blank? || password.blank?)
       self.current_user = User.authenticate(login, password)
-      logger.debug "User: #{current_user.inspect}"
+      flash[:notice] ="Vitaj #{current_user.name}!" unless current_user.nil?
       redirect_to user_path(current_user) unless current_user.nil?
       return unless current_user.nil?
     end
-    logger.debug "Sign in failed"
-    flash[:error] ="Sign in failed"
+    flash[:error] ="Nesprávne meno alebo heslo, prípadne nebolo aktivované konto"
     render :action => 'new'
   end
 

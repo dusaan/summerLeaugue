@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-  skip_before_filter :authenticate, :only => [:new, :create]
+  skip_before_filter :authenticate, :only => [:new, :create, :join_league]
 
   def index
    sport = Sport.find  @selected_sport
@@ -55,8 +55,9 @@ class UsersController < ApplicationController
   def join_league
     @user = User.find_by_register_link(params[:join_string])
     redirect_to new_user_path unless @user
-    @user.register_link = ""
+    @user.register_link = nil
     @user.save
+    flash[:notice] = 'Vítame Ťa na portáli aLiga.SK <br /> Tvoje konto bolo aktivované, teraz sa môžeš prihlásiť'
     redirect_to edit_user_path(@user)
   end
   # POST /users
@@ -82,7 +83,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
+        flash[:notice] = 'Profil bol úspešne zmenený.'
         format.html { redirect_to(@user) }
         format.xml  { head :ok }
       else

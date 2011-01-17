@@ -5,9 +5,6 @@
 		<meta id="Head_author" name="author" content="aLiga.sk — http://www.aLiga.sk" />
 		<meta name="description" content="aLiga.sk" />
 		<meta name="keywords" content="aLiga.sk, amatérska liga, bedmintonová liga, basketbalová liga" />
-		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <title><%=  @title || "aLiga.sk" %></title>
     <%= stylesheet_link_tag 'style' %>
@@ -17,12 +14,20 @@
     <script src='/javascripts/dragdrop.js' type='text/javascript'></script>
     <script type="text/javascript" src="script.css"> </script>
     <script type="text/javascript">   //<![CDATA[
-    var flashDiv = $("flash");
-    if (flashDiv) {
-      flashDiv.childElements().each(function(element) {
-        new Effect.Highlight(element);
-        new Effect.SlideUp("flash", { "delay": 3, "duration": 2 });
-      });
+    function hideFlash()
+    { 
+      var flashDiv = $("flash");
+      if (flashDiv) {
+        flashDiv.childElements().each(function(element) {
+          new Effect.Highlight(element,{
+                        startcolor: "#ffff00",
+                        endcolor: "#ffffff",
+                        duration: 3
+                      })
+
+          new Effect.SlideUp("flash", { "delay": 3, "duration": 2 });
+        });
+      }
     }
     function focusedAction(el, val)
     {
@@ -47,13 +52,9 @@
     //]]>
 		</script>
 	</head>
-	<body>
+	<body onLoad ="hideFlash();">
 <div id="fb"> <iframe src="http://www.facebook.com/plugins/like.php?href=aliga.sk&amp;layout=standard&amp;show_faces=true&amp;width=200&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=70" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:70px;" allowTransparency="true"></iframe></div>
-      
     <div id="container" <%= "class=\"#{@selected_sport_name}ova\"" unless @selected_sport_name.nil?  %>>
-           
-
-
       <div id="header">
         <div id="header_over">
           <div id="header_over2" class=sportsman_<%= @selected_sport_name %> >

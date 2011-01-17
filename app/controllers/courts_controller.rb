@@ -44,7 +44,7 @@ class CourtsController < ApplicationController
     @court.user_id = @current_user.id
     respond_to do |format|
       if @court.save
-        flash[:notice] = 'Court was successfully created.'
+        flash[:notice] = 'Ihrisko bolo úspešne vytvorené.'
         format.html { redirect_to(@court) }
         format.xml  { render :xml => @court, :status => :created, :location => @court }
       else
@@ -61,7 +61,7 @@ class CourtsController < ApplicationController
 
     respond_to do |format|
       if @court.update_attributes(params[:court])
-        flash[:notice] = 'Court was successfully updated.'
+        flash[:notice] = 'Ihrisko bolo úspešne zmenené.'
         format.html { redirect_to(@court) }
         format.xml  { head :ok }
       else

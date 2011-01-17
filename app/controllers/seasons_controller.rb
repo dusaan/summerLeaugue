@@ -44,7 +44,7 @@ class SeasonsController < ApplicationController
 
     respond_to do |format|
       if @season.save
-        flash[:notice] = 'Season was successfully created.'
+        flash[:notice] = 'Sezóna bola úspešne vytvorená.'
         format.html { redirect_to(@season) }
         format.xml  { render :xml => @season, :status => :created, :location => @season }
       else
@@ -61,7 +61,7 @@ class SeasonsController < ApplicationController
 
     respond_to do |format|
       if @season.update_attributes(params[:season])
-        flash[:notice] = 'Season was successfully updated.'
+        flash[:notice] = 'Sezóna bola úspešne zmenená.'
         format.html { redirect_to(@season) }
         format.xml  { head :ok }
       else

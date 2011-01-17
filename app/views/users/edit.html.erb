@@ -1,14 +1,14 @@
-<h1>Editing <%= @user.name %></h1>
+<h1>Profil - <%= @user.name %></h1>
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :first_name %><br />
+    <%= f.label "Meno"  %><br />
     <%= f.text_field :first_name %>
   </p>
   <p>
-    <%= f.label :last_name %><br />
+    <%= f.label "Priezvisko" %><br />
     <%= f.text_field :last_name %>
   </p>
   <p>
@@ -16,27 +16,23 @@
     <%= f.text_field :phone_number %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label :Heslo %><br />
     <%= f.text_field :password %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "Potvrdenie hesla" %><br />
     <%= f.text_field :password_confirmation %>
   </p>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :gender %><br />
-    <%= f.select :gender, ["male", "female"] %>
+    <%= f.label :pohlavie %><br />
+    <%= f.select :gender, ["Muž", "Žena"] %>
  
   </p>
 
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Uložiť' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Ukáž profil', @user %> |
+<%= link_to 'Späť', users_path %>

@@ -73,7 +73,7 @@ class TournamentsController < ApplicationController
   
     respond_to do |format|
       if @tournament.save
-        flash[:notice] = 'Tournament was successfully created.'
+        flash[:notice] = 'Turnaj bol úspešne vytvorený.'
         format.html { redirect_to(@tournament) }
         format.xml  { render :xml => @tournament, :status => :created, :location => @tournament }
       else
@@ -91,7 +91,7 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       if @tournament.update_attributes(params[:tournament].except(:time))
-        flash[:notice] = 'Tournament was successfully updated.'
+        flash[:notice] = 'Turnaj bol úspešne zmenený.'
         format.html { redirect_to(@tournament) }
         format.xml  { head :ok }
       else

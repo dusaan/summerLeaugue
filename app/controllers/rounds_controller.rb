@@ -44,7 +44,7 @@ class RoundsController < ApplicationController
 
     respond_to do |format|
       if @round.save
-        flash[:notice] = 'Round was successfully created.'
+        flash[:notice] = 'Kolo bolo úspešne vytvorené.'
         format.html { redirect_to(@round) }
         format.xml  { render :xml => @round, :status => :created, :location => @round }
       else
@@ -61,7 +61,7 @@ class RoundsController < ApplicationController
 
     respond_to do |format|
       if @round.update_attributes(params[:round])
-        flash[:notice] = 'Round was successfully updated.'
+        flash[:notice] = 'Kolo bolo úspešne zmenené.'
         format.html { redirect_to(@round) }
         format.xml  { head :ok }
       else

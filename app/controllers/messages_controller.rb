@@ -38,7 +38,7 @@ class MessagesController < ApplicationController
     @message.sender = @current_user
     respond_to do |format|
       if @message.save
-        flash[:notice] = 'Message was successfully created.'
+        flash[:notice] = 'Správa bola úspešne odoslaná.'
         format.html { redirect_to(@message) }
         format.xml  { render :xml => @message, :status => :created, :location => @message }
       else

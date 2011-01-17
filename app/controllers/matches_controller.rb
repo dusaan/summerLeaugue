@@ -57,7 +57,7 @@ class MatchesController < ApplicationController
     @match = Match.new :free => true, :starts_at => starts_at, :user1=> @current_user, :sport_id => @selected_sport
     respond_to do |format|
       if @match.save
-        flash[:notice] = 'Match was successfully created.'
+        flash[:notice] = 'Zápas bol úspešne vytvorený.'
         format.html { redirect_to(@match) }
         format.xml  { render :xml => @match, :status => :created, :location => @match }
       else
@@ -74,7 +74,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
-        flash[:notice] = 'Match was successfully updated.'
+        flash[:notice] = 'Zápas bol úspešne zmenený.'
         format.html { redirect_to(@match) }
         format.xml  { head :ok }
       else

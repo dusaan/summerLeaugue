@@ -53,7 +53,7 @@ class NewzsController < ApplicationController
 
     respond_to do |format|
       if @newz.save
-        flash[:notice] = 'Newz was successfully created.'
+        flash[:notice] = 'Novinka bola úspešne vytvorená.'
         format.html { redirect_to(@newz) }
         format.xml  { render :xml => @newz, :status => :created, :location => @newz }
       else
@@ -70,7 +70,7 @@ class NewzsController < ApplicationController
 
     respond_to do |format|
       if @newz.update_attributes(params[:newz])
-        flash[:notice] = 'Newz was successfully updated.'
+        flash[:notice] = 'Novinka bola úspešne zmenená.'
         format.html { redirect_to(@newz) }
         format.xml  { head :ok }
       else

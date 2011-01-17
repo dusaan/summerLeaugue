@@ -54,7 +54,7 @@ class LeaguesController < ApplicationController
 
     respond_to do |format|
       if @league.save
-        flash[:notice] = 'League was successfully created.'
+        flash[:notice] = 'Liga bola úspešne vytvorená.'
         format.html { redirect_to(@league) }
         format.xml  { render :xml => @league, :status => :created, :location => @league }
       else
@@ -72,7 +72,7 @@ class LeaguesController < ApplicationController
     finishes_at = Time.parse(params[:finishes_at])
     respond_to do |format|
       if @league.update_attributes(params[:league].merge(:starts_at => starts_at, :finishes_at => finishes_at))
-        flash[:notice] = 'League was successfully updated.'
+        flash[:notice] = 'Liga bola úspešne zmenená.'
         format.html { redirect_to(@league) }
         format.xml  { head :ok }
       else
