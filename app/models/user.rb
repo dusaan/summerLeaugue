@@ -5,10 +5,15 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :events
   has_many :sport_players
   has_many :sports, :through => :sport_players 
+
   has_many :courts
   has_many :tournaments
+
   has_many :league_players
   has_many :leagues, :through => :league_players 
+
+  has_many :team_players
+  has_many :teams, :through => :team_players 
 
 
   attr_accessor   :password, :password_confirmation

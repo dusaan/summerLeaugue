@@ -51,7 +51,7 @@ class TeamsController < ApplicationController
     @team.user_id = @current_user.id
     respond_to do |format|
       if @team.save
-        flash[:error] = 'Team was successfully created.'
+        flash[:notice] = 'Tím bol úspšne vytvorený.'
         format.html { redirect_to(@team) }
         format.xml  { render :xml => @team, :status => :created, :location => @team }
       else
@@ -68,7 +68,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.update_attributes(params[:team])
-        flash[:notice] = 'Team was successfully updated.'
+        flash[:notice] = 'Tím bol úspšne zmenený.'
         format.html { redirect_to(@team) }
         format.xml  { head :ok }
       else

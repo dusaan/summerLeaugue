@@ -38,7 +38,7 @@
   .unread_message {background: transparent url(/images/email_open.png) no-repeat 100% 50%; padding-right: 22px; font-size: 110%;}
 
   /* position */
-      #fb {z-index: 300; position: absolute; top: 130px; right: 0px; background-color: #fff}
+      #fb {margin-right: 10px; float:right;}
 
   #container {margin: 0 auto; width: 960px; position: relative;}
     #header {width: 960px; height: 333px; position: relative; background: transparent url(/images/header.png) no-repeat 0 0;}
@@ -48,7 +48,7 @@
       #header_over3 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #logo {z-index: 5; position: absolute; top: 36px; left: 0; font-size: 150%; font-weight: bold;}
       #liga {z-index: 4; width: 399px; height: 119px; position: absolute; top: 133px; right: 0; background: transparent no-repeat 0 0;}
-      #facebook {z-index: 3; position: absolute; top: 125px; right: 0;}
+      #facebook {z-index: 6; position: absolute; top: 125px; right: 0;}
       #headerlinks {width: 380px; height: 20px; position: absolute; top: 0; right: 0;z-index:10;}
         #about {float: left;width: 100px;size:10}
         #login {float: left;}

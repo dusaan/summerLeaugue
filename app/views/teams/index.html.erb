@@ -22,5 +22,6 @@
 </table>
 
 <br />
-
-<%= link_to 'New team', new_team_path %>
+<% if @current_user.teams.empty? %>
+  Nie si členom žiadneho tímu, <%= link_to 'vytvor si tím!', new_team_path %>
+<% end %>

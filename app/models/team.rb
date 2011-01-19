@@ -8,6 +8,9 @@ class Team < ActiveRecord::Base
  
   has_many :teams_tournaments
   has_many :tournaments, :through => :teams_tournaments 
+
+  has_many :team_players
+  has_many :users, :through => :team_players 
  
   def logo_path
     return logo.blank? ? "default.jpg" : logo

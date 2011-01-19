@@ -1,9 +1,8 @@
 class CreateTeamPlayers < ActiveRecord::Migration
   def self.up
     create_table :team_players do |t|
-      t.integer :id_team
-      t.integer :id_user
-
+      t.integer :team_id
+      t.integer :user_id
       t.timestamps
     end
   end
