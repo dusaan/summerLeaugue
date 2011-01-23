@@ -3,9 +3,17 @@ class Notifier < ActionMailer::Base
   def feedback(user)
     from "dusaan@gmail.com"
     recipients "#{user}"
-    subject "Vitajte na portali Aliga!"
+    subject "Vitajte na portáli aLiga.sk!"
     body :user => user
     content_type 'text/html'
   end
+  def invitation(user, psswd)
+    from "dusaan@gmail.com"
+    recipients "#{user}"
+    subject "Pozvánka na portál aLiga.sk!"
+    body :user => user, :psswd => psswd
+    content_type 'text/html'
+  end
+
 end
 

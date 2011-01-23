@@ -1,9 +1,12 @@
 class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.xml
+  skip_before_filter :verify_authenticity_token, :only => [:invite_submit]
+
   def index
     @teams = Team.all
-
+    @selected_sport_name = (Sport.find params[:sport]).name if params[:sport]
+    @selected_sport = params[:sport] if params[:sport]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @teams }
@@ -30,7 +33,6 @@ class TeamsController < ApplicationController
   # GET /teams/new.xml
   def new
     @team = Team.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @team }
@@ -41,6 +43,19 @@ class TeamsController < ApplicationController
   def edit
     @team = Team.find(params[:id])
   end
+  
+  def invite
+    @team = Team.find(params[:team_id])
+    redirect_to teams_path if @current_user.id != @team.user_id
+  end
+
+  def invite_submit
+    @team = Team.find(params[:team_id])
+    redirect_to teams_path if @current_user.id != @team.user_id || params[:email].blank?
+    user = User.new :email=> params[:email]
+    user.invite_to(@team)
+    redirect_to invite_path(@team)
+  end
 
   # POST /teams
   # POST /teams.xml
@@ -49,6 +64,7 @@ class TeamsController < ApplicationController
 
     @team.sport_id = @selected_sport
     @team.user_id = @current_user.id
+    @team.users << @current_user
     respond_to do |format|
       if @team.save
         flash[:notice] = 'Tím bol úspšne vytvorený.'

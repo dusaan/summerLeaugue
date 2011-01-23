@@ -64,6 +64,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'teams' do |teams|
     teams.teams_    'teams_/:sport', :action => 'index', :conditions => { :method => :get }
+    teams.invite    'invite_to_team/:team_id', :action => 'invite', :conditions => { :method => :get }
+    teams.user_team_remove   'remove_from_team/:user_id/:team_id',  :action => 'remove_user',  :conditions => { :method => :delete }
+    teams.user_team_add 'invite_to_team/:team_id', :action => 'invite_submit', :conditions => { :method => :post }
+    
     
   end
 

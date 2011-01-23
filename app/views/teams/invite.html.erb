@@ -1,0 +1,12 @@
+<h1>Pozvi hráča do tímu: </h1>
+
+<form id="invite_form" method="post" action="/invite_to_team/<%= @team.id %>" >
+  <p>Email:   <input id="email" size = 20 type="text" name="email" />
+  </p>
+  <p>
+ <input id="submit" type="submit" value="Pošli pozvánku"/>
+</p>
+</form>
+<br /><p>
+<%= link_to 'Späť', @team %>
+</p>

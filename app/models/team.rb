@@ -5,6 +5,7 @@ class Team < ActiveRecord::Base
 
   before_save :set_ascii_name
   belongs_to :user
+  belongs_to :sport
  
   has_many :teams_tournaments
   has_many :tournaments, :through => :teams_tournaments 

@@ -1,7 +1,7 @@
 <div id="headerlinks">
   <form id="loginform" method="post" action="/session" >
  <% if @current_user %>
-  <%= "Vitaj #{@current_user.name}, "%><%= link_to "[Odhlásiť]", session_path, :method => :delete%>
+  <%= "<b>Vitaj #{@current_user.name}</b> "%><%= link_to "<b>[</b>Profil<b>]</b>", @current_user, :class=>"nodecoration"%>, <%= link_to "<b>[</b>Kalendár<b>]</b>", calendar__path,:class=>"nodecoration"%>, <%= link_to "<b>[</b>Odhlásiť sa<b>]</b>", session_path, :method => :delete,:class=>"nodecoration"%>,
 <% else %>
       <input id="login" size = 8 type="text" name="login" value="email" onBlur = "checkEmptyAndFill(this,'email');"onClick = "focusedAction(this, 'email');" />
       <input id="password" size = 8 type="password" name="password" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />

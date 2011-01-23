@@ -4,11 +4,17 @@
 </p>
 <p>
   <b>Kapitán tímu:</b>
-  <%= link_to "#{@team.user_name} - #{@team.phone_number}", @team.user %>
+  <%= link_to "#{@team.user_name} #{@team.phone_number || ""}", @team.user %>
 </p>
 <p>
   <b>Hráči:</b><br />
-  <%= link_to @team.user_name, @team.user %>
+  <table>
+    <% @team.users.each do |user| %>
+      <tr>
+    <td><%= link_to user.name, user %></td>
+    <% end %>
+  </table>
+  <%= link_to "Pozvi ďalších hráčov", invite_path(@team) if @team.user_id ==@current_user.id %>
 </p>
 
 <p>

@@ -1,7 +1,6 @@
 <h1>Listing users</h1>
 <%= "Nie si členom #{@selected_sport_name}ovej ligy, chceš sa pridať?" unless @is_playing%>
 <%= link_to 'Pridať sa', join_sport_path unless @is_playing %>
-<%= @is_playing %>
 <table>
   <tr>
     <th>Meno</th>
@@ -15,12 +14,6 @@
     <td><%=h user.last_name %></td>
     <td><%=h user.email %></td>
     <td><%= link_to 'Detial', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Zmaž', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New user', new_user_path %>

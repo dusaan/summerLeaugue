@@ -27,12 +27,22 @@ class User < ActiveRecord::Base
 
   def generate_link
     self.register_link =  randomStr(20)
-    mail = Notifier.create_feedback(self)
+    mail = nil
+    if teams.blank?
+      mail = Notifier.create_feedback(self)
+    else
+      mail = Notifier.create_invitation(self, self.password)
+    end
     Notifier.deliver(mail)
   end
   
   def name
     "#{first_name ? first_name.strip.capitalize : ""} #{last_name ? last_name.strip.capitalize : "" }"
+  end
+
+  def invite_to(team)
+    self.teams = [team]
+    self.password_confirmation = self.password = randomStr(20)
   end
 
   def password_needed?
@@ -64,7 +74,7 @@ class User < ActiveRecord::Base
   def encrypt_password
 
     self.salt = encrypt(Time.now.to_s, String.random(40))
-    self.digest = encrypt(salt, password.downcase)
+    self.digest = encrypt(salt, (password).downcase)
     self.password = nil
     self.password_confirmation = nil
   end
