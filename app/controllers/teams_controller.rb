@@ -54,7 +54,8 @@ class TeamsController < ApplicationController
     redirect_to teams_path if @current_user.id != @team.user_id || params[:email].blank?
     user = User.new :email=> params[:email]
     user.invite_to(@team)
-    redirect_to invite_path(@team)
+    user.save
+    redirect_to (@team)
   end
 
   # POST /teams
