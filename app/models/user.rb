@@ -22,8 +22,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email, :if => :email_changed?
   validates_presence_of     :password,              :if => :password_needed?
   validates_presence_of     :password_confirmation, :if => :password_needed?
-  after_validation :encrypt_password, :if => :password_needed?
   before_create :generate_link
+  before_update :encrypt_password, :if => :password_needed?
+
 
   def generate_link
     self.register_link =  randomStr(20)
@@ -31,17 +32,20 @@ class User < ActiveRecord::Base
     if teams.blank?
       mail = Notifier.create_feedback(self)
     else
-      mail = Notifier.create_invitation(self, self.password)
+      mail = Notifier.create_invitation(self)
     end
     Notifier.deliver(mail)
+    encrypt_password
   end
   
   def name
+    return email unless first_name || last_name 
     "#{first_name ? first_name.strip.capitalize : ""} #{last_name ? last_name.strip.capitalize : "" }"
   end
 
   def invite_to(team)
     self.teams = [team]
+    self.sports = [team.sport]
     self.password_confirmation = self.password = randomStr(20)
   end
 

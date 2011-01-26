@@ -65,6 +65,9 @@ class TeamsController < ApplicationController
 
     @team.sport_id = @selected_sport
     @team.user_id = @current_user.id
+    @current_user.sports << @team.sport
+    @current_user.sports.uniq
+    @current_user.save
     @team.users << @current_user
     respond_to do |format|
       if @team.save
