@@ -1,20 +1,21 @@
 <div id="headerlinks">
   <form id="loginform" method="post" action="/session" >
+  <% if @current_user %>
+    <% if @current_user.unread_messages.length > 0 %>
+      <%= link_to "<img src=\"/images/email_open.png\" style=\"border: none;\">", messages_path, :class=>"mailbox" %> 
+    <% else %>
+      <%= link_to "<img src=\"/images/email.png\" style=\"border: none;\">", messages_path, :class=>"mailbox" %>
+    <% end %>
+ <% end %>
  <% if @current_user %>
-  <%= "<b>Vitaj #{@current_user.name}</b> "%><%= link_to "<b>[</b>Profil<b>]</b>", @current_user, :class=>"nodecoration"%>, <%= link_to "<b>[</b>Kalendár<b>]</b>", calendar__path,:class=>"nodecoration"%>, <%= link_to "<b>[</b>Odhlásiť sa<b>]</b>", session_path, :method => :delete,:class=>"nodecoration"%>,
+  <%= "<span><strong>Vitaj #{@current_user.name}</strong></span> "%><%= link_to "<b>[</b>Profil<b>]</b>", @current_user, :class=>"nodecoration user_link"%><%= link_to "<b>[</b>Kalendár<b>]</b>", calendar__path,:class=>"nodecoration user_link"%><%= link_to "<b>[</b>Odhlásiť sa<b>]</b>", session_path, :method => :delete,:class=>"nodecoration user_link"%>
 <% else %>
       <input id="login" size = 8 type="text" name="login" value="email" onBlur = "checkEmptyAndFill(this,'email');"onClick = "focusedAction(this, 'email');" />
       <input id="password" size = 8 type="password" name="password" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />
       <input id="submit" class="button" type="image" value="prihlásiť" src="/images/menu_vrchne_registracia.png"/>
       <%= link_to "registrácia", new_user_path, :id=> "register_link", :class=> "nodecoration" %>
 <% end %>
- <% if @current_user %>
-    <% if @current_user.unread_messages.length > 0 %>
-      <%= link_to "<img src=\"/images/email_open.png\" style=\"border: none;\">", messages_path %> 
-    <% else %>
-      <%= link_to "<img src=\"/images/email.png\" style=\"border: none;\">", messages_path %>
-    <% end %>
- <% end %>
+ 
   </form>
  
 </div>
