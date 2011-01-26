@@ -7,6 +7,8 @@
   a {color: #99CC00; text-decoration: underline;}
   a img {border: 1px solid #99CC00;} 
   a:hover {text-decoration: none;}
+  #right a {color: #536f00;}
+  #right a img {border: 1px solid #536f00;}
   a.noborder img {border: none;}  
   a.nodecoration {text-decoration: none;}
   a.nodecoration:hover {text-decoration: underline;}
@@ -24,6 +26,7 @@
  #left .heading, #right .heading {color: #FFFFCC;}
  .plus {background: transparent url(/images/plus.png) no-repeat 100% 50%; line-height: 22px; min-height: 33px; _height: 33px; font-weight: bold;}
   
+  /* Tables */
   table.blackborder {background-color: #86A89B;}
   table.blackborder tbody {background-color: #fff;}
   table.blackborder th, tr.header, td.header {background-color: #437765; color: #FFFFFF; font-weight: bold;}
@@ -33,8 +36,8 @@
   #left table.blackborder th, #left tr.header, #left td.header,
   #right table.blackborder th, #right tr.header, #right td.header {background: rgba(0, 0, 0, 0.8); color: #FFFFFF;}
   #left tr.alt, #right tr.alt {background: rgba(255, 255, 255, 0.3);}
- 
-  .news_header {color: #333333; text-transform: uppercase;} 
+
+  /* Mails */
   .unread_message {background: transparent url(/images/email_open.png) no-repeat 100% 50%; padding-right: 22px; font-size: 110%;}
 
   /* position */
@@ -64,10 +67,14 @@
       #submenu {z-index: 2; position: absolute; top: 302px; left: 0; width: 960px; height: 31px; padding-left: 10px;}
     #content {width: 960px; background: transparent url(/images/mainbg_badminton.gif) repeat-y 0 0;}
       #contentbg_top {background: transparent url(/images/contentbg_top.png) no-repeat 0 0; height: 17px;}
-      #left {float: left; width: 215px; margin-right: 10px; min-height: 300px; _height: 300px; padding: 20px; font-size: 110%}
-        #left a {color: #fff;}
-        #news {font-size:100%;}
-          #news a {color: #333;}
+      #left {float: left; width: 220px; margin-right: 25px; min-height: 300px; _height: 300px; padding: 0 0 20px 20px; font-size: 110%; overflow: hidden;}
+        #left a {color: #333;}
+        .billiardova #left a, .petanqueova #left a {color: #ffffcc;}
+        #news {font-size:100%; padding-bottom: 15px;}
+          .news_header {color: #333333; text-transform: uppercase; font-weight: bold;}
+          .billiardova .news_header, .petanqueova .news_header {color: #ffffcc;}
+        #reklama  {width: 218px; height: 298px; border: 1px solid #666666; background: #cccccc;}
+          
       #center {float: left; width: 370px; min-height: 300px; _height: 300px; padding: 20px 30px;}
       #right {float: left; width: 205px; min-height: 300px; _height: 300px; padding: 20px 30px;}
     
@@ -134,11 +141,11 @@
 /*-------------------------*/
 
   .streetballova a, .streetballova h1 {color: #E97300;}
-  .streetballova #right a {color: #ab5500;} 
+  .streetballova #right a {color: #824000;} 
   .squashova a, .squashova h1 {color: #d0a600;}
-  .squashova #right a {color: #a38300;}
+  .squashova #right a {color: #745d00;}
   .badmintonova a, .badmintonova h1 {color: #99CC33;}
-  .badmintonova #right a {color: #618220;}
+  .badmintonova #right a {color: #475f17;}
   .petanqueova a, .petanqueova h1 {color: #4D8EAD;}
   .petanqueova #right a {color: #37667c;}
   .billiardova a, .billiardova h1 {color: #246610;}
