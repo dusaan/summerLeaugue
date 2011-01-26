@@ -1,17 +1,17 @@
 ﻿@media screen, print {
-  body {background: #C4D2BC  url(/images/bg.jpg) no-repeat ; color: #333; font-size: 72%; font-weight: normal; line-height: 1.4em; font-family: "Arial", "Gadget CE", sans-serif; margin: 0; padding: 0;}
+  body {background: #C4D2BC  url(/images/bodybg.jpg) repeat-x 0; color: #333; font-size: 72%; font-weight: normal; line-height: 1.4em; font-family: "Arial", "Gadget CE", sans-serif; margin: 0; padding: 0;}
+    #body_bg {background: #74f9cc url(/images/bg.jpg) no-repeat 50% 0;}
 #flash {width: 100%; z-index: 10}
 #flash .notice, #flash .error {padding: 0.2em 2em 0.2em 20.3em}
 
   a {color: #99CC00; text-decoration: underline;}
   a img {border: 1px solid #99CC00;} 
-  a:hover {text-decoration: underline;}
-  a.noborder img {border: none;}
-  .clear {clear: both;}
-  #left a {color: #fff;}
+  a:hover {text-decoration: none;}
+  a.noborder img {border: none;}  
   a.nodecoration {text-decoration: none;}
   a.nodecoration:hover {text-decoration: underline;}
-  
+  .clear {clear: both;}
+
   h1, h2, h3, h4, h5, h6 {color: #000; margin: 1em 0 0.5em; padding: 0; line-height: 1.4em; font-weight: bold;}
   h1 {font-size: 150%; text-transform: uppercase;}
   h2 {font-size: 140%; font-weight: normal;}
@@ -34,7 +34,7 @@
   #right table.blackborder th, #right tr.header, #right td.header {background: rgba(0, 0, 0, 0.8); color: #FFFFFF;}
   #left tr.alt, #right tr.alt {background: rgba(255, 255, 255, 0.3);}
  
-  .news_header { display: block; padding-top: 10px; color: #000; font-weight: bold;} 
+  .news_header {color: #333333; text-transform: uppercase;} 
   .unread_message {background: transparent url(/images/email_open.png) no-repeat 100% 50%; padding-right: 22px; font-size: 110%;}
 
   /* position */
@@ -49,18 +49,25 @@
       #logo {z-index: 5; position: absolute; top: 36px; left: 0; font-size: 150%; font-weight: bold;}
       #liga {z-index: 4; width: 399px; height: 119px; position: absolute; top: 133px; right: 0; background: transparent no-repeat 0 0;}
       #facebook {z-index: 6; position: absolute; top: 125px; right: 0;}
-      #headerlinks {width: 380px; height: 20px; position: absolute; top: 0; right: 0;z-index:10;}
+      #headerlinks {width: 320px; height: 20px; position: absolute; top: 0; right: 0; z-index:10;}
         #about {float: left;width: 100px;size:10}
         #login {float: left;}
         #password {float: left;}
         #submit {float: left;}
         #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}
+        #loginform {width: 320px; margin-top: 2px; height: 23px;}
+          #loginform a.user_link {color: #fff; background: #333; padding: 3px 10px; display: block; float: left; margin-right: 2px;}
+          #loginform a.mailbox {height: 20px; line-height: 20px; margin-right: 5px; display: block; float: left;}
+          #loginform span {display: block; float: left; margin-right: 2px; line-height: 20px;}
       #sportsmen {width: 960px; height: 333px; position: relative;}
       #menu {z-index: 2; position: absolute; top: 151px; width: 960px; height: 182px; background: transparent url(/images/menu_prazdne.png) no-repeat 0 100%;}
       #submenu {z-index: 2; position: absolute; top: 302px; left: 0; width: 960px; height: 31px; padding-left: 10px;}
     #content {width: 960px; background: transparent url(/images/mainbg_badminton.gif) repeat-y 0 0;}
       #contentbg_top {background: transparent url(/images/contentbg_top.png) no-repeat 0 0; height: 17px;}
-      #left {float: left; width: 205px; margin-right: 10px; min-height: 300px; _height: 300px; padding: 20px 30px 20px 20px;}
+      #left {float: left; width: 215px; margin-right: 10px; min-height: 300px; _height: 300px; padding: 20px; font-size: 110%}
+        #left a {color: #fff;}
+        #news {font-size:100%;}
+          #news a {color: #333;}
       #center {float: left; width: 370px; min-height: 300px; _height: 300px; padding: 20px 30px;}
       #right {float: left; width: 205px; min-height: 300px; _height: 300px; padding: 20px 30px;}
     
@@ -125,10 +132,15 @@
 /*-------------------------*/
 /* heading and link colors */
 /*-------------------------*/
-  .streetballova a, .streetballova h1 {color: #E97300;}  
-  .squashova a, .squashova h1 {color: #FFCC00;}
+
+  .streetballova a, .streetballova h1 {color: #E97300;}
+  .streetballova #right a {color: #ab5500;} 
+  .squashova a, .squashova h1 {color: #d0a600;}
+  .squashova #right a {color: #a38300;}
   .badmintonova a, .badmintonova h1 {color: #99CC33;}
+  .badmintonova #right a {color: #618220;}
   .petanqueova a, .petanqueova h1 {color: #4D8EAD;}
+  .petanqueova #right a {color: #37667c;}
   .billiardova a, .billiardova h1 {color: #246610;}
-  .golfova a, .golfova h1 {color: #3AB315;}
+  .billiardova #right a {color: #1b4d0c;}
 }

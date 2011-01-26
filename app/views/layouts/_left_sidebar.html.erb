@@ -1,11 +1,12 @@
 <div id="left">
+  <div id="news">
    <span class = "heading plus">Novinky </span>
     <% (Newz.find :all, :limit => 5, :order => 'id').each do |newz| %>
-      <%= "<span class = \"news_header\">#{newz.sport.name.capitalize}:</span>" %>&nbsp&nbsp<%= link_to "#{newz.header}", newz, :class => 'nodecoration' %><br>
+      <%= "<span class = \"news_header\">#{newz.sport.name.capitalize}:</span>" %>&nbsp&nbsp<%= link_to "#{newz.header}", newz %><br>
     <% end %>
     <br>
     <%= link_to "<b> ...všetky </b>", newzs_path %>
-
+  </div>
 </div>
 
 <!--#{newz.text[0..30]}....", newz %>   alt="cicina"-->
