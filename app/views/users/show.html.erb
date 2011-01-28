@@ -3,34 +3,30 @@
 Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
 Skús sa pridať napríklad na  <%= link_to "streetball!",teams__path(Sport.find_by_name "streetball") %>
 <% end %>
-<p>
-  <%=(image_tag(@user.foto_path, :alt => "Profile Image")) %>
-</p>
+<br class="clear" />
+<%=(image_tag(@user.foto_path, :alt => "Profile Image", :class=>"profile_img")) %>
 
-<p>
-  <b>Meno:</b>
-  <%=h @user.first_name %>
-</p>
+<p class="user_details">
+<b>Meno:</b>
+<%=h @user.first_name %>
 
-<p>
+
+<br />
   <b>Priezvisko:</b>
   <%=h @user.last_name %>
-</p>
 
-<p>
+<br />
   <b>Email:</b>
   <%=h @user.email %>
-</p>
 
-<p>
+<br />
   <b>Registrácia:</b>
   <%=h @user.reg_date %>
-</p>
 
-<p>
+<br />
   <b>Pohlavie:</b>
   <%=h @user.gender %>
 </p>
-
+<br class="clear" />
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Späť', users_path %>

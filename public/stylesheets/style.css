@@ -39,6 +39,10 @@
 
   /* Mails */
   .unread_message {background: transparent url(/images/email_open.png) no-repeat 100% 50%; padding-right: 22px; font-size: 110%;}
+  p.user_details {line-height: 1.75em;}
+
+  /* User detail */
+  img.profile_img {float: left; width: 150px; padding: 2px; border: 1px solid #dedede; margin: 15px 20px 20px 0;}
 
   /* position */
       #fb {margin-right: 10px; float:right;}
@@ -59,9 +63,9 @@
         #submit {float: left;}
         #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}
         #loginform {width: 320px; margin-top: 2px; height: 23px;}
-          #loginform a.user_link {color: #fff; background: #333; padding: 3px 10px; display: block; float: left; margin-right: 2px;}
-          #loginform a.mailbox {height: 20px; line-height: 20px; margin-right: 5px; display: block; float: left;}
-          #loginform span {display: block; float: left; margin-right: 2px; line-height: 20px;}
+          #loginform a.user_link {color: #fff; background: #79B12A; border: 1px solid #555; padding: 1px 5px; display: block; float: left; margin-right: 4px; font-weight: bold;}
+          #loginform a.mailbox {height: 20px; line-height: 20px; margin: 2px 10px; display: block; float: left;}
+          #loginform span {display: block; float: left; margin-right: 10px; line-height: 22px;}
       #sportsmen {width: 960px; height: 333px; position: relative;}
       #menu {z-index: 2; position: absolute; top: 151px; width: 960px; height: 182px; background: transparent url(/images/menu_prazdne.png) no-repeat 0 100%;}
       #submenu {z-index: 2; position: absolute; top: 302px; left: 0; width: 960px; height: 31px; padding-left: 10px;}
