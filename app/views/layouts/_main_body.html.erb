@@ -1,7 +1,9 @@
 <div id="center">
-<div id="flash">
-<p style="color: green"><%= flash[:notice] %></p>
-<p style="color: red"><%= flash[:error] %></p>
-</div>
+<% if flash[:notice] || flash[:error] %>
+  <div id="flash">
+   <p style="color: green"><%= flash[:notice] %></p>
+    <p style="color: red"><%= flash[:error] %></p>
+  </div>
+<% end %>
    <%= yield %>
 </div>

@@ -12,6 +12,16 @@ class TeamsController < ApplicationController
       format.xml  { render :xml => @teams }
     end
   end
+
+  def remove_user
+    redirect_to teams_path if params[:team_id].blank? || params[:user_id].blank?
+    team = Team.find_by_id params[:team_id]
+    redirect_to team if team.nil? || team.user_id != @current_user.id || @current_user.id == params[:user_id]
+    team_player = TeamPlayer.find :first, :conditions => ["team_id = #{params[:team_id]} AND user_id = #{params[:user_id]}"]
+    team_player.destroy
+    redirect_to team
+  end
+
   def suggest
 	    @token = params[:name].ascii
 	    @teams = Team.find :all, :conditions => ["' ' || ascii_name like ?", "% #{@token}%"], :order => 'name', :limit => 20

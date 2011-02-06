@@ -2,19 +2,19 @@ development:
   adapter: postgresql
   encoding: unicode
   database: genetic_dev
-  username: dano
-  password: danielko
+  username: dusan
+  password: waldinko
  
 test:
   adapter: postgresql
   encoding: unicode
   database: genetic_dev
-  username: danoe
-  password: danielko
+  username: dusan 
+  password: waldinko
 
 production:
   adapter: postgresql
   encoding: unicode
   database: genetic_dev
-  username: dano
-  password: danielko
+  username: dusan
+  password: waldinko

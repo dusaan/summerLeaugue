@@ -55,7 +55,7 @@
         #password {float: left;}
         #submit {float: left;}
         #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}
-        #loginform {width: 320px; margin-top: 2px; height: 23px;}
+        #loginform {width: 520px; margin-top: 2px; height: 23px;}
           #loginform a.user_link {color: #fff; background: #333; padding: 3px 10px; display: block; float: left; margin-right: 2px;}
           #loginform a.mailbox {height: 20px; line-height: 20px; margin-right: 5px; display: block; float: left;}
           #loginform span {display: block; float: left; margin-right: 2px; line-height: 20px;}
