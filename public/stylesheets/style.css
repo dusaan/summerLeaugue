@@ -27,9 +27,9 @@
  .plus {background: transparent url(/images/plus.png) no-repeat 100% 50%; line-height: 22px; min-height: 33px; _height: 33px; font-weight: bold;}
   
   /* Tables */
-  table.blackborder {background-color: #86A89B;}
+  table.blackborder {background-color: #666;}
   table.blackborder tbody {background-color: #fff;}
-  table.blackborder th, tr.header, td.header {background-color: #437765; color: #FFFFFF; font-weight: bold;}
+  table.blackborder th, tr.header, td.header {background-color: #333; color: #FFFFFF; font-weight: bold;}
   tr.alt {background-color: #F0F0F0;}
   #left table.blackborder, #right table.blackborder {background: rgba(255, 255, 255, 0.3); color: #000;}
   #left table.blackborder tbody, #right table.blackborder tbody {background: rgba(252, 255, 255, 0.5);}
@@ -44,6 +44,11 @@
   /* User detail */
   img.profile_img {float: left; width: 150px; padding: 2px; border: 1px solid #dedede; margin: 15px 20px 20px 0;}
 
+  /* News - center div */
+  #center p.news {margin: 0.3em 0;}
+  #center .news_date {color: #454545; display: block; float: left; width: 20%; font-weight: bold;}
+  #center .news_title {display: block; float: left; width: 80%;}
+
   /* position */
       #fb {margin-right: 10px; float:right;}
 
@@ -51,18 +56,19 @@
     #header {width: 960px; height: 333px; position: relative; background: transparent url(/images/header.png) no-repeat 0 0;}
       #header_img {border: 0; position: absolute; top: 0; left: 0;}
       #header_over {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
+      #header_over1 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #header_over2 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #header_over3 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #logo {z-index: 5; position: absolute; top: 36px; left: 0; font-size: 150%; font-weight: bold;}
       #liga {z-index: 4; width: 399px; height: 119px; position: absolute; top: 133px; right: 0; background: transparent no-repeat 0 0;}
       #facebook {z-index: 6; position: absolute; top: 125px; right: 0;}
-      #headerlinks {width: 320px; height: 20px; position: absolute; top: 0; right: 0; z-index:10;}
+      #headerlinks {height: 20px; position: absolute; top: 0; right: 0; z-index:10;}
         #about {float: left;width: 100px;size:10}
         #login {float: left;}
         #password {float: left;}
         #submit {float: left;}
         #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}
-        #loginform {width: 320px; margin-top: 2px; height: 23px;}
+        #loginform {margin-top: 2px; height: 23px;}
           #loginform a.user_link {color: #fff; background: #79B12A; border: 1px solid #555; padding: 1px 5px; display: block; float: left; margin-right: 4px; font-weight: bold;}
           #loginform a.mailbox {height: 20px; line-height: 20px; margin: 2px 10px; display: block; float: left;}
           #loginform span {display: block; float: left; margin-right: 10px; line-height: 22px;}
@@ -77,7 +83,7 @@
         #news {font-size:100%; padding-bottom: 15px;}
           .news_header {color: #333333; text-transform: uppercase; font-weight: bold;}
           .billiardova .news_header, .petanqueova .news_header {color: #ffffcc;}
-        #reklama  {width: 218px; height: 298px; border: 1px solid #666666; background: #cccccc;}
+        #reklama  {width: 217px; height: 298px; border: 1px solid #666666; background: #cccccc;}
           
       #center {float: left; width: 370px; min-height: 300px; _height: 300px; padding: 20px 30px;}
       #right {float: left; width: 205px; min-height: 300px; _height: 300px; padding: 20px 30px;}
@@ -119,6 +125,7 @@
   a.submenu_item:hover span, a.submenu_item_selected span {background: transparent url(/images/menu_down_hover_right.png) no-repeat 100% 0;}
   
   
+
 /*------------------*/
 /* aLiga decoration */
 /*------------------*/

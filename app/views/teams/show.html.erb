@@ -8,7 +8,7 @@
 </p>
 <p>
   <b>Hráči:</b><br />
-  <table>
+  <table class="blackborder" width="100%" cellspacing="1" cellspadding="3" border="0">
     <% @team.users.each do |user| %>
       <tr>
     <td><%= link_to user.name, user %></td>

@@ -41,13 +41,15 @@
       if(el.value.blank())
         el.value = val;
     }
-    function menu_hover(style)
+    function menu_hover(style1, style2)
     {
-      $('header_over').setStyle({background: style});
+      $('header_over').setStyle({background: style1});
+      $('header_over1').setStyle({background: style2});
     }
     function menu_down()
     {
       $('header_over').setStyle({background: 'none'});
+      $('header_over1').setStyle({background: 'none'});
     }
     //]]>
 		</script>
@@ -57,10 +59,12 @@
     <div id="container" <%= "class=\"#{@selected_sport_name}ova\"" unless @selected_sport_name.nil?  %>>
       <div id="header">
         <div id="header_over">
+        <div id="header_over1">
           <div id="header_over2" class=sportsman_<%= @selected_sport_name %> >
             <div id="header_over3" class=menu_<%= @selected_sport_name %> >
             </div>
           </div>
+        </div>
         </div>
         <img id="header_img" usemap="#menu_map" src="/images/empty.png" />
         <%  sports = Hash.new
@@ -70,17 +74,17 @@
             end
         %>
         <map id="menu_map" name="menu_map">
-          <area shape="poly" coords="153,1,184,65,205,69,222,91,239,189,240,223,221,236,69,229,56,149,127,155,129,101,115,51,93,42,84,17,69,2," href="<%= update_selected_path(sports['streetball']) %>" alt="streetball" title="streetball"  onmouseover="menu_hover('url(/images/postavicky_streetball.png) no-repeat 47px 0')" onmouseout="menu_down()" />
-          <area shape="poly" coords="300,47,340,73,392,57,408,75,379,106,433,137,423,154,364,123,379,198,410,242,393,243,225,235,238,222,243,184,268,140,274,100,217,110,198,101,196,86,203,71,236,79,283,79,292,54," href="<%= update_selected_path(sports['squash']) %>" alt="squash" title="squash" onmouseover="menu_hover('url(/images/postavicky_squash.png) no-repeat 195px 0')" onmouseout="menu_down()"  />
-          <area shape="poly" coords="442,44,471,44,481,71,524,56,536,71,497,96,503,225,445,238,439,198,392,229,372,228,362,206,383,184,435,169,438,107," href="<%= update_selected_path(sports['badminton']) %>" alt="badminton" title="badminton"  onmouseover="menu_hover('url(/images/postavicky_badminton.png) no-repeat 343px 0')" onmouseout="menu_down()" />
-          <area shape="poly" coords="543,47,621,21,654,110,653,123,639,128,636,205,530,220,530,140,515,127,544,79,539,57," href="<%= update_selected_path(sports['petanque']) %>" alt="petanque" title="petanque" onmouseover="menu_hover('url(/images/postavicky_petanque.png) no-repeat 500px 0')" onmouseout="menu_down()"  />
-          <area shape="poly" coords="806,30,848,70,863,120,880,166,735,189,768,127,783,39," href="<%= update_selected_path(sports['billiard']) %>" alt="billiard" title="billiard"  onmouseover="menu_hover('url(/images/postavicky_billiard.png) no-repeat 692px 0')" onmouseout="menu_down()" />
-          <area shape="poly" coords="65,237,192,244,200,289,22,288," href="<%= update_selected_path(sports['streetball']) %>" alt="streetball" title="streetball" onmouseover="menu_hover('url(/images/menu_streetbal_hover.png) no-repeat 1px 234px')" onmouseout="menu_down()"  />
-          <area shape="poly" coords="198,244,321,250,315,288,206,288," href="<%= update_selected_path(sports['squash']) %>" alt="squash" title="squash"  onmouseover="menu_hover('url(/images/menu_squash_hover.png) no-repeat 187px 234px')" onmouseout="menu_down()" />
-          <area shape="poly" coords="327,250,395,254,469,242,482,289,322,290," href="<%= update_selected_path(sports['badminton']) %>" alt="badminton" title="badminton" onmouseover="menu_hover('url(/images/menu_badminton_hover.png) no-repeat 321px 234px')" onmouseout="menu_down()"  />
-          <area shape="poly" coords="478,238,615,252,604,288,491,290," href="<%= update_selected_path(sports['petanque']) %>" alt="petanque" title="petanque"  onmouseover="menu_hover('url(/images/menu_petanque_hover.png) no-repeat 471px 234px')" onmouseout="menu_down()" />
-          <area shape="poly" coords="621,251,724,253,732,289,612,288," href="<%= update_selected_path(sports['billiard']) %>" alt="billiard" title="billiard" onmouseover="menu_hover('url(/images/menu_billiard_hover.png) no-repeat 598px 234px')" onmouseout="menu_down()"  />
-          <area shape="poly" coords="731,254,812,256,805,287,736,288," href="<%= update_selected_path(sports['golf']) %>" alt="golf" title="golf" onmouseover="menu_hover('url(/images/menu_golf_hover.png) no-repeat 729px 234px')" onmouseout="menu_down()"  />
+          <area shape="poly" coords="153,1,184,65,205,69,222,91,239,189,240,223,221,236,69,229,56,149,127,155,129,101,115,51,93,42,84,17,69,2," href="<%= update_selected_path(sports['streetball']) %>" alt="streetball" title="streetball"  onmouseover="menu_hover('url(/images/postavicky_streetball.png) no-repeat 47px 0', 'url(/images/menu_streetbal_hover.png) no-repeat 1px 234px')" onmouseout="menu_down()" />
+          <area shape="poly" coords="300,47,340,73,392,57,408,75,379,106,433,137,423,154,364,123,379,198,410,242,393,243,225,235,238,222,243,184,268,140,274,100,217,110,198,101,196,86,203,71,236,79,283,79,292,54," href="<%= update_selected_path(sports['squash']) %>" alt="squash" title="squash" onmouseover="menu_hover('url(/images/postavicky_squash.png) no-repeat 195px 0', 'url(/images/menu_squash_hover.png) no-repeat 187px 234px')" onmouseout="menu_down()"  />
+          <area shape="poly" coords="442,44,471,44,481,71,524,56,536,71,497,96,503,225,445,238,439,198,392,229,372,228,362,206,383,184,435,169,438,107," href="<%= update_selected_path(sports['badminton']) %>" alt="badminton" title="badminton"  onmouseover="menu_hover('url(/images/postavicky_badminton.png) no-repeat 343px 0', 'url(/images/menu_badminton_hover.png) no-repeat 321px 234px')" onmouseout="menu_down()" />
+          <area shape="poly" coords="543,47,621,21,654,110,653,123,639,128,636,205,530,220,530,140,515,127,544,79,539,57," href="<%= update_selected_path(sports['petanque']) %>" alt="petanque" title="petanque" onmouseover="menu_hover('url(/images/postavicky_petanque.png) no-repeat 500px 0', 'url(/images/menu_petanque_hover.png) no-repeat 471px 234px')" onmouseout="menu_down()"  />
+          <area shape="poly" coords="806,30,848,70,863,120,880,166,735,189,768,127,783,39," href="<%= update_selected_path(sports['billiard']) %>" alt="billiard" title="billiard"  onmouseover="menu_hover('url(/images/postavicky_billiard.png) no-repeat 692px 0', 'url(/images/menu_billiard_hover.png) no-repeat 598px 234px')" onmouseout="menu_down()" />
+          <area shape="poly" coords="65,237,192,244,200,289,22,288," href="<%= update_selected_path(sports['streetball']) %>" alt="streetball" title="streetball" onmouseover="menu_hover('url(/images/menu_streetbal_hover.png) no-repeat 1px 234px', 'url(/images/postavicky_streetball.png) no-repeat 47px 0')" onmouseout="menu_down()"  />
+          <area shape="poly" coords="198,244,321,250,315,288,206,288," href="<%= update_selected_path(sports['squash']) %>" alt="squash" title="squash"  onmouseover="menu_hover('url(/images/menu_squash_hover.png) no-repeat 187px 234px', 'url(/images/postavicky_squash.png) no-repeat 195px 0')" onmouseout="menu_down()" />
+          <area shape="poly" coords="327,250,395,254,469,242,482,289,322,290," href="<%= update_selected_path(sports['badminton']) %>" alt="badminton" title="badminton" onmouseover="menu_hover('url(/images/menu_badminton_hover.png) no-repeat 321px 234px', 'url(/images/postavicky_badminton.png) no-repeat 343px 0')" onmouseout="menu_down()"  />
+          <area shape="poly" coords="478,238,615,252,604,288,491,290," href="<%= update_selected_path(sports['petanque']) %>" alt="petanque" title="petanque"  onmouseover="menu_hover('url(/images/menu_petanque_hover.png) no-repeat 471px 234px','url(/images/postavicky_petanque.png) no-repeat 500px 0')" onmouseout="menu_down()" />
+          <area shape="poly" coords="621,251,724,253,732,289,612,288," href="<%= update_selected_path(sports['billiard']) %>" alt="billiard" title="billiard" onmouseover="menu_hover('url(/images/menu_billiard_hover.png) no-repeat 598px 234px', 'url(/images/postavicky_billiard.png) no-repeat 692px 0')" onmouseout="menu_down()"  />
+          <area shape="poly" coords="731,254,812,256,805,287,736,288," href="<%= update_selected_path(sports['golf']) %>" alt="golf" title="golf" onmouseover="menu_hover('url(/images/menu_golf_hover.png) no-repeat 729px 234px', 'none')" onmouseout="menu_down()"  />
         </map>
         
         <div id="submenu">

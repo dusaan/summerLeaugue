@@ -1,19 +1,17 @@
 <h1>Listing newzs</h1>
 
-<table class="blackborder" border="0" cellspacing="1" cellpadding="3">
-  <tr>
-    <th>Sport</th>
-    <th>Header</th>
-  </tr>
+
 
 <% @newzs.each do |newz| %>
-  <tr>
-    <td><%=h newz.sport.name.capitalize %></td>
-    <td><%= link_to "<b> #{newz.header} </b> &nbsp;&nbsp;&nbsp;#{newz.text[0..30]}....", newz %></td>
-  </tr>
+  
+  <p class="news">
+    <span class="news_date"><%=h newz.sport.created_at.strftime("%d.%m.%Y") %></span>
+    <%= link_to "<b> #{newz.header} </b> #{newz.text[0..30]}....", newz, :class=>"news_title" %>
+    <br class="clear" />
+  </p>
+
 
 <% end %>
-</table>
 
 <br />
 

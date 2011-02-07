@@ -1,9 +1,11 @@
 <h1>Tímy:</h1>
 
-<table>
+<table class="blackborder" width="100%" cellspacing="1" cellpadding="3" border="0">
   <tr>
     <th>Názov</th>
+    <th>Max. hráčov</th>
     <th>Liga</th>
+    <th>&nbsp;</th>
   </tr>
 
 <% @teams.each do |team| %>
@@ -13,8 +15,8 @@
     <td><%=h team.max_players %></td>
     <td><%=h team.league_id %></td>
     <% if team.user_id ==@current_user.id %>
-      <td><%= link_to 'Edit', edit_team_path(team) %></td>
-      <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Edit', edit_team_path(team) %> | 
+          <%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
 <% end %>
 
   </tr>
