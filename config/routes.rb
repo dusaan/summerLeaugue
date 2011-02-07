@@ -55,13 +55,6 @@ ActionController::Routing::Routes.draw do |map|
     leagues.league_team_add 'league_team_add/:league_id/:team_id', :action => 'league_team_add', :conditions => { :method => :put }
   end
 
-  map.with_options :controller => 'leagues' do |leagues|
-    leagues.leagues_             'leagues_/:sport',            :action => 'index',               :conditions => { :method => :get }
-    leagues.edit_league_teams    'leagues_/:league_id/edit',   :action => 'edit_league_teams',   :conditions => { :method => :get }
-    leagues.league_team_remove   'league_team/:team_id',       :action => 'remove_league_team',  :conditions => { :method => :delete }
-    leagues.league_team_add 'league_team_add/:league_id/:team_id', :action => 'league_team_add', :conditions => { :method => :put }
-  end
-
   map.with_options :controller => 'teams' do |teams|
     teams.teams_    'teams_/:sport', :action => 'index', :conditions => { :method => :get }
     teams.invite    'invite_to_team/:team_id', :action => 'invite', :conditions => { :method => :get }

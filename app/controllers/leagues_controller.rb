@@ -96,6 +96,7 @@ class LeaguesController < ApplicationController
     team.save
     redirect_to edit_league_teams_path(league)
   end
+
   # DELETE /leagues/1
   # DELETE /leagues/1.xml
   def destroy

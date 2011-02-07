@@ -7,11 +7,11 @@ class Notifier < ActionMailer::Base
     body :user => user
     content_type 'text/html'
   end
-  def invitation(user, psswd)
+  def invitation(user)
     from "dusaan@gmail.com"
     recipients "#{user}"
     subject "Pozvánka na portál aLiga.sk!"
-    body :user => user, :psswd => psswd
+    body :user => user
     content_type 'text/html'
   end
 
