@@ -7,7 +7,20 @@
     <td><b>Pridané tímy:</b></td>
     <td></td>
 </tr>
-<% @tournament_teams.each do |team| %>
+<% @tournament_teams_confirmed.each do |team| %>
+  <tr>
+    <td><%=h team.name %></td>
+    <td><%= link_to 'Odstrániť', tournament_team_remove_path(team,@tournament), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<hr>
+<table>
+<tr>
+    <td><b>Nepotvrdené tímy:</b></td>
+    <td></td>
+</tr>
+<% @tournament_teams_not_confirmed.each do |team| %>
   <tr>
     <td><%=h team.name %></td>
     <td><%= link_to 'Odstrániť', tournament_team_remove_path(team,@tournament), :confirm => 'Are you sure?', :method => :delete %></td>

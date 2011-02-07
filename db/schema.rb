@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20110115203441) do
   create_table "teams_tournaments", :force => true do |t|
     t.integer  "tournament_id"
     t.integer  "team_id"
+    t.boolean  "confirmed",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

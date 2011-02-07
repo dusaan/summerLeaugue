@@ -14,12 +14,17 @@ class TeamsController < ApplicationController
   end
 
   def remove_user
-    redirect_to teams_path if params[:team_id].blank? || params[:user_id].blank?
+    if params[:team_id].blank? || params[:user_id].blank?
+      redirect_to teams_path
+      return
+    end
     team = Team.find_by_id params[:team_id]
-    redirect_to team if team.nil? || team.user_id != @current_user.id || @current_user.id == params[:user_id]
-    team_player = TeamPlayer.find :first, :conditions => ["team_id = #{params[:team_id]} AND user_id = #{params[:user_id]}"]
-    team_player.destroy
+    unless (team.nil? || team.user_id != @current_user.id || @current_user.id.to_s == params[:user_id])
+      team_player = TeamPlayer.find :first, :conditions => ["team_id = #{params[:team_id]} AND user_id = #{params[:user_id]}"]
+      team_player.destroy
+    end
     redirect_to team
+    
   end
 
   def suggest

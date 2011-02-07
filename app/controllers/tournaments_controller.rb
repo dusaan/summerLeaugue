@@ -39,9 +39,11 @@ class TournamentsController < ApplicationController
 
   def edit_tournament_teams
     @tournament = Tournament.find(params[:tournament_id])
-    @tournament_teams = @tournament.teams
+    @tournament_teams_confirmed = @tournament.teams.find :all, :conditions => ["confirmed = ?",true]
+    @tournament_teams_not_confirmed = @tournament.teams.find :all, :conditions => ["confirmed = ?",false]
     ids = ""
-    @tournament_teams.collect {|team| ids << " AND id <> #{team.id}"}
+    @tournament_teams_confirmed.collect {|team| ids << " AND id <> #{team.id}"}
+    @tournament_teams_not_confirmed.collect {|team| ids << " AND id <> #{team.id}"}
     @other_teams = Team.find :all, :conditions => ["sport_id = ? #{ids}", @tournament.sport_id]
     respond_to do |format|
       format.html # index.html.erb

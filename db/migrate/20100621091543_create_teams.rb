@@ -8,6 +8,7 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :sport_id
 	    t.string  :ascii_name, :unique => true 
       t.integer :user_id
+      t.integer :total_score
       t.timestamps
     end
   end
