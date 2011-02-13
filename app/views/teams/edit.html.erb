@@ -1,6 +1,6 @@
 <h1>Editing team</h1>
 
-<% form_for(@team) do |f| %>
+<% form_for (@team), :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,17 +8,9 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :logo_id %><br />
-    <%= f.text_field :logo %>
+    <%= f.file_field :photo%>
   </p>
-  <p>
-    <%= f.label :max_players %><br />
-    <%= f.text_field :max_players %>
-  </p>
-  <p>
-    <%= f.label :league_id %><br />
-    <%= f.text_field :league_id %>
-  </p>
+
   <p>
     <%= f.submit 'Update' %>
   </p>

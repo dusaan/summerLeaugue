@@ -13,6 +13,12 @@ class TeamsController < ApplicationController
     end
   end
 
+  def auto_complete_for_user_name
+	    @token = params[:user][:name].ascii
+	    @users = User.find :all, :conditions => ["' ' || ascii_name like ?", "% #{@token}%"], :order => 'ascii_name', :limit => 20
+	    render :layout => false
+  end
+
   def remove_user
     if params[:team_id].blank? || params[:user_id].blank?
       redirect_to teams_path
@@ -77,7 +83,6 @@ class TeamsController < ApplicationController
   # POST /teams.xml
   def create
     @team = Team.new(params[:team])
-
     @team.sport_id = @selected_sport
     @team.user_id = @current_user.id
     @current_user.sports << @team.sport
@@ -90,6 +95,7 @@ class TeamsController < ApplicationController
         format.html { redirect_to(@team) }
         format.xml  { render :xml => @team, :status => :created, :location => @team }
       else
+        flash[:error] = 'Tím nebol úspšne vytvorený.'
         format.html { render :action => "new" }
         format.xml  { render :xml => @team.errors, :status => :unprocessable_entity }
       end
@@ -100,7 +106,6 @@ class TeamsController < ApplicationController
   # PUT /teams/1.xml
   def update
     @team = Team.find(params[:id])
-
     respond_to do |format|
       if @team.update_attributes(params[:team])
         flash[:notice] = 'Tím bol úspšne zmenený.'

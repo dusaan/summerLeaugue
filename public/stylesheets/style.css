@@ -64,14 +64,13 @@
       #facebook {z-index: 6; position: absolute; top: 125px; right: 0;}
       #headerlinks {height: 20px; position: absolute; top: 0; right: 0; z-index:10;}
         #about {float: left;width: 100px;size:10}
-        #login {float: left;}
-        #password {float: left;}
-        #submit {float: left;}
         #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}
         #loginform {margin-top: 2px; height: 23px;}
-          #loginform a.user_link {color: #fff; background: #79B12A; border: 1px solid #555; padding: 1px 5px; display: block; float: left; margin-right: 4px; font-weight: bold;}
+          #loginform a.user_link {color: #000; background: #79B12A; border: 1px solid #aaa; background-color: rgba(255, 255, 255, 0.75); padding: 1px 5px; display: block; float: left; margin-right: 4px; font-weight: bold;}
           #loginform a.mailbox {height: 20px; line-height: 20px; margin: 2px 10px; display: block; float: left;}
           #loginform span {display: block; float: left; margin-right: 10px; line-height: 22px;}
+          #loginform #login, #loginform #password {width: 150px; height: 1.2em; line-height: 1.2em; padding: 1px; float: left; margin-right: 5px; border: 1px solid #aaa; background-color: rgba(255, 255, 255, 0.70);}
+          #loginform #submit {background: transparent url(/images/menu_vrchne_registracia.png) no-repeat 0 0; width: 44px; height: 37px; border: none; float: left; cursor: pointer; margin-right: 5px;}
       #sportsmen {width: 960px; height: 333px; position: relative;}
       #menu {z-index: 2; position: absolute; top: 151px; width: 960px; height: 182px; background: transparent url(/images/menu_prazdne.png) no-repeat 0 100%;}
       #submenu {z-index: 2; position: absolute; top: 302px; left: 0; width: 960px; height: 31px; padding-left: 10px;}

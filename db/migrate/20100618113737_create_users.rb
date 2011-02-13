@@ -14,6 +14,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :league_level
       t.integer :ranking
       t.string :register_link
+	    t.string  :ascii_name
       t.timestamps
     end
   end

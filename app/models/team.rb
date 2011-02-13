@@ -13,6 +13,12 @@ class Team < ActiveRecord::Base
   has_many :team_players
   has_many :users, :through => :team_players 
  
+  # Paperclip
+  has_attached_file :photo,
+    :styles => {
+      :thumb=> "100x100#",
+      :small  => "150x150>" }
+
   def logo_path
     return logo.blank? ? "default.jpg" : logo
   end

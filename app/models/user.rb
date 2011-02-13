@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :team_players
   has_many :teams, :through => :team_players 
 
+  before_save :set_ascii_name
 
   attr_accessor   :password, :password_confirmation
   validates_presence_of     :email
@@ -25,7 +26,10 @@ class User < ActiveRecord::Base
   before_create :generate_link
   before_update :encrypt_password, :if => :password_needed?
 
-
+  def set_ascii_name
+    self.ascii_name = name.ascii
+  end
+  
   def generate_link
     self.register_link =  randomStr(20)
     mail = nil

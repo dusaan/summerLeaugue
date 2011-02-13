@@ -9,6 +9,9 @@ class CreateTeams < ActiveRecord::Migration
 	    t.string  :ascii_name, :unique => true 
       t.integer :user_id
       t.integer :total_score
+      t.string  :photo_file_name # Original filename
+      t.string  :photo_content_type # Mime type
+      t.integer :photo_file_size # File size in bytes
       t.timestamps
     end
   end

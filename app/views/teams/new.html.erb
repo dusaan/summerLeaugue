@@ -1,16 +1,19 @@
 <h1>Vytváraš nový tím na <b><%=h @selected_sport_name.capitalize%></b></h1>
 
-<% form_for(@team) do |f| %>
+<% form_for (@team), :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :"Názov tímu" %><br />
+    <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
-  <!--    <%= f.select :sport_id, Sport.find(:all, :order => "name").collect {|p| [p.name, p.id]}, {:prompt => 'Povinne pole'} %> -->
   <p>
-    <%= f.submit 'Vytvoriť tím' %>
+    <%= f.label "Logo" %><br />
+    <%= f.file_field :photo%>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
   </p>
 <% end %>
 
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Späť', teams_path %>

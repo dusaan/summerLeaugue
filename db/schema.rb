@@ -149,6 +149,10 @@ ActiveRecord::Schema.define(:version => 20110115203441) do
     t.integer  "sport_id"
     t.string   "ascii_name"
     t.integer  "user_id"
+    t.integer  "total_score"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -190,6 +194,7 @@ ActiveRecord::Schema.define(:version => 20110115203441) do
     t.integer  "league_level"
     t.integer  "ranking"
     t.string   "register_link"
+    t.string   "ascii_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

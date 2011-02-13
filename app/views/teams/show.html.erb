@@ -6,6 +6,9 @@
   <b>Kapitán tímu:</b>
   <%= link_to "#{@team.user_name} #{@team.phone_number || ""}", @team.user %>
 </p>
+<p>Logo<br />
+  <%= image_tag @team.photo.url(:thumb) %>
+</p>
 <p>
   <b>Hráči:</b><br />
   <table class="blackborder" width="100%" cellspacing="1" cellspadding="3" border="0">
@@ -16,18 +19,6 @@
     <% end %>
   </table><br />
   <%= link_to "Pozvi ďalších hráčov", invite_path(@team) if @team.user_id ==@current_user.id %>
-</p>
-
-<p>
-  <b>Logo:</b>
-  <p>
-  <%=(image_tag(@team.logo_path, :alt => "Team Logo")) %>
-</p>
-</p>
-
-<p>
-  <b>Liga:</b>
-  <%=h @team.league_id %>
 </p>
 
 <% if @team.user_id ==@current_user.id %>
