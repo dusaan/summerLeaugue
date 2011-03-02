@@ -4,6 +4,25 @@ require 'matrix'
 
 namespace(:db) do
 
+  desc("Prepare streetball tournament")
+  task(:create_streetball_tournament => :environment) do
+    include ApplicationHelper
+    begin
+      Teams.destroy_all
+      Tournament.destroy_all
+      TeamsTournament.destroy_all
+      tournament = Tournament.create! :name => "Testovaci turnaj", :sport => (Sport.find_by_name "streetball"), :user_id =>1, :starts_at=> (Time.now + 1.hour)
+      t1 = Team.create! :name => "Testovaci tim 1", :sport => (Sport.find_by_name "streetball"), :user_id =>1
+      t2 = Team.create! :name => "Testovaci tim 2", :sport => (Sport.find_by_name "streetball"), :user_id =>1
+      t3 = Team.create! :name => "Testovaci tim 3", :sport => (Sport.find_by_name "streetball"), :user_id =>1      
+      t4 = Team.create! :name => "Testovaci tim 4", :sport => (Sport.find_by_name "streetball"), :user_id =>1
+      TeamsTournament.create! :tournament_id => tournament.id, :team_id => t1.id, :confirmed => true    
+      TeamsTournament.create! :tournament_id => tournament.id, :team_id => t2.id, :confirmed => true    
+      TeamsTournament.create! :tournament_id => tournament.id, :team_id => t3.id, :confirmed => true    
+      TeamsTournament.create! :tournament_id => tournament.id, :team_id => t4.id, :confirmed => true 
+      tournament.generate_matches
+    end
+  end 
   desc("Create matches for badminton leagues")
   task(:create_matches_for_badminton_leagues => :environment) do
     include ApplicationHelper
@@ -98,7 +117,11 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       a.save
       User.create! :email=> "danieeli@gmail.com", :password => "danielko", :password_confirmation => "danielko", :first_name => "dano"
       puts "Creating admin:"
-      User.create! :email=> "admin@trt.sk", :password => "admin", :password_confirmation => "admin", :first_name => "alfonz"
+      User.create! :email=> "admin@trt.sk", :password => "admin", :password_confirmation => "admin", :first_name => "alfonz", :user_role => "admin"
+      a = User.find :last
+      a.register_link = nil
+      a.save
+      
       puts "Creating random users:"
 			User.create! :email=> "aiwen@trt.sk", :password => "aiwen", :password_confirmation => "aiwen", :first_name => "ivanko"
       puts "Creating random users:"

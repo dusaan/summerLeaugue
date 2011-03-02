@@ -4,6 +4,9 @@ ActionController::Routing::Routes.draw do |map|
     tournaments.edit_tournament_teams   'tournaments_/:tournament_id/edit',             :action => 'edit_tournament_teams',   :conditions => { :method => :get }
     tournaments.tournament_team_remove  'tournament_team/:team_id/:tournament_id',      :action => 'remove_tournament_team',  :conditions => { :method => :delete }
     tournaments.tournament_team_add     'tournament_team_add/:tournament_id/:team_id',  :action => 'tournament_team_add', :conditions => { :method => :put }
+    tournaments.tournament_team_confirm 'tournament_team_confirm/:tournament_id/:team_id',  :action => 'tournament_team_confirm', :conditions => { :method => :put }
+    tournaments.generate_tournament_mathces 'gen_matches/:tournament_id',  :action => 'generate_tournament_mathces', :conditions => { :method => :put }
+
   end
 
   map.resources :tournaments, :except => [:index]

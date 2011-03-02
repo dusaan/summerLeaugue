@@ -8,6 +8,8 @@
   <%=h @newz.text %>
 </p>
 
-<%= link_to 'Edit', edit_newz_path(@newz) %>
-<%= link_to 'Back', newzs_path %>
-<%= link_to 'Destroy', @newz, :confirm => 'Are you sure?', :method => :delete %>
+<% if @current_user.user_role == "admin" %>
+  <%= link_to 'Edit', edit_newz_path(@newz) %>
+  <%= link_to 'Back', newzs_path %>
+  <%= link_to 'Destroy', @newz, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>

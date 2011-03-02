@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20110115203441) do
     t.integer  "user1_id"
     t.integer  "user2_id"
     t.integer  "league_id"
+    t.integer  "tournament_id"
     t.boolean  "accepted_by_1"
     t.boolean  "accepted_by_2"
     t.boolean  "accepted_by_admin"

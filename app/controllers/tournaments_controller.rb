@@ -14,13 +14,21 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1.xml
   def show
     @tournament = Tournament.find(params[:id])
-
+    @team = @tournament.teams.find :first, :conditions =>["user_id = #{@current_user.id}"]
+    @should_confirm = true if( @team && (TeamsTournament.find :first, :conditions =>["team_id = ? AND tournament_id = ? AND confirmed = false", @team.id, params[:id]]))
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tournament }
     end
   end
 
+  def generate_tournament_mathces
+    @tournament = Tournament.find(params[:tournament_id])
+    return unless @tournament.user_id == @current_user.id
+    @tournament.generate_matches
+    flash[:notice] = 'Zápasy boli úspešne pregenerované.'
+    redirect_to tournament_path(@tournament)
+  end
   # GET /tournaments/new
   # GET /tournaments/new.xml
   def new
@@ -59,6 +67,13 @@ class TournamentsController < ApplicationController
     redirect_to edit_tournament_teams_path(tournament)
   end
 
+  def tournament_team_confirm
+    x = TeamsTournament.find :first, :conditions=> ["team_id =? AND tournament_id = ?", params[:team_id],params[:tournament_id]]
+    x.confirmed = true
+    x.save
+    redirect_to team_path(params[:tournament_id])
+  end
+
   def remove_tournament_team
     x = TeamsTournament.find :first, :conditions=> ["team_id =? AND tournament_id = ?", params[:team_id],params[:tournament_id]]
     x.destroy
@@ -74,7 +89,8 @@ class TournamentsController < ApplicationController
     @tournament.sport_id = @selected_sport
   
     respond_to do |format|
-      if @tournament.save
+      if @tournament.save 
+        Newz.create :sport =>@tournament.sport, :header=>"Nový turnaj", :text=>"Používateľ #{@current_user.name} vytvoril nový turnaj s názvom #{@tournament.name}. Odohrá sa #{@tournament.starts_at.strftime("%d.%m.%Y o %H:%M")}, viac info v sekcii turnaje."
         flash[:notice] = 'Turnaj bol úspešne vytvorený.'
         format.html { redirect_to(@tournament) }
         format.xml  { render :xml => @tournament, :status => :created, :location => @tournament }
@@ -114,4 +130,5 @@ class TournamentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

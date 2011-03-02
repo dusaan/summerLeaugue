@@ -6,6 +6,7 @@ class Match < ActiveRecord::Base
   belongs_to :user2, :class_name => 'User'
   belongs_to :event
   belongs_to :league
+  belongs_to :tournament
   after_save :update_events
   def user1_name
     user1 ? user1.name.capitalize : "?"

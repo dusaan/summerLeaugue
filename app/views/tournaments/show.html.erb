@@ -1,5 +1,14 @@
-Bližšie info k turnaju:<h1><%=h @tournament.name %>
+<h1><%=h @tournament.name %>
 </h1>
+<% if @should_confirm %>
+  <p>
+  <b>  Tvoj tím bol pozvaný na tento turnaj, chceš sa zúčastnť?</b><br />
+    <%= link_to "Áno",tournament_team_confirm_path(@team,@tournament), :method => :put %> | 
+    <%= link_to "Nie",tournament_team_remove_path(@team,@tournament), :confirm => 'Are you sure?', :method => :delete %>
+
+  </p>
+  <br />
+<% end %>
 <p>
   <b>Ihrisko:</b>
   <%= link_to @tournament.court_name,@tournament.court %>
@@ -27,6 +36,7 @@ Bližšie info k turnaju:<h1><%=h @tournament.name %>
 
 <% if @current_user.id == @tournament.user_id %>
   <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+    <%= link_to 'Vygeneruj zápasy', generate_tournament_mathces_path(@tournament), :method=>:put  %> |
     <% if @tournament.sport.team %>
       <%= link_to 'Teams', edit_tournament_teams_path(@tournament)  %> |
     <% else%>
