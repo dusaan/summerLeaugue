@@ -33,7 +33,10 @@ Precitajte si podmienky!!! Ktore nemame napisane!!!
     <%= f.select :gender, ["Muž", "Žena"] %>
  
   </p>
-
+  <p>
+    <%= f.label :"Opíšte nasledujúce znaky" %><br />
+    <%= recaptcha_tags %>
+  </p>
   <p>
     <%= f.submit 'Zaregistruj' %>
   </p>

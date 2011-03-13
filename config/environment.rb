@@ -51,3 +51,8 @@ ActionMailer::Base.smtp_settings = {
    :enable_starttls_auto => true
 }
 
+ENV['RECAPTCHA_PUBLIC_KEY'] = '6LfRKMISAAAAAPOLpvcYE2VLiNy2t9LpkCV5yK7r'
+ENV['RECAPTCHA_PRIVATE_KEY'] = '6LfRKMISAAAAANnZM1FktIQxKrwGKnzFzBd8VTQg'
+
+
+

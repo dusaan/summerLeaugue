@@ -66,7 +66,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     respond_to do |format|
-      if @user.save
+      if verify_recaptcha()
+	puts '--------------------Recaptcha uspelo---------------------'
+      else
+	puts '--------------------AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaa Recaptcha NEuspelo---------------------'
+      end
+
+      if verify_recaptcha() and @user.save
         flash[:notice] = 'Vítame Ťa na portáli aLiga.SK Pozri si email, máš v ňom link na potvrdenie registrácie'
         format.html { redirect_to new_session_path }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
