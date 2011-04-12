@@ -61,25 +61,30 @@ class UsersController < ApplicationController
     flash[:notice] = 'Vítame Ťa na portáli aLiga.SK <br /> Tvoje konto bolo aktivované, teraz sa môžeš prihlásiť'
     redirect_to edit_user_path(@user)
   end
+  
   # POST /users
   # POST /users.xml
   def create
     @user = User.new(params[:user])
+    saved = false;
     respond_to do |format|
       if verify_recaptcha()
-	puts '--------------------Recaptcha uspelo---------------------'
+	      puts '--------------------Recaptcha uspelo---------------------'
+	      if @user.save
+	        flash[:notice] = 'Vítame Ťa na portáli aLiga.SK Pozri si email, máš v ňom link na potvrdenie registrácie'
+          format.html { redirect_to new_session_path }
+          format.xml  { render :xml => @user, :status => :created, :location => @user }
+          saved = true;
+        end
       else
-	puts '--------------------AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaa Recaptcha NEuspelo---------------------'
+	      puts '--------------------AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaa Recaptcha NEuspelo---------------------'
       end
-
-      if verify_recaptcha() and @user.save
-        flash[:notice] = 'Vítame Ťa na portáli aLiga.SK Pozri si email, máš v ňom link na potvrdenie registrácie'
-        format.html { redirect_to new_session_path }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      else
+      
+      if saved == false
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
+      
     end
   end
 

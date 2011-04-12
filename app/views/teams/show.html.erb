@@ -10,6 +10,33 @@
   <%= image_tag @team.photo.url(:thumb) %>
 </p>
 <p>
+  <% if !@teams_tournaments.empty? && @team && @current_user && @team.user_id == @current_user.id %>
+    <strong>Pozvanky do turnajov</strong>
+    <table class="blackborder" style="width: 100%;" cellspacing="1" cellspadding="3" border="0"><tbody>
+    <% if !@confirmed.empty? %>
+      <% @confirmed.each do |teams_tournament| %>
+        <tr class="header"><td colspan="4">Potvrdene turnaje</td></tr>
+        <tr>
+          <td><%= teams_tournament.tournament.name %></td>
+          <td colspan="3"><%= link_to "link", teams_tournament.tournament %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% if !@unconfirmed.empty? %>
+      <% @unconfirmed.each do |teams_tournament| %>
+        <tr class="header"><td colspan="4">Nepotvrdene turnaje</td></tr>
+        <tr>
+          <td><%= teams_tournament.tournament.name %></td>
+          <td><%= link_to "link", teams_tournament.tournament %></td>
+          <td><%= link_to "potvrdit",  tournament_team_confirm_path(teams_tournament.tournament.id, @team.id), :method => :put %></td>
+          <td><%= link_to "odmietnut",  tournament_team_remove_path(teams_tournament.tournament.id, @team.id), :confirm => "Skutocne odmietnut?", :method => :delete %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody></table>
+  <% end %>
+</p>
+<p>
   <b>Hráči:</b><br />
   <table class="blackborder" width="100%" cellspacing="1" cellspadding="3" border="0">
     <% @team.users.each do |user| %>

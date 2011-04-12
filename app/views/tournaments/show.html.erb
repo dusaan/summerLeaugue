@@ -3,8 +3,8 @@
 <% if @should_confirm %>
   <p>
   <b>  Tvoj tím bol pozvaný na tento turnaj, chceš sa zúčastnť?</b><br />
-    <%= link_to "Áno",tournament_team_confirm_path(@team,@tournament), :method => :put %> | 
-    <%= link_to "Nie",tournament_team_remove_path(@team,@tournament), :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to "Áno",tournament_team_confirm_path(@tournament,@team), :method => :put %> | 
+    <%= link_to "Nie",tournament_team_remove_path(@tournament,@team), :confirm => 'Are you sure?', :method => :delete %>
 
   </p>
   <br />
@@ -42,5 +42,6 @@
     <% else%>
       <%= link_to 'Users', edit_tournament_teams_path(@tournament)  %> |
     <% end %>
+    <%= link_to 'Matches', tournament_matches_path(@tournament), :method => :get  %> |
 <% end %>
 <%= link_to 'Back', tournaments_path %>

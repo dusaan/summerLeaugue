@@ -8,7 +8,7 @@ namespace(:db) do
   task(:create_streetball_tournament => :environment) do
     include ApplicationHelper
     begin
-      Teams.destroy_all
+      Team.destroy_all
       Tournament.destroy_all
       TeamsTournament.destroy_all
       tournament = Tournament.create! :name => "Testovaci turnaj", :sport => (Sport.find_by_name "streetball"), :user_id =>1, :starts_at=> (Time.now + 1.hour)
@@ -19,8 +19,18 @@ namespace(:db) do
       TeamsTournament.create! :tournament_id => tournament.id, :team_id => t1.id, :confirmed => true    
       TeamsTournament.create! :tournament_id => tournament.id, :team_id => t2.id, :confirmed => true    
       TeamsTournament.create! :tournament_id => tournament.id, :team_id => t3.id, :confirmed => true    
-      TeamsTournament.create! :tournament_id => tournament.id, :team_id => t4.id, :confirmed => true 
+      TeamsTournament.create! :tournament_id => tournament.id, :team_id => t4.id, :confirmed => true
       tournament.generate_matches
+      
+      Court.destroy_all
+      puts "creating courts for streetball tournament"
+      Court.create! :user_id => 1, :name => "Dudova", :created_at => Date.today
+      Court.create! :user_id => 1, :name => "Metodova", :created_at => Date.today
+      Court.create! :user_id => 1, :name => "Vazovova", :created_at => Date.today
+      Court.create! :user_id => 1, :name => "Strecnianska", :created_at => Date.today
+      Court.create! :user_id => 1, :name => "Holicska", :created_at => Date.today
+      Court.create! :user_id => 1, :name => "Ostredkova", :created_at => Date.today
+      
     end
   end 
   desc("Create matches for badminton leagues")
@@ -116,6 +126,9 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       a.register_link = nil
       a.save
       User.create! :email=> "danieeli@gmail.com", :password => "danielko", :password_confirmation => "danielko", :first_name => "dano"
+      a = User.find :last
+      a.register_link = nil
+      a.save
       puts "Creating admin:"
       User.create! :email=> "admin@trt.sk", :password => "admin", :password_confirmation => "admin", :first_name => "alfonz", :user_role => "admin"
       a = User.find :last

@@ -24,7 +24,7 @@ class Tournament < ActiveRecord::Base
     tmp_teams = self.teams.combination(2).to_a
     tmp_teams.collect do |team|
       st_at = st_at ? (st_at + 15.minutes) : self.starts_at
-      Match.create! :tournament_id => self.id, :team1_id => team.first.id, :team2_id => team.last.id, :sport_id => self.sport_id
+      Match.create! :tournament_id => self.id, :team1_id => team.first.id, :team2_id => team.last.id, :sport_id => self.sport_id, :starts_at => st_at
     end
   end
 end

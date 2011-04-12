@@ -22,6 +22,16 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def tournament_matches
+    @tournament = Tournament.find(params[:tournament_id])
+    @matches = @tournament.matches;
+    @time = Time.now
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @leagues }
+    end
+  end
+
   def generate_tournament_mathces
     @tournament = Tournament.find(params[:tournament_id])
     return unless @tournament.user_id == @current_user.id
@@ -71,14 +81,15 @@ class TournamentsController < ApplicationController
     x = TeamsTournament.find :first, :conditions=> ["team_id =? AND tournament_id = ?", params[:team_id],params[:tournament_id]]
     x.confirmed = true
     x.save
-    redirect_to team_path(params[:tournament_id])
+    redirect_to(:back)
   end
 
   def remove_tournament_team
     x = TeamsTournament.find :first, :conditions=> ["team_id =? AND tournament_id = ?", params[:team_id],params[:tournament_id]]
     x.destroy
-    redirect_to edit_tournament_teams_path(params[:tournament_id])
-  end
+    redirect_to(:back) 
+
+    end
 
   # POST /tournaments
   # POST /tournaments.xml
