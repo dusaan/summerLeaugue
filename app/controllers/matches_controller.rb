@@ -95,4 +95,23 @@ class MatchesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def edit_match_score
+    @match = Match.find(params[:id])
+  end
+  
+  def update_score
+    @match = Match.find(params[:id])
+
+    respond_to do |format|
+      if @match.update_attributes(params[:match])
+        flash[:notice] = 'Score zápasu bol úspešne zmenený.'
+        format.html { redirect_to(tournament_matches_path(@match.tournament_id)) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "update_score" }
+        format.xml  { render :xml => @match.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 end

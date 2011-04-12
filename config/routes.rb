@@ -2,10 +2,13 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :controller => 'tournaments' do |tournaments|
     tournaments.tournaments_            'tournaments_/:sport',                          :action => 'index', :conditions => { :method => :get }
     tournaments.edit_tournament_teams   'tournaments_/:tournament_id/edit',             :action => 'edit_tournament_teams',   :conditions => { :method => :get }
-    tournaments.tournament_team_remove  'tournament_team/:team_id/:tournament_id',      :action => 'remove_tournament_team',  :conditions => { :method => :delete }
+    tournaments.tournament_team_remove  'tournament_team/:tournament_id/:team_id',      :action => 'remove_tournament_team',  :conditions => { :method => :delete }
     tournaments.tournament_team_add     'tournament_team_add/:tournament_id/:team_id',  :action => 'tournament_team_add', :conditions => { :method => :put }
     tournaments.tournament_team_confirm 'tournament_team_confirm/:tournament_id/:team_id',  :action => 'tournament_team_confirm', :conditions => { :method => :put }
     tournaments.generate_tournament_mathces 'gen_matches/:tournament_id',  :action => 'generate_tournament_mathces', :conditions => { :method => :put }
+    tournaments.tournament_matches 'tournament_matches/:tournament_id',  :action => 'tournament_matches'
+
+
 
   end
 
@@ -49,6 +52,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'matches' do |matches|
     matches.join_free_match    'join_free_match/:match_id', :action => 'join', :conditions => { :method => :get }
+    matches.edit_match_score  'edit_match_score/:id', :action => 'edit_match_score'
+    matches.update_score  'update_score/:id', :action => 'update_score'
   end
 
   map.with_options :controller => 'leagues' do |leagues|

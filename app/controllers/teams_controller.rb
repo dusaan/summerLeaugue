@@ -43,7 +43,9 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
-
+    @teams_tournaments = TeamsTournament.find(:all, :include => [:tournament], :conditions => ["team_id = ?", @team.id])
+    @unconfirmed = @teams_tournaments.find_all{|item| item.confirmed == false}
+    @confirmed = @teams_tournaments.find_all{|item| item.confirmed == true}
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @team }

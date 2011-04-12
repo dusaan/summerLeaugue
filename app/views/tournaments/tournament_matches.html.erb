@@ -1,0 +1,34 @@
+<h1><%=h @tournament.name %> - Zapasy</h1>
+<% if @matches.empty? %>
+  <strong>Tento turnaj neobsahuje ziadne zapasy</strong>
+  <br /><%= link_to 'Vygeneruj zápasy', generate_tournament_mathces_path(@tournament), :method=>:put  %>
+<% else %>
+  <strong>Zoznam zapasov</strong>
+  <table class="blackborder" cellspacing="1" cellpadding="3" border="0" style="width: 100%;"><tbody>
+    <tr class="header">
+      <td>Ucastnici</td>
+      <td>Skore</td>
+      <td>Info</td>
+    </tr>
+    <% @matches.each do |match|%>
+      <tr>
+        <td><%= link_to match.team1.name, match.team1 %> vs <%= link_to match.team2.name, match.team2 %></td>
+        <td>
+        <% if match.starts_at && @time > match.starts_at %>
+          <% if match.score1 && match.score2 %>
+            <%= match.score1 %> : <%= match.score2 %>
+          <% else %>
+            nezname
+          <% end %>
+          <% if @tournament.user_id == @current_user.id %>
+            <br /><%= link_to 'edituj skore', edit_match_score_path(match) %> 
+          <% end %>
+        <% else %>
+          Zapas sa este neodohral
+        <% end %>
+        </td>
+        <td><%= link_to 'link', match %></td>
+      </tr>
+     <% end %>
+  </tbody></table>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Edituj skore zapasu</h1>
+<h3><%= @match.team1.name %> vs <%= @match.team2.name %></h3>
+<% form_for @match, :url => update_score_path(@match.id) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label "Score 1"  %><br />
+    <%= f.text_field :score1, :value => @match.score1 %>
+  </p>
+  <p>
+    <%= f.label "Score 2" %><br />
+    <%= f.text_field :score2, :value => @match.score2 %>
+  </p>
+  <p>
+    <%= f.submit 'Uložiť' %>
+  </p>
+<% end %>
+
