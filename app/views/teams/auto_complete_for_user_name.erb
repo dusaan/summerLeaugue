@@ -1,6 +1,6 @@
 <ul class = "autocomplete">
   <% @users.each do |user| %>
-    <li> <%= user.name %> 
+    <li> <%= link_to user.name, user %> 
     </li>
   <% end %>
 </ul>
