@@ -14,5 +14,6 @@
 <% end %>
 
 <br />
-
-<%= link_to 'New newz', new_newz_path %>
+<% if @current_user && @current_user.user_role == "admin" %>
+  <%= link_to 'New newz', new_newz_path %>
+<% end %>

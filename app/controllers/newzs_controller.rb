@@ -1,7 +1,8 @@
 class NewzsController < ApplicationController
   # GET /newzs
   # GET /newzs.xml
- skip_before_filter :authenticate
+ skip_before_filter :authenticate, :only => [:index, :show]
+
   def index
    
     @newzs = params[:sport].blank? ? (Newz.find :all) : (Newz.find_all_by_sport_id params[:sport])
