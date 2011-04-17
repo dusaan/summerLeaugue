@@ -2,13 +2,13 @@
   <form id="loginform" method="post" action="/session" >
   <% if @current_user %>
     <% if @current_user.unread_messages.length > 0 %>
-      <%= link_to "<img src=\"/images/email_open.png\" style=\"border: none;\">", messages_path, :class=>"mailbox", :title=>"zobraziť správy" %> 
+      <%= link_to raw("<img src=\"/images/email_open.png\" style=\"border: none;\">"), messages_path, :class=>"mailbox", :title=>"zobraziť správy" %> 
     <% else %>
-      <%= link_to "<img src=\"/images/email.png\" style=\"border: none;\">", messages_path, :class=>"mailbox", :title=>"zobraziť správy" %>
+      <%= link_to raw("<img src=\"/images/email.png\" style=\"border: none;\">"), messages_path, :class=>"mailbox", :title=>"zobraziť správy" %>
     <% end %>
  <% end %>
  <% if @current_user %>
-  <%= "<span><strong>Vitaj #{@current_user.name}</strong></span> "%><%= link_to "Profil", @current_user, :class=>"nodecoration user_link", :title=>"Profil hráča" %><%= link_to "Kalendár", calendar__path,:class=>"nodecoration user_link", :title=>"Kalendár eventov"%><%= link_to "Odhlásiť sa", session_path, :method => :delete,:class=>"nodecoration user_link", :title=>"Odhlásenie"%>
+  <%= raw "<span><strong>Vitaj #{@current_user.name}</strong></span> "%><%= link_to "Profil", @current_user, :class=>"nodecoration user_link", :title=>"Profil hráča" %><%= link_to "Kalendár", calendar__path,:class=>"nodecoration user_link", :title=>"Kalendár eventov"%><%= link_to "Odhlásiť sa", session_path, :method => :delete,:class=>"nodecoration user_link", :title=>"Odhlásenie"%>
 <% else %>
       <input id="login" type="text" name="login" value="email" onBlur = "checkEmptyAndFill(this,'email');"onClick = "focusedAction(this, 'email');" />
       <input id="password" type="password" name="password" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />

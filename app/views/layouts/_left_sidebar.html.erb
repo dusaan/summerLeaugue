@@ -2,16 +2,16 @@
   <div id="news">
    <span class = "heading plus">Novinky </span>
     <% (Newz.find :all, :limit => 5, :order => 'created_at desc').each do |newz| %>
-      <%= "<span class = \"news_header\">#{newz.sport.name.capitalize}:</span>" %>&nbsp&nbsp<%= link_to "#{newz.header}", newz %><br>
+      <%= raw ("<span class = \"news_header\">#{newz.sport.name.capitalize}:</span>") %>&nbsp&nbsp<%= link_to "#{newz.header}", newz %><br>
     <% end %>
     <br>
-    <%= link_to "<b> ...všetky </b>", newzs_path %>
+    <b> <%= link_to " ...všetky", newzs_path %></b>
   </div>
     
   <span class="heading plus">Reklama</span>  
   <div id="reklama">
     
-    <%= link_to "<img src=\"/images/adv1.png\" style=\"border: none;\" alt=\"Monit 7, GPS car tracking system\" />", "http://www.monit7.com", :title=>"Monit 7, GPS car tracking system", :target=>"_blank"%>
+    <%= link_to raw("<img src=\"/images/adv1.png\" style=\"border: none;\" alt=\"Monit 7, GPS car tracking system\" />"), "http://www.monit7.com", :title=>"Monit 7, GPS car tracking system", :target=>"_blank"%>
     
   </div>
 </div>
