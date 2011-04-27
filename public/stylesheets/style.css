@@ -1,6 +1,6 @@
 ﻿@media screen, print {
   body {background: #C4D2BC  url(/images/bodybg.jpg) repeat-x 0; color: #333; font-size: 72%; font-weight: normal; line-height: 1.4em; font-family: "Arial", "Gadget CE", sans-serif; margin: 0; padding: 0;}
-    #body_bg {background: #74f9cc url(/images/bg.jpg) no-repeat 50% 0;}
+    #body_bg {background: #fff url(/images/bg.jpg) no-repeat 50% 0;}
 #flash {width: 100%; z-index: 10}
 #flash .notice, #flash .error {padding: 0.2em 2em 0.2em 20.3em}
 
@@ -59,7 +59,7 @@
       #header_over1 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #header_over2 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #header_over3 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
-      #logo {z-index: 5; position: absolute; top: 36px; left: 0; font-size: 150%; font-weight: bold;}
+      #logo {z-index: 5; position: absolute; top: 0px; left: -80px; font-weight: bold;}
       #liga {z-index: 4; width: 399px; height: 119px; position: absolute; top: 133px; right: 0; background: transparent no-repeat 0 0;}
       #facebook {z-index: 6; position: absolute; top: 125px; right: 0;}
       #headerlinks {height: 20px; position: absolute; top: 0; right: 0; z-index:10;}
@@ -96,11 +96,14 @@
 /* Sport figures */
 /*---------------*/
     
-    #header_over .sportsman_streetball {background-image: url(/images/postavicky_streetball.png); background-position: 47px 0;}  
+    #header_over .sportsman_streetball {background-image: url(/images/postavicky_streetball.png); background-position: 320px 0;}  
     #header_over .sportsman_squash {background-image: url(/images/postavicky_squash.png); background-position: 195px 0;}
     #header_over .sportsman_badminton {background-image: url(/images/postavicky_badminton.png); background-position: 343px 0;}
-    #header_over .sportsman_petanque {background-image: url(/images/postavicky_petanque.png); background-position: 500px 0;}
+    #header_over .sportsman_petanque {background-image: url(/images/postavicky_petanque.png); background-position: 812px 67px;}
     #header_over .sportsman_billiard {background-image: url(/images/postavicky_billiard.png); background-position: 692px 0;}
+    #header_over .sportsman_volleyball {background-image: url(/images/postavicky_volleyball.png); background-position: 184px 36px;}
+    #header_over .sportsman_soccer {background-image: url(/images/postavicky_soccer.png); background-position: 568px 67px;}
+    #header_over .sportsman_running {background-image: url(/images/postavicky_running.png); background-position: 460px 38px;}
     #header_over .sportsman_golf {background-image: url(/images/postavicky_golf.png); background-position: 0 0;}
 
 /*-----------*/
@@ -108,10 +111,13 @@
 /*-----------*/
 
 
-    #header_over .menu_streetball {background-image: url(/images/menu_streetbal_hover.png); background-position: 1px 234px;}
+    #header_over .menu_streetball {background-image: url(/images/menu_streetball_hover.png); background-position: 224px 214px;}
     #header_over .menu_squash  {background-image: url(/images/menu_squash_hover.png); background-position: 187px 234px;}
     #header_over .menu_badminton  {background-image: url(/images/menu_badminton_hover.png); background-position: 321px 234px;}
-    #header_over .menu_petanque {background-image: url(/images/menu_petanque_hover.png); background-position: 471px 234px;}
+    #header_over .menu_petanque {background-image: url(/images/menu_petanque_hover.png); background-position: 696px 240px;}
+    #header_over .menu_volleyball {background-image: url(/images/menu_volleyball_hover.png); background-position: 1px 205px;}
+    #header_over .menu_running {background-image: url(/images/menu_running_hover.png); background-position: 412px 227px;}
+    #header_over .menu_soccer {background-image: url(/images/menu_soccer_hover.png); background-position: 560px 236px;}
     #header_over .menu_billiard {background-image: url(/images/menu_billiard_hover.png); background-position: 598px 234px;}
     #header_over .menu_golf {background-image: url(/images/menu_golf_hover.png); background-position: 729px 234px;}
     

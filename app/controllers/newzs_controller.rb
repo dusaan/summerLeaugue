@@ -1,7 +1,7 @@
 class NewzsController < ApplicationController
   # GET /newzs
   # GET /newzs.xml
- skip_before_filter :authenticate, :only => [:index, :show]
+ skip_before_filter :authenticate, :only => [:index, :show, :rules]
 
   def index
    

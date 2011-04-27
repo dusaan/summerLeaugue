@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   # ssl_required :new, :create
 
-  skip_before_filter :authenticate, :only => [:new, :create]
+  skip_before_filter :authenticate, :only => [:new, :create, :update_selected_sport]
   skip_before_filter :verify_authenticity_token, :only => [:new, :create]
 
   def new
@@ -42,10 +42,10 @@ class SessionsController < ApplicationController
         redirect_to news_path(params[:sport]) 
       else
         session[:selected_sport_name] = session[:selected_sport_id] = nil
-        redirect_to newzs_path
+        redirect_to default_path
       end
     else
-      redirect_to newzs_path
+      redirect_to default_path
     end
   
   end

@@ -145,12 +145,15 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
 
 
       Sport.destroy_all
-      Sport.create! :name=> 'badminton', :parts=> 2, :team => false
+#      Sport.create! :name=> 'badminton', :parts=> 2, :team => false
       Sport.create! :name=> 'streetball', :parts=> 1, :team => true
       Sport.create! :name=> 'petanque', :parts=> 2, :team => false
-      Sport.create! :name=> 'billiard', :parts=> 3, :team => false
-      Sport.create! :name=> 'squash', :parts=> 1, :team => false
-      Sport.create! :name=> 'golf', :parts=> 1, :team => false
+      Sport.create! :name=> 'volleyball', :parts=> 2, :team => false
+      Sport.create! :name=> 'running', :parts=> 2, :team => false
+      Sport.create! :name=> 'soccer', :parts=> 2, :team => false
+#      Sport.create! :name=> 'billiard', :parts=> 3, :team => false
+#      Sport.create! :name=> 'squash', :parts=> 1, :team => false
+#      Sport.create! :name=> 'golf', :parts=> 1, :team => false
       puts "#{Sport.count} sports created\nCreating news"
 
       Newz.destroy_all
