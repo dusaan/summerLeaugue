@@ -1,6 +1,6 @@
 <h1>Registrácia nového používateľa</h1>
 
-<b>Registráciou na portáli aLiga.sk automaticky súhlasíte so <%= link_to "všeobecnými podmienkami", rules_path("vp") %></b>
+<b>Registráciou na portáli aLiga.sk automaticky súhlasíte so <%= link_to "všeobecnými podmienkami", rules_path("base") %></b>
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
   <p>
@@ -34,14 +34,14 @@
  
   </p>
   <p>
-    <%= f.label "Mám zájem o" %><br />   
+    <%= f.label "Mám zájem o(plná cena/zľava pre študenta)" %><br />   
     <select name="user[interested_in]">
-      <option value=""> Volleyball za 9/7 €</option>
-      <option value=""> Streetball za 9/7 €</option>
-      <option value=""> Soccer za 9/7 €</option>
-      <option value=""> Pétanque za 5/4 €</option>
-      <option value=""> Beh za 5/4 €</option>
-      <option value=""> Všetky športy za 25/20 €</option>
+      <option value="volleyball"> Volleyball za 9/7 €</option>
+      <option value="streetball"> Streetball za 9/7 €</option>
+      <option value="soccer"> Soccer za 9/7 €</option>
+      <option value="petanque"> Pétanque za 5/4 €</option>
+      <option value="running"> Beh za 5/4 €</option>
+      <option value="all"> Všetky športy za 25/20 €</option>
  
   </p>
 <br /><br />
