@@ -45,7 +45,7 @@
   img.profile_img {float: left; width: 150px; padding: 2px; border: 1px solid #dedede; margin: 15px 20px 20px 0;}
 
   /* News - center div */
-  #center p.news {margin: 0.3em 0;}
+  #center p.news {margin: 0.75em 0;}
   #center .news_date {color: #454545; display: block; float: left; width: 20%; font-weight: bold;}
   #center .news_title {display: block; float: left; width: 80%;}
 
