@@ -2,8 +2,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: genetic_dev
-  username: dusan
-  password: waldinko
+  username: dano
+  password: danielko
  
 test:
   adapter: postgresql
