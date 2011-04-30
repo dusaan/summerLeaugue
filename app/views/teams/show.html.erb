@@ -1,3 +1,8 @@
+<% if (@team.user_id ==@current_user.id && @team.sport.max_players > @team.users.count) %> 
+  <b>Tvoj tím nemá potrebný počet hráčov a nebude zaradený do turnaja!</b>
+<br />
+    <%= link_to "Pozvi ďalších hráčov", invite_path(@team) %>
+<% end %>
 <p>
   <b>Názov:</b>
   <%=h @team.name %>
@@ -54,9 +59,6 @@
 </p>
 
 <% if @team.user_id ==@current_user.id %>
-  <% if @team.sport.max_players > @team.users.count %> 
-    <%= link_to "Pozvi ďalších hráčov", invite_path(@team) %> |
-  <% end %>
   <%= link_to 'Edit', edit_team_path(@team) %> |
 <% end %>
 <%= link_to 'Back', teams_path %>

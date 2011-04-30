@@ -2,9 +2,10 @@
 
 <form id="invite_form" method="post" action="/invite_to_team/<%= @team.id %>" >
   <p>Email:   <input id="email" size = 20 type="text" name="email" />
-  </p><p>
+  </p>
+  <% if false%><p>
       Meno: <%= text_field_with_auto_complete :user, :name %>  </p>
-  <p>
+  <p><% end %>
  <input id="submit" type="submit" value="Pošli pozvánku"/>
 </p>
 </form>
