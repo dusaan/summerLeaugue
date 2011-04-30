@@ -4,9 +4,9 @@ class TeamsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:invite_submit]
 
   def index
-    @teams = Team.all
-    @selected_sport_name = (Sport.find params[:sport]).name if params[:sport]
-    @selected_sport = params[:sport] if params[:sport]
+    @teams = Team.find :all, :conditions => ["sport_id = ?",params[:sport]]
+    session[:selected_sport_name] = @selected_sport_name = (Sport.find params[:sport]).name if params[:sport]
+    session[:selected_sport_id]  = @selected_sport = params[:sport] if params[:sport]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @teams }

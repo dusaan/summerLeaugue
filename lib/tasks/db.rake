@@ -121,36 +121,31 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       include ApplicationHelper     
       User.destroy_all
       puts "\nCreating dusan:"
-      User.create! :email=> "dusan@trt.sk", :password => "dusan", :password_confirmation => "dusan", :first_name => "dusan"
+      User.create! :email=> "dusaan@gmail.com", :password => "dusan", :password_confirmation => "dusan", :first_name => "dusan", :interested_in => "streetball"
       a = User.find :last
       a.register_link = nil
       a.save
-      User.create! :email=> "danieeli@gmail.com", :password => "danielko", :password_confirmation => "danielko", :first_name => "dano"
+      User.create! :email=> "danieeli@gmail.com", :password => "danielko", :password_confirmation => "danielko", :first_name => "dano", :interested_in => "streetball"
       a = User.find :last
       a.register_link = nil
       a.save
       puts "Creating admin:"
-      User.create! :email=> "admin@trt.sk", :password => "admin", :password_confirmation => "admin", :first_name => "alfonz", :user_role => "admin"
+     # User.create! :email=> "admin@trt.sk", :password => "admin", :password_confirmation => "admin", :first_name => "alfonz", :user_role => "admin"
       a = User.find :last
       a.register_link = nil
       a.save
-      
-      puts "Creating random users:"
-			User.create! :email=> "aiwen@trt.sk", :password => "aiwen", :password_confirmation => "aiwen", :first_name => "ivanko"
-      puts "Creating random users:"
 
-
-      20.times { User.create! :email=> "#{randomStr(5)}@#{randomStr(5)}.sk", :password => "xxxx", :password_confirmation => "xxxxx", :first_name => "#{randomStr(5)}" }
-      puts "#{User.count} users created\nCreating sports"
+#      20.times { User.create! :email=> "#{randomStr(5)}@#{randomStr(5)}.sk", :password => "xxxx", :password_confirmation => "xxxxx", :first_name => "#{randomStr(5)}" }
+#      puts "#{User.count} users created\nCreating sports"
 
 
       Sport.destroy_all
 #      Sport.create! :name=> 'badminton', :parts=> 2, :team => false
-      Sport.create! :name=> 'streetball', :parts=> 1, :team => true
-      Sport.create! :name=> 'petanque', :parts=> 2, :team => false
-      Sport.create! :name=> 'volleyball', :parts=> 2, :team => false
-      Sport.create! :name=> 'running', :parts=> 2, :team => false
-      Sport.create! :name=> 'soccer', :parts=> 2, :team => false
+      Sport.create! :name=> 'streetball', :parts=> 1, :team => true, :max_players => 4
+      Sport.create! :name=> 'petanque', :parts=> 2, :team => false, :max_players => 1
+      Sport.create! :name=> 'volleyball', :parts=> 2, :team => true, :max_players => 2
+      Sport.create! :name=> 'running', :parts=> 2, :team => false, :max_players => 1
+      Sport.create! :name=> 'soccer', :parts=> 2, :team => true, :max_players => 8
 #      Sport.create! :name=> 'billiard', :parts=> 3, :team => false
 #      Sport.create! :name=> 'squash', :parts=> 1, :team => false
 #      Sport.create! :name=> 'golf', :parts=> 1, :team => false

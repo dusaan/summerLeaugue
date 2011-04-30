@@ -1,8 +1,13 @@
 
-<% if @current_user.id == @user.id && @user.sports.empty? && @user.teams.empty? %>
+<% if false && @current_user.id == @user.id && @user.sports.empty? && @user.teams.empty? %>
 Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
 Skús sa pridať napríklad na  <%= link_to "streetball!",teams__path(Sport.find_by_name "streetball") %>
 <% end %>
+<% if @user.teams.empty? %>
+Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
+V prihláške si vyplnil, že máš záujem o <%= link_to @current_user.interested_in, teams__path(Sport.find_by_name @current_user.interested_in) %>
+<% end %>
+
 <br class="clear" />
 <%=(image_tag(@user.foto_path, :alt => "Profile Image", :class=>"profile_img")) %>
 

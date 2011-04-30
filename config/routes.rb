@@ -32,7 +32,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'services' do |services|
     services.services      '/',  :action => 'index', :conditions => { :method => :get }
+    services.default       '/',  :action => 'index', :conditions => { :method => :get }
+
   end
+
 
   map.with_options :controller => 'newzs' do |newzs|
 #    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }

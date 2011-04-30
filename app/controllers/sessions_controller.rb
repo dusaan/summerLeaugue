@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to default_path
+    redirect_to services_path
   end
   
   def update_selected_sport

@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20110428113737) do
     t.string   "name"
     t.integer  "parts"
     t.boolean  "team"
+    t.integer  "max_players"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -145,7 +146,6 @@ ActiveRecord::Schema.define(:version => 20110428113737) do
   create_table "teams", :force => true do |t|
     t.string   "name"
     t.string   "logo"
-    t.integer  "max_players"
     t.integer  "league_id"
     t.integer  "sport_id"
     t.string   "ascii_name"

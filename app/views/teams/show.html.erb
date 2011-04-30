@@ -41,14 +41,22 @@
   <table class="blackborder" width="100%" cellspacing="1" cellspadding="3" border="0">
     <% @team.users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user %></td><td><%= link_to "Vyhodit z timu", user_team_remove_path(user,@team), :confirm => 'Naozaj?', :method => :delete %></td>
+        <td><%= link_to user.name, user %></td>
+    <% if false %>
+
+        <td><%= link_to "Vyhodit z timu", user_team_remove_path(user,@team), :confirm => 'Naozaj?', :method => :delete %></td>
+    <% end %>
+
       </tr>
     <% end %>
   </table><br />
-  <%= link_to "Pozvi ďalších hráčov", invite_path(@team) if @team.user_id ==@current_user.id %>
+  
 </p>
 
 <% if @team.user_id ==@current_user.id %>
+  <% if @team.sport.max_players > @team.users.count %> 
+    <%= link_to "Pozvi ďalších hráčov", invite_path(@team) %> |
+  <% end %>
   <%= link_to 'Edit', edit_team_path(@team) %> |
 <% end %>
 <%= link_to 'Back', teams_path %>

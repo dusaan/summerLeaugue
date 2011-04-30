@@ -3,7 +3,6 @@ class CreateTeams < ActiveRecord::Migration
     create_table :teams do |t|
       t.string :name
       t.string :logo
-      t.integer :max_players
       t.integer :league_id
       t.integer :sport_id
 	    t.string  :ascii_name, :unique => true 

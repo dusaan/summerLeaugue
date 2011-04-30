@@ -3,9 +3,10 @@
   
   <p class="news">
     <span class="news_date"><%=h newz.sport.created_at.strftime("%d.%m.%Y") %></span>
-    <%= link_to "<b> #{newz.header} </b> #{newz.text[0..30]}....", newz, :class=>"news_title" %>
+    <b><%= link_to " #{newz.header}", newz, :class=>"news_title" %> </b></ br>
+      &nbsp;&nbsp;&nbsp;...<%= newz.text[0..30] %>
     <br class="clear" />
-  </p>
+  </p> <br />
 
 
 <% end %>

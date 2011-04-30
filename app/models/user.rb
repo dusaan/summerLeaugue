@@ -41,7 +41,9 @@ class User < ActiveRecord::Base
     Notifier.deliver(mail)
     encrypt_password
   end
-  
+  def admin?
+    self.user_role == "admin"  
+  end
   def name
     return email unless first_name || last_name 
     "#{first_name ? first_name.strip.capitalize : ""} #{last_name ? last_name.strip.capitalize : "" }"

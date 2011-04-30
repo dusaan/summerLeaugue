@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     redirect_to new_user_path unless @user
     @user.register_link = nil
     @user.save
-    flash[:notice] = 'Vítame Ťa na portáli aLiga.SK <br /> Tvoje konto bolo aktivované, teraz sa môžeš prihlásiť'
+    flash[:notice] = 'Vítame Ťa na portáli aLiga.SK! Tvoje konto bolo aktivované, teraz sa môžeš prihlásiť'
     redirect_to edit_user_path(@user)
   end
   
