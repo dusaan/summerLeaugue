@@ -31,11 +31,11 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.with_options :controller => 'services' do |services|
-    services.services      '/services',  :action => 'index', :conditions => { :method => :get }
+    services.services      '/',  :action => 'index', :conditions => { :method => :get }
   end
 
   map.with_options :controller => 'newzs' do |newzs|
-    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
+#    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
     newzs.news      'news/:sport',  :action => 'index', :conditions => { :method => :get }
     newzs.rules     'rules/:sport', :action => 'rules', :conditions => { :method => :get }
   end
@@ -67,6 +67,7 @@ ActionController::Routing::Routes.draw do |map|
     teams.edit_team       'teams/:id/edit',  :action => 'edit',            :conditions => { :method => :get }
     teams.teams_    'teams_/:sport', :action => 'index', :conditions => { :method => :get }
     teams.invite    'invite_to_team/:team_id', :action => 'invite', :conditions => { :method => :get }
+    teams.invite_temp  'reg2', :action => 'invite_temp', :conditions => { :method => :get }
     teams.user_team_remove   'remove_from_team/:user_id/:team_id',  :action => 'remove_user',  :conditions => { :method => :delete }
     teams.user_team_add 'invite_to_team/:team_id', :action => 'invite_submit', :conditions => { :method => :post }
     

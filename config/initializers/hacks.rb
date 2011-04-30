@@ -8,7 +8,7 @@ class String
     chars += ("A".."Z").to_a if args.empty? || args.include?(:uppercase)
     chars += ("0".."9").to_a if args.empty? || args.include?(:digits)
     return nil if chars.empty?
-    Array.new(length) { chars.rand }.join
+    Array.new(length) { chars.sample }.join
   end
 
   def to_number

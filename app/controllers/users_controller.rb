@@ -70,7 +70,8 @@ class UsersController < ApplicationController
     respond_to do |format|
 	      if @user.save
 	        flash[:notice] = 'Vítame Ťa na portáli aLiga.SK Po aktivivacii stranky dostanes email, bude v ňom link na potvrdenie registrácie'
-          format.html { redirect_to new_session_path }
+          format.html { redirect_to invite_temp_path }
+ #         format.html { redirect_to new_session_path }
           format.xml  { render :xml => @user, :status => :created, :location => @user }
         else
           format.html { render :action => "new" }
