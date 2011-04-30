@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-#require 'net/smtp'
+require 'net/smtp'
   def feedback(user)
     from "LetnaLiga.sk"
     recipients "#{user}"
