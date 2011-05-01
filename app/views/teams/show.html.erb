@@ -12,7 +12,7 @@
   <%= link_to "#{@team.user_name} #{@team.phone_number || ""}", @team.user %>
 </p>
 <p>Logo<br />
-  <%= image_tag @team.photo.url(:thumb) %>
+  <%= image_tag @team.logo_path %>
 </p>
 <p>
   <% if !@teams_tournaments.empty? && @team && @current_user && @team.user_id == @current_user.id %>
@@ -46,7 +46,7 @@
   <table class="blackborder" width="100%" cellspacing="1" cellspadding="3" border="0">
     <% @team.users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user %></td>
+        <td><%= link_to user.name, user %></td><td> <%= image_tag( user.register_link ? "cross.png" : "tick.png") %></td>
     <% if false %>
 
         <td><%= link_to "Vyhodit z timu", user_team_remove_path(user,@team), :confirm => 'Naozaj?', :method => :delete %></td>
