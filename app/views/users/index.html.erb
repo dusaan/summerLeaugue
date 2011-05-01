@@ -4,16 +4,11 @@
 <table>
   <tr>
     <th>Meno</th>
-    <th>Priezvisko</th>
-    <th>Email</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%=h user.first_name %></td>
-    <td><%=h user.last_name %></td>
-    <td><%=h user.email %></td>
-    <td><%= link_to 'Detial', user %></td>
+    <td><%= link_to user.name, user %></td>
   </tr>
 <% end %>
 </table>

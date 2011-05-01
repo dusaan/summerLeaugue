@@ -3,6 +3,12 @@
 <br />
     <%= link_to "Pozvi ďalších hráčov", invite_path(@team) %>
 <% end %>
+
+<% if @team.sport.max_players == @team.users.count %> 
+  <b>Tím spĺňa podmienky a bude zaradený do turnaja!</b>
+<br />
+<% end %>
+
 <p>
   <b>Názov:</b>
   <%=h @team.name %>
