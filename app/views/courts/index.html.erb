@@ -1,12 +1,13 @@
 <h1>Ihriská</h1>
 
-<table>
+<table class="blackborder" border="0" cellspacing="1" cellpadding="3" width="100%">
   <tr>
     <th>Názov</th>
     <th>Mesto</th>
     <th>Ulica</th>
     <th>Povrch</th>
     <th>Rating</th>
+    <th>Administrácia</th>
   </tr>
 
 <% @courts.each do |court| %>
@@ -17,8 +18,7 @@
     <td><%=h court.surface %></td>
     <td><%=h court.rating %></td>
   <% if @current_user.id == court.user_id %>
-    <td><%= link_to 'Edit', edit_court_path(court) %></td>
-    <td><%= link_to 'Destroy', court, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_court_path(court) %>&nbsp;|&nbsp;<%= link_to 'Destroy', court, :confirm => 'Are you sure?', :method => :delete %></td>
   <% end %>
 
   </tr>

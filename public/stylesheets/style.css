@@ -145,12 +145,14 @@
 /*--------------------*/
 /* Content background */
 /*--------------------*/
-  .streetballova #content {background-image: url(/images/mainbg_streetball.gif)} 
-  .squashova #content {background-image: url(/images/mainbg_squash.gif)}
-  .badmintonova #content {background-image: url(/images/mainbg_badminton.gif)}
-  .petanqueova #content {background-image: url(/images/mainbg_petanque.gif)}
-  .billiardova #content {background-image: url(/images/mainbg_billiard.gif)}
-  .golfova #content {background-image: url(/images/mainbg_golf.gif)}
+  .streetballova #content {background-image: url(/images/mainbg_streetball.gif);} 
+  .volleyballova #content {background-image: url(/images/mainbg_squash.gif);}
+  .squashova #content {background-image: url(/images/mainbg_squash.gif);}
+  .badmintonova #content {background-image: url(/images/mainbg_badminton.gif);}
+  .runningova #content {background-image: url(/images/mainbg_petanque.gif);}
+  .petanqueova #content {background-image: url(/images/mainbg_petanque.gif);}
+  .billiardova #content {background-image: url(/images/mainbg_billiard.gif);}
+  .golfova #content {background-image: url(/images/mainbg_golf.gif);}
   
   
 /*-------------------------*/
@@ -159,10 +161,14 @@
 
   .streetballova a, .streetballova h1 {color: #E97300;}
   .streetballova #right a {color: #824000;} 
+  .volleyballova a, .volleyballova h1 {color: #d0a600;}
+  .volleyballova #right a {color: #745d00;}
   .squashova a, .squashova h1 {color: #d0a600;}
   .squashova #right a {color: #745d00;}
   .badmintonova a, .badmintonova h1 {color: #99CC33;}
   .badmintonova #right a {color: #475f17;}
+  .runningova a, .runningova h1 {color: #4D8EAD;}
+  .runningova #right a {color: #37667c;}
   .petanqueova a, .petanqueova h1 {color: #4D8EAD;}
   .petanqueova #right a {color: #37667c;}
   .billiardova a, .billiardova h1 {color: #246610;}

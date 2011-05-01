@@ -1,27 +1,31 @@
 <h1>Turnaje</h1>
 
-<table>
-  <tr>
-    <th>Názov</th>
-    <th>Ihrisko</th>
-    <th>Dátum</th>
-  </tr>
+<% if @tournaments.size != 0 %>
+  <table class="blackborder" border="0" cellspacing="1" cellpadding="3" width="100%">
+    <tr>
+      <th>Názov</th>
+      <th>Ihrisko</th>
+      <th>Dátum</th>
+      <th>Administrácia</th>
+    </tr>
 
-<% @tournaments.each do |tournament| %>
-  <tr>
-    <td><%= link_to tournament.name, tournament %></td>
-    <td><%= link_to tournament.court_name, tournament.court %></td>
-    <td><%=h tournament.starts_at.strftime("%d.%m.%Y") %></td>
-    <% if @current_user.id == tournament.user_id %>
+  <% @tournaments.each do |tournament| %>
+    <tr>
+      <td><%= link_to tournament.name, tournament %></td>
+      <td><%= link_to tournament.court_name, tournament.court %></td>
+      <td><%=h tournament.starts_at.strftime("%d.%m.%Y") %></td>
+      <% if @current_user.id == tournament.user_id %>
 
-    <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-    <td><%= link_to 'Destroy', tournament, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
+        <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
+        <td><%= link_to 'Destroy', tournament, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
 
-  </tr>
+    </tr>
+  <% end %>
+  </table>
+  <% else %>
+    <p><strong>Zatiaľ nie sú zaregistrované žiadne tímy.</strong></p>
 <% end %>
-</table>
-
 <br />
 <% if false %>
 <%= link_to 'Vytvor si turnaj', new_tournament_path %>
