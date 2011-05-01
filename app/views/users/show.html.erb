@@ -5,7 +5,12 @@ Skús sa pridať napríklad na  <%= link_to "streetball!",teams__path(Sport.find
 <% end %>
 <% if @user.teams.empty? %>
 Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
-V prihláške si vyplnil, že máš záujem o <%= link_to @current_user.interested_in, teams__path(Sport.find_by_name @current_user.interested_in) %>
+V prihláške si vyplnil, že máš záujem o
+  <% if @current_user.interested_in == "all" %> 
+    všetky športy, v sekciách pre jednotlivé odvetvia sa môžeš zaregistrovať na eventy!
+  <% else %>
+    <%= link_to @current_user.interested_in, teams__path(Sport.find_by_name @current_user.interested_in) %>
+  <% end %>  
 <% end %>
 
 <br class="clear" />

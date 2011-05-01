@@ -12,6 +12,9 @@ class Team < ActiveRecord::Base
 
   has_many :team_players
   has_many :users, :through => :team_players 
+
+  validates_uniqueness_of   :name
+  validates_presence_of   :name
  
   # Paperclip
   has_attached_file :photo,

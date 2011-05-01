@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   attr_accessor   :password, :password_confirmation
   validates_presence_of     :email
+#  validates_presence_of     :first_name
+#  validates_presence_of     :last_name
   validates_format_of       :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_blank => false
   validates_uniqueness_of   :email, :if => :email_changed?
   validates_presence_of     :password,              :if => :password_needed?
@@ -73,7 +75,7 @@ class User < ActiveRecord::Base
   end
 
   def foto_path
-    return foto.blank? ? "default.jpg" : foto
+    return foto.blank? ? (self.gender=="Muž" ? "default_male.png" : "default_female.png") : foto
   end
  def messages
     Message.find :all, :conditions => ["messages.sender_id = ? or messages.receiver_id = ?", id, id], :order => "messages.sent_at desc"
@@ -81,6 +83,12 @@ class User < ActiveRecord::Base
   def unread_messages
     Message.find :all, :conditions => ["messages.receiver_id = ? AND read_at is null", id], :order =>     "messages.sent_at desc"
   end
+  
+  def can_join? (sport_name)
+    return false unless (self.sports.find_by_name sport_name).nil?
+    (self.interested_in == sport_name || self.interested_in == "all")
+  end
+
   def encrypt_password
 
     self.salt = encrypt(Time.now.to_s, String.random(40))
