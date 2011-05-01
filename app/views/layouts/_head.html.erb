@@ -5,7 +5,7 @@
 		<meta id="Head_author" name="author" content="aLiga.sk — http://www.aLiga.sk" />
 		<meta name="description" content="aLiga.sk" />
 		<meta name="keywords" content="aLiga.sk, amatérska liga, bedmintonová liga, basketbalová liga" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="screen" />
+
     <title><%=  @title || "aLiga.sk" %></title>
     <%= stylesheet_link_tag 'style' %>
     <script src='/javascripts/prototype.js' type='text/javascript'></script>
@@ -73,10 +73,19 @@
             end
         %>
         <map id="menu_map" name="menu_map">
-          <area shape="poly" coords="90,220,220,225,255,295,20,295" href="<%= update_selected_path(sports['volleyball']) %>" alt="volleyball" title="volleyball"  onmouseover="menu_hover('url(/images/postavicky_volleyball.png) no-repeat 184px 36px', 'url(/images/menu_volleyball_hover.png) no-repeat 1px 205px')" onmouseout="menu_down()" />
-          <area shape="poly" coords="230,221,410,235,425,295,270,295" href="<%= update_selected_path(sports['streetball']) %>" alt="streetball" title="streetball"  onmouseover="menu_hover('url(/images/postavicky_streetball.png) no-repeat 320px 0', 'url(/images/menu_streetball_hover.png) no-repeat 224px 214px')" onmouseout="menu_down()" />
-          <area shape="poly" coords="418,236,570,247,563,295,435,295" href="<%= update_selected_path(sports['running']) %>" alt="running" title="running"  onmouseover="menu_hover('url(/images/postavicky_running.png) no-repeat 460px 38px', 'url(/images/menu_running_hover.png) no-repeat 412px 227px')" onmouseout="menu_down()" />
-          <area shape="poly" coords="578,237,700,235,692,295,568,295" href="<%= update_selected_path(sports['soccer']) %>" alt="soccer" title="soccer"  onmouseover="menu_hover('url(/images/postavicky_soccer.png) no-repeat 568px 67px', 'url(/images/menu_soccer_hover.png) no-repeat 560px 236px')" onmouseout="menu_down()" />
+        
+          <area shape="poly" coords="283,11,271,61,221,89,166,133,76,159,4,150,3,13," href="<%= update_selected_path(0) %>" alt="letnáLiga" title="letnáLiga"   />
+          <area shape="poly" coords="189,209,188,191,196,165,207,151,208,121,218,108,231,93,242,86,254,95,253,112,242,115,253,134,241,159,243,173,266,193,267,214,255,214,253,209,224,185,217,191,206,194,206,210," href="<%= update_selected_path(sports['volleyball']) %>" alt="volleyball" title="volleyball" onmouseover="menu_hover('url(/images/postavicky_volleyball.png) no-repeat 185px 35px', 'url(/images/menu_volleyball_hover.png) no-repeat 2px 205px')" onmouseout="menu_down()"  />
+<area shape="poly" coords="322,41,319,68,283,66,285,39" href="<%= update_selected_path(sports['volleyball']) %>" alt="volleyball" title="volleyball" onmouseover="menu_hover('url(/images/postavicky_volleyball.png) no-repeat 185px 35px', 'url(/images/menu_volleyball_hover.png) no-repeat 2px 205px')" onmouseout="menu_down()"  />
+<area shape="poly" coords="324,2,346,16,346,30,358,39,368,55,371,101,342,96,327,101,327,112,336,165,336,179,347,184,375,174,382,170,357,125,386,131,413,126,423,154,440,155,442,140,437,129,434,101,427,89,426,54,412,45,403,46,381,0," href="<%= update_selected_path(sports['streetball']) %>" alt="streetball" title="streetball" onmouseover="menu_hover('url(/images/postavicky_streetball.png) no-repeat 320px 1px', 'url(/images/menu_streetball_hover.png) no-repeat 223px 214px')" onmouseout="menu_down()"  />
+<area shape="poly" coords="496,42,486,62,490,72,480,83,472,90,465,93,483,108,486,128,469,156,497,191,501,212,514,199,529,208,518,228,528,229,549,219,534,203,530,182,521,174,514,146,523,129,519,124,537,97,519,71,513,63,516,48," href="<%= update_selected_path(sports['running']) %>" alt="running" title="running" onmouseover="menu_hover('url(/images/postavicky_running.png) no-repeat 460px 38px', 'url(/images/menu_running_hover.png) no-repeat 411px 227px')" onmouseout="menu_down()"  />
+<area shape="poly" coords="578,235,571,225,583,190,571,152,599,110,584,110,594,92,610,94,622,94,624,76,643,69,653,80,646,95,647,106,654,121,672,143,661,147,645,148,664,178,667,192,658,220,660,231,670,236,647,241,637,236,631,224,641,185,624,172,618,183,609,218,613,231,599,234," href="<%= update_selected_path(sports['soccer']) %>" alt="soccer" title="soccer" onmouseover="menu_hover('url(/images/postavicky_soccer.png) no-repeat 568px 68px', 'url(/images/menu_soccer_hover.png) no-repeat 560px 236px')" onmouseout="menu_down()"  />
+<area shape="poly" coords="832,79,844,88,859,101,870,114,891,121,913,147,923,172,916,181,909,185,915,206,824,219,826,200,837,197,829,169,823,145,818,109,825,85," href="<%= update_selected_path(sports['petanque']) %>" alt="petanque" title="petanque" onmouseover="menu_hover('url(/images/postavicky_petanque.png) no-repeat 812px 67px', 'url(/images/menu_petanque_hover.png) no-repeat 696px 240px')" onmouseout="menu_down()"  />
+
+          <area shape="poly" coords="90,220,220,225,255,295,20,295" href="<%= update_selected_path(sports['volleyball']) %>" alt="volleyball" title="volleyball"  onmouseover="menu_hover('url(/images/postavicky_volleyball.png) no-repeat 185px 35px', 'url(/images/menu_volleyball_hover.png) no-repeat 2px 205px')" onmouseout="menu_down()" />
+          <area shape="poly" coords="230,221,410,235,425,295,270,295" href="<%= update_selected_path(sports['streetball']) %>" alt="streetball" title="streetball"  onmouseover="menu_hover('url(/images/postavicky_streetball.png) no-repeat 320px 1px', 'url(/images/menu_streetball_hover.png) no-repeat 223px 214px')" onmouseout="menu_down()" />
+          <area shape="poly" coords="418,236,570,247,563,295,435,295" href="<%= update_selected_path(sports['running']) %>" alt="running" title="running"  onmouseover="menu_hover('url(/images/postavicky_running.png) no-repeat 460px 38px', 'url(/images/menu_running_hover.png) no-repeat 411px 227px')" onmouseout="menu_down()" />
+          <area shape="poly" coords="578,237,700,235,692,295,568,295" href="<%= update_selected_path(sports['soccer']) %>" alt="soccer" title="soccer"  onmouseover="menu_hover('url(/images/postavicky_soccer.png) no-repeat 568px 68px', 'url(/images/menu_soccer_hover.png) no-repeat 560px 236px')" onmouseout="menu_down()" />
           <area shape="poly" coords="710,237,850,235,850,295,702,295" href="<%= update_selected_path(sports['petanque']) %>" alt="petanque" title="petanque"  onmouseover="menu_hover('url(/images/postavicky_petanque.png) no-repeat 812px 67px', 'url(/images/menu_petanque_hover.png) no-repeat 696px 240px')" onmouseout="menu_down()" />
 
         </map>
@@ -85,6 +94,6 @@
           <%= render :partial => "layouts/menu" %>
         </div>
             <%= render :partial => "layouts/user_login" %>
-        <%= link_to raw ("<img alt=\"aLiga.sk\" src=\"/images/logo.png\"/>"), update_selected_path(0), :id => "logo", :class=>"noborder", :title=>"aLiga.sk Homepage" %>
-        <div id="liga"></div>
+        <%= link_to raw ("<img alt=\"aLiga.sk\" src=\"/images/logo.png\"/>"), update_selected_path(0), :id => "logo", :class=>"noborder", :title=>"letnáLiga.sk Homepage" %>
+        <!--<div id="liga"></div>-->
         <a id="facebook" class="noborder" title="aLiga facebook" href="http://www.facebook.com/#!/pages/aligask/173569719345664"><img alt="aLiga facebook" src="/images/fb_ikonka.png"/></a> </div>
