@@ -42,6 +42,8 @@ class TournamentsController < ApplicationController
   # GET /tournaments/new
   # GET /tournaments/new.xml
   def new
+    redirect_to tournaments_path unless @current_user.admin?
+    return unless @current_user.admin?
     @tournament = Tournament.new
 
     respond_to do |format|

@@ -10,10 +10,13 @@
     <%= link_to raw('<span>ihriská </span>'), courts_path  , :class => (params[:controller] == "courts" ? 'submenu_item submenu_item_selected' : 'submenu_item') if @selected_sport_name == "streetball"%>
     <%= link_to raw('<span>Turnaje</span>'), tournaments_path , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
-
-
   <% when "running" %>
     <%= link_to raw("<span> bežči </span>"), users__path(@selected_sport.to_s) , :class => (params[:controller] == "users" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
+    <%= link_to raw('<span>Turnaje</span>'), tournaments_path , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
+
+
+  <% when "petanque" %>
+    <%= link_to raw("<span> hráči </span>"), users__path(@selected_sport.to_s) , :class => (params[:controller] == "users" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
     <%= link_to raw('<span>Turnaje</span>'), tournaments_path , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
   <% when "squash", "badminton", "petanque", "billiard", "golf" %>
