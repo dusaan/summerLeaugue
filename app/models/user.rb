@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :team_players
   has_many :teams, :through => :team_players 
 
+  has_many :invitations
+  
   before_save :set_ascii_name
 
   attr_accessor   :password, :password_confirmation
@@ -51,6 +53,11 @@ class User < ActiveRecord::Base
     "#{first_name ? first_name.strip.capitalize : ""} #{last_name ? last_name.strip.capitalize : "" }"
   end
 
+  def invite_existing_to(team)
+    self.teams = [team]
+    self.sports = [team.sport]
+  end
+  
   def invite_to(team)
     self.teams = [team]
     self.sports = [team.sport]

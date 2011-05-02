@@ -1,5 +1,5 @@
-Vitaj: <%= @user.name  %>, ďakujeme za registráciu, stránka je v testovacej prevádzke a o jej oficiálnom spustení Ťa budeme informovať mailom. Zároveň Ti pošleme aj link na potvrdenie registrácie.
+Vitaj: <%= @user.name  %>, ďakujeme za registráciu na www.LetnaLiga.sk. Ak chceš potvrdiť registáciu, tak klikni na potvrdenie registrácie: <%= "www.aliga.sk/jo/#{@user.register_link}" %>
 
 S pozdravom Tvoj aLiga tím
 
-<%= true ? "" : "www.aliga.sk/jo/#{@user.register_link}" %>
+

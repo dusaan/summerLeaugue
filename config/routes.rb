@@ -16,9 +16,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :courts
 
+  map.with_options :controller => 'invitations' do |invitation|
+    invitation.accept             'invitation_a/:invitation_id',      :action => 'accept'
+    invitation.decline            'invitation_d/:invitation_id',      :action => 'decline'
 
-
-  map.with_options :controller => 'calendar' do |calendar|
+  end
+  
+map.with_options :controller => 'calendar' do |calendar|
     calendar.calendar_            'calendar/:year/:month',      :action => 'index',           :requirements => {:year => /d{4}/, :month => /d{1,2}/}, :year => nil, :month => nil
     calendar.new_calendar        'calendars/new',              :action => 'new',             :conditions => { :method => :get }
     calendar.connect             'events'   ,                  :action => 'create',          :conditions => { :method => :post }

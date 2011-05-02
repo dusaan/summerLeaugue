@@ -1,6 +1,7 @@
 class Team < ActiveRecord::Base
 
   has_many :matches
+  has_many :invitations
   belongs_to :league
 
   before_save :set_ascii_name

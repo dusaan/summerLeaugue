@@ -1,4 +1,4 @@
-<h1>Listing users</h1>
+<h1>Hráči:</h1>
 <%= "Nie si členom #{@selected_sport_name}ovej ligy, chceš sa pridať?" unless @is_playing%>
 <%= link_to 'Pridať sa', join_sport_path unless @is_playing %>
 <table>

@@ -75,8 +75,13 @@ class TeamsController < ApplicationController
   def invite_submit
     @team = Team.find(params[:team_id])
     redirect_to teams_path if @current_user.id != @team.user_id || params[:email].blank?
-    user = User.new :email=> params[:email]
-    user.invite_to(@team)
+    user = User.find_by_email params[:email].downcase
+    if user.nil? 
+      user = User.new :email=> params[:email]
+      user.invite_to(@team)
+    else
+      user.invitations.create :team_id => @team.id
+    end
     user.save
     redirect_to (@team)
   end

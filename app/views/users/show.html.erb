@@ -2,10 +2,23 @@
 Nemáš vyplnené všetky údaje, bolo by super, keby si mal vyplnené meno a priezvisko.
 <br />  
 <% end %>
+
 <% if false && @current_user.id == @user.id && @user.sports.empty? && @user.teams.empty? %>
 Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
 Skús sa pridať napríklad na  <%= link_to "streetball!",teams__path(Sport.find_by_name "streetball") %>
 <% end %>
+
+<% if @current_user.id == @user.id && @user.invitations.count > 0  %>
+  Si pozvaný do tímu:
+  <table>
+  <% @user.invitations.each do |inv| %>
+    <tr>
+      <td><%= link_to inv.team.name, inv.team %></td><td> - <%= link_to "akceptovať", accept_path(inv) %></td><td> - <%= link_to "odmietnuť", decline_path(inv) %></td> 
+    </tr>
+  <% end %>
+  </table>
+<% end %>
+
 <% if @user.teams.empty? %>
 Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
 V prihláške si vyplnil, že máš záujem o
