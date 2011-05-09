@@ -56,6 +56,7 @@ V prihláške si vyplnil, že máš záujem o
 <table>
 <% @user.teams.each do |team| %>
   <tr>
+    <td><%= team.sport.name.capitalize %>: </td>
     <td><%= link_to team.name, team %></td>
   </tr>
 <% end %>
