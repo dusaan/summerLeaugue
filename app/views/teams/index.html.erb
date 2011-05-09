@@ -1,30 +1,27 @@
 <h1>Tímy:</h1>
-
-<table class="blackborder" width="100%" cellspacing="1" cellpadding="3" border="0">
-  <tr>
-    <th>Názov</th>
-    <th>Počet hráčov</th>
-    <th>Administrácia</th>
-  </tr>
-
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= link_to team.name, team %></td>
-   
-    <td><%=h team.users.count %></td>
-    <% if team.user_id ==@current_user.id || @current_user.admin?%>
-      <td><%= link_to 'Edit', edit_team_path(team) %> | 
-          <%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
-  </tr>
+<% if @teams.size > 0 %>
+  <table class="blackborder" width="100%" cellspacing="1" cellpadding="3" border="0">
+    <tr>
+      <th>Názov</th>
+      <th>Počet hráčov</th>
+      <th>Administrácia</th>
+    </tr>
+  
+  <% @teams.each do |team| %>
+    <tr>
+      <td><%= link_to team.name, team %></td>
+     
+      <td><%=h team.users.count %></td>
+      <% if team.user_id ==@current_user.id || @current_user.admin?%>
+        <td><%= link_to 'Edit', edit_team_path(team) %> | 
+            <%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
 <% end %>
-</table>
 
 <br />
-<% if @current_user.can_join? @selected_sport_name %>
-  Nie si členom žiadneho tímu, <%= link_to 'vytvor si tím!', new_team_path %>
-<% end %>
-
-<% if @current_user.teams.empty? && @current_user.interested_in == @selected_sport_name  %>
+<% if @current_user.teams.empty? && (@current_user.can_join? @selected_sport_name)  %>
   Nie si členom žiadneho tímu, <%= link_to 'vytvor si tím!', new_team_path %>
 <% end %>

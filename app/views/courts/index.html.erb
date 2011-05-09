@@ -1,30 +1,31 @@
 <h1>Ihriská</h1>
 
-<table class="blackborder" border="0" cellspacing="1" cellpadding="3" width="100%">
-  <tr>
-    <th>Názov</th>
-    <th>Mesto</th>
-    <th>Ulica</th>
-    <th>Povrch</th>
-    <th>Rating</th>
-    <th>Administrácia</th>
-  </tr>
+<% if @courts.size > 0 %>
+  <table class="blackborder" border="0" cellspacing="1" cellpadding="3" width="100%">
+    <tr>
+      <th>Názov</th>
+      <th>Mesto</th>
+      <th>Ulica</th>
+      <th>Povrch</th>
+      <th>Rating</th>
+      <th>Administrácia</th>
+    </tr>
 
-<% @courts.each do |court| %>
-  <tr>
-    <td><%= link_to (court.name || court.street) , court %></td>
-    <td><%=h court.city %></td>
-    <td><%=h court.street %></td>
-    <td><%=h court.surface %></td>
-    <td><%=h court.rating %></td>
-  <% if @current_user.id == court.user_id %>
-    <td><%= link_to 'Edit', edit_court_path(court) %>&nbsp;|&nbsp;<%= link_to 'Destroy', court, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% @courts.each do |court| %>
+    <tr>
+      <td><%= link_to (court.name || court.street) , court %></td>
+      <td><%=h court.city %></td>
+      <td><%=h court.street %></td>
+      <td><%=h court.surface %></td>
+      <td><%=h court.rating %></td>
+    <% if @current_user.id == court.user_id %>
+      <td><%= link_to 'Edit', edit_court_path(court) %>&nbsp;|&nbsp;<%= link_to 'Destroy', court, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+
+    </tr>
   <% end %>
-
-  </tr>
+  </table>
 <% end %>
-</table>
-
 <br />
 
 <%= link_to 'Pridaj "svoj" court', new_court_path %>
