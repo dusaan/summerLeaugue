@@ -1,7 +1,12 @@
-Používateľ <%= @user.teams.first.user.name %> zaregistrovaný na portáli aLiga.sk (používajúci email: <%= @user.teams.first.user.email %>) Ťa pozýva do tímu <%= @user.teams.first.name %>.
-Ak máš záujem zabaviť sa, zasúťažiť si a spoznať nových ľudí tak klikni na:  <%= "www.aliga.sk/jo/#{@user.register_link}" %>, 
-systémom vygenerované heslo je: <%= @user.password %>
+Používateľ <%= @user.teams.first.user.name %> zaregistrovaný na portáli aLiga.sk (používajúci email: <%= @user.teams.first.user.email %>) Ťa pozýva do tímu <%= @user.teams.first.name %> v športe  <%= @user.teams.first.sport.name %>.
+
+Ak máš záujem zabaviť sa, zasúťažiť si a spoznať nových ľudí tak klikni na:  <%= "www.letnaliga.sk/jo/#{@user.register_link}" %>  a prihlás sa vpravo hore. Systémom vygenerované heslo je: <%= @user.password %>
 V prípade, že nemáš záujem, tak považuj tento email za bezpredmetný.
 
 
-S pozdravom aLiga.sk.
+S pozdravom 
+LetnaLiga.sk.
+info@letnaliga.sk
+
+------------------
+Na tento email prosím neodpovedaj. V prípade otázok napíš na info@letnaliga.sk

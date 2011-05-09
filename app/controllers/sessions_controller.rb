@@ -39,7 +39,8 @@ class SessionsController < ApplicationController
       if params[:sport] != "0"
         sport = Sport.find params[:sport] 
         session[:selected_sport_name] = sport.nil? ? "" : sport.name
-        redirect_to news_path(params[:sport]) 
+        #redirect_to news_path(params[:sport]) 
+        redirect_to sport.team ? teams__path(params[:sport]) : users__path(params[:sport])
       else
         session[:selected_sport_name] = session[:selected_sport_id] = nil
         redirect_to default_path

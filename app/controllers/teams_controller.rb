@@ -78,9 +78,10 @@ class TeamsController < ApplicationController
     user = User.find_by_email params[:email].downcase
     if user.nil? 
       user = User.new :email=> params[:email]
+      user.gender = @current_user.gender
       user.invite_to(@team)
     else
-      user.invitations.create :team_id => @team.id
+      user.invitations.create :team_id => @team.id if (user.invitations.find :first, :conditions=> :team_id = @team.id).nil? 
     end
     user.save
     redirect_to (@team)

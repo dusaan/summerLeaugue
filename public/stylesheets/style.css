@@ -62,7 +62,7 @@
       #menu_map {z-index: 3;}
       #logo {position: absolute; top: 0px; left: -80px; font-weight: bold;}
       #liga {width: 399px; height: 119px; position: absolute; top: 133px; right: 0; background: transparent no-repeat 0 0;}
-      #facebook {position: absolute; top: 125px; right: 0; z-index: 1;}
+      #facebook {position: absolute; top: 205px; right: 0; z-index: 1;}
       #headerlinks {height: 20px; position: absolute; top: 0; right: 0; z-index:10;}
         #about {float: left;width: 100px;size:10}
         #register_link {float: left; display: block; height: 15px; line-height: 15px; padding: 3px 10px; background: #fff; color: #000; border: #878787}

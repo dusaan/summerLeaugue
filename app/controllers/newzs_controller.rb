@@ -5,7 +5,7 @@ class NewzsController < ApplicationController
 
   def index
    
-    @newzs = params[:sport].blank? ? (Newz.find :all) : (Newz.find_all_by_sport_id params[:sport])
+    @@newzs = params[:sport].blank? ? (Newz.find :all) : (Newz.find_all_by_sport_id params[:sport])
   
     respond_to do |format|
       format.html # index.html.erb
