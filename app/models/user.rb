@@ -93,7 +93,8 @@ class User < ActiveRecord::Base
   
   def can_join? (sport_name)
     return false unless (self.sports.find_by_name sport_name).nil?
-    (self.interested_in == sport_name || self.interested_in == "all")
+    true
+    #(self.interested_in == sport_name || self.interested_in == "all")
   end
 
   def encrypt_password
