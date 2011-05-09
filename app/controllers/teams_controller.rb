@@ -81,7 +81,7 @@ class TeamsController < ApplicationController
       user.gender = @current_user.gender
       user.invite_to(@team)
     else
-      user.invitations.create :team_id => @team.id if (user.invitations.find :first, :conditions=> :team_id = @team.id).nil? 
+      user.invitations.create :team_id => @team.id if (user.invitations.find :first, :conditions=> ["team_id = ?",@team.id]).nil? 
     end
     user.save
     redirect_to (@team)
