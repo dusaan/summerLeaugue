@@ -22,6 +22,7 @@
 <% end %>
 
 <br />
+
 <% if @current_user.teams.empty? && (@current_user.can_join? @selected_sport_name)  %>
   Nie si členom žiadneho tímu, <%= link_to 'vytvor si tím!', new_team_path %>
 <% end %>

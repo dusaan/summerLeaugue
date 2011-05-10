@@ -18,7 +18,7 @@
   <%= link_to "#{@team.user_name} #{@team.phone_number || ""}", @team.user %>
 </p>
 <p>Logo<br />
-  <%= image_tag @team.logo_path %>
+  <%= image_tag @team.photo.url(:thumb) %>
 </p>
 <p>
   <% if !@teams_tournaments.empty? && @team && @current_user && @team.user_id == @current_user.id %>

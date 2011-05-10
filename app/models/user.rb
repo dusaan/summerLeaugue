@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
   end
   
   def can_join? (sport_name)
-    return false unless (self.sports.find_by_name sport_name).nil?
+    return false if (self.sports.find_by_name sport_name).nil?
     true
     #(self.interested_in == sport_name || self.interested_in == "all")
   end
