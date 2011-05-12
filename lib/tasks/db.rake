@@ -142,7 +142,7 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       Sport.destroy_all
 #      Sport.create! :name=> 'badminton', :parts=> 2, :team => false
       Sport.create! :name=> 'streetball', :parts=> 1, :team => true, :max_players => 4
-      Sport.create! :name=> 'petanque', :parts=> 2, :team => false, :max_players => 1
+      Sport.create! :name=> 'petanque', :parts=> 2, :team => true, :max_players => 2
       Sport.create! :name=> 'volleyball', :parts=> 2, :team => true, :max_players => 2
       Sport.create! :name=> 'running', :parts=> 2, :team => false, :max_players => 1
       Sport.create! :name=> 'soccer', :parts=> 2, :team => true, :max_players => 8
@@ -158,7 +158,7 @@ Round.create! :starts_at=> Time.now, :finishes_at => (Time.now + 30.days), :leag
       ids = (Sport.find :all).collect {|aa| aa.id}
       20.times {Newz.create! :text => randomStr(rand 50 + 20), :header=>  randomStr(rand 20 + 5), :sport_id =>ids.rand}
       puts "#{Newz.count} news created\nCreating ..."
-      
+Newz.destroy_all      
       Event.destroy_all
       Match.destroy_all
       puts "#{Event.count} events destroyed ..."

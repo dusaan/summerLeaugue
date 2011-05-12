@@ -80,8 +80,10 @@ class TeamsController < ApplicationController
       user = User.new :email=> params[:email]
       user.gender = @current_user.gender
       user.invite_to(@team)
-    else
+    elsif (user.sports.find :first, :conditions => ["sport_id = ?", @team.id]).nil?
       user.invitations.create :team_id => @team.id if (user.invitations.find :first, :conditions=> ["team_id = ?",@team.id]).nil? 
+    else
+        flash[:error] = 'Používateľ so zadaným emailom už figuruje v inom tíme.'
     end
     user.save
     redirect_to (@team)

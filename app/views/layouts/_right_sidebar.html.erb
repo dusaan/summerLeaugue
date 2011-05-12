@@ -1,7 +1,7 @@
 <!--... right sidebar goes here ...-->
 <div id="right">
-  <h2 >Najbližší program</h2>
 	<% if(@current_user) %>
+  <h2 >Najbližší program</h2>
   <% e = Event.find(:all, :conditions => ["user_id = ? AND start_at >= ?", @current_user.id,Time.now], :limit => 7) %>
 		<table>
 			<% e.each do |event| %>
@@ -14,8 +14,9 @@
 		</table>
   <%= link_to "..vypísať všetky", calendar__path %>
   <% end %>
+	<% if(@selected_sport && false) %>
   <h2 >Free match</h2>
-	<% if(@selected_sport) %>
+
   <% matches = Match.find(:all, :conditions => ["sport_id  = ? AND free = ? AND starts_at >= ? AND user2_id is NULL", @selected_sport, true ,Time.now + 1.hour], :limit => 7) %>
 		<table>
 			<% matches.each do |match| %>
