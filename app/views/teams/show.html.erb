@@ -17,9 +17,11 @@
   <b>Kapitán tímu:</b>
   <%= link_to "#{@team.user_name} #{@team.phone_number || ""}", @team.user %>
 </p>
-<p>Logo<br />
+<% if false %>
+  <p>Logo<br />
   <%= image_tag @team.photo.url(:thumb) %>
 </p>
+<% end %>
 <p>
   <% if !@teams_tournaments.empty? && @team && @current_user && @team.user_id == @current_user.id %>
     <strong>Pozvanky do turnajov</strong>
