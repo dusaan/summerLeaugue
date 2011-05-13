@@ -64,5 +64,8 @@ V prihláške si vyplnil, že máš záujem o
 
 <br class="clear" />
 <br /><br />
+<% if @current_user.id == @user.id %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Späť', users_path %>
+<% end %>
+

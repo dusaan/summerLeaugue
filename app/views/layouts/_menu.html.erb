@@ -11,7 +11,7 @@
     <%= link_to raw('<span>Turnaje</span>'), tournaments_path , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
   <% when "running" %>
-    <%= link_to raw("<span> bežči </span>"), users__path(@selected_sport.to_s) , :class => (params[:controller] == "users" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
+    <%= link_to raw("<span> bežci </span>"), users__path(@selected_sport.to_s) , :class => (params[:controller] == "users" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
     <%= link_to raw('<span>Turnaje</span>'), tournaments_path , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
 
