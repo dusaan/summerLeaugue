@@ -35,14 +35,14 @@ map.with_options :controller => 'calendar' do |calendar|
 
 
   map.with_options :controller => 'services' do |services|
-    services.services      '/',  :action => 'index', :conditions => { :method => :get }
-    services.default       '/',  :action => 'index', :conditions => { :method => :get }
+    services.services      '/poster',  :action => 'index', :conditions => { :method => :get }
+    services.default       '/poster',  :action => 'index', :conditions => { :method => :get }
 
   end
 
 
   map.with_options :controller => 'newzs' do |newzs|
-#    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
+    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
     newzs.news      'news/:sport',  :action => 'index', :conditions => { :method => :get }
     newzs.rules     'rules/:sport', :action => 'rules', :conditions => { :method => :get }
   end
