@@ -16,7 +16,7 @@ class InvitationsController < ApplicationController
     invitation = Invitation.find(params[:invitation_id])
     return if invitation.user_id != @current_user.id
     invitation.destroy
-    redirect_to user_path(user)
+    redirect_to user_path(@current_user)
   end
 
 
