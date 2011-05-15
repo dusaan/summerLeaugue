@@ -163,6 +163,12 @@ Newz.destroy_all
       Match.destroy_all
       puts "#{Event.count} events destroyed ..."
 #Event.create! :name => randomStr(rand 20 + 5), :start_at => (Time.now + (rand 40).hours), :end_at => (Time.now + (rand 40).hours), :user_id =>
+      Tournament.create! :court_name => "Lafranconi", :name => "Letná Liga: soccer", :sport => (Sport.find_by_name "soccer"), :starts_at=> (Time.now + 1.hour)
+      Tournament.create! :court_name => "Lafranconi",:name => "Letná Liga: streetball", :sport => (Sport.find_by_name "streetball"), :starts_at=> (Time.now + 1.hour)
+      Tournament.create! :court_name => "Lafranconi",:name => "Letná Liga: pétanque", :sport => (Sport.find_by_name "petanque"), :starts_at=> (Time.now + 1.hour)
+      Tournament.create! :court_name => "Lafranconi",:name => "Letná Liga: running", :sport => (Sport.find_by_name "running"), :starts_at=> (Time.now + 1.hour)
+      Tournament.create! :court_name => "Lafranconi",:name => "Letná Liga: volleybal", :sport => (Sport.find_by_name "volleybal"), :starts_at=> (Time.now + 1.hour)
+
     rescue Exception => e
       puts e.inspect
     end

@@ -14,8 +14,8 @@ class Tournament < ActiveRecord::Base
     sport ? sport.name : ""
   end
 
-  def court_name
-    court ? court.name : ""
+  def courtname
+    self.court_name ? self.court_name : (court ? court.name : "")
   end
 
   def generate_matches

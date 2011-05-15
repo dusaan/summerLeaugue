@@ -10,8 +10,8 @@
   <br />
 <% end %>
 <p>
-  <b>Ihrisko:</b>
-  <%= link_to @tournament.court_name,@tournament.court %>
+  <b>Miesto:</b>
+  <%= @tournament.court ? (link_to @tournament.courtname,@tournament.court) : @tournament.courtname %>
 </p>
 <p>
   <b>Dodatočné info:</b>
