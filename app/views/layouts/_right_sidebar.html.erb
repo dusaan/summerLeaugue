@@ -16,12 +16,13 @@
 		</table>
   <%= link_to "..vypísať všetky", calendar__path %>
   <% else %>
-   Zaregistruj sa do súťaže Letná Liga<br>
+  <span class = "heading plus"> Zaregistruj sa do súťaže Letná Liga</span>
+<div id="news">
 1. klikni na <%= link_to "registráciu", new_user_path %><br>
 2. napíš svoj mail, informácie o sebe a zvoľ si šport, ktorý chceš hrať<br>
 3. klikni na odkaz, ktorý ti prišiel mailom<br>
 4. prihlás sa na stránke <%= link_to "www.LetnaLiga.sk", default_path %><br>
-
+</div>
   <% end %>
 	<% if(@selected_sport && false) %>
   <h2 >Free match</h2>
