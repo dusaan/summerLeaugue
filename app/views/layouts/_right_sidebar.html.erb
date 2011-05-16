@@ -1,5 +1,7 @@
 <!--... right sidebar goes here ...-->
 <div id="right">
+
+
 	<% if(@current_user) %>
   <h2 >Najbližší program</h2>
   <% e = Event.find(:all, :conditions => ["user_id = ? AND start_at >= ?", @current_user.id,Time.now], :limit => 7) %>
@@ -13,6 +15,13 @@
       <% end %>
 		</table>
   <%= link_to "..vypísať všetky", calendar__path %>
+  <% else %>
+   Zaregistruj sa do súťaže Letná Liga<br>
+1. klikni na <%= link_to "registráciu", new_user_path %><br>
+2. napíš svoj mail, informácie o sebe a zvoľ si šport, ktorý chceš hrať<br>
+3. klikni na odkaz, ktorý ti prišiel mailom<br>
+4. prihlás sa na stránke <%= link_to "www.LetnaLiga.sk", default_path %><br>
+
   <% end %>
 	<% if(@selected_sport && false) %>
   <h2 >Free match</h2>
