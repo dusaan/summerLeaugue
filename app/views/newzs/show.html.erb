@@ -5,7 +5,7 @@
 
 <p>
   <b>Text:</b>
-  <%=h @newz.text %>
+  <%=h raw (@newz.text) %>
 </p>
 
 <% if @current_user && @current_user.user_role == "admin" %>
