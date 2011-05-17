@@ -83,7 +83,7 @@
         #news {font-size:100%; padding-bottom: 15px;}
           .news_header {color: #333333; text-transform: uppercase; font-weight: bold;}
           .billiardova .news_header, .petanqueova .news_header {color: #ffffcc;}
-        #reklama  {width: 217px; height: 298px; border: 1px solid #666666; background: #cccccc;}
+        #reklama  {width: 220px; border: 1px solid #666666; background: #eee;}
           
       #center {float: left; width: 370px; min-height: 300px; _height: 300px; padding: 20px 30px;}
       #right {float: left; width: 205px; min-height: 300px; _height: 300px; padding: 20px 30px;}
