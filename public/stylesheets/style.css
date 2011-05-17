@@ -43,6 +43,7 @@
 
   /* User detail */
   img.profile_img {float: left; width: 150px; padding: 2px; border: 1px solid #dedede; margin: 15px 20px 20px 0;}
+  img.poster_img {float: left; width: 320px; padding: 2px; border: 1px solid #dedede; margin: 15px 15px 15px 15px;}
 
   /* News - center div */
   #center p.news {margin: 0.75em 0;}
@@ -83,7 +84,7 @@
         #news {font-size:100%; padding-bottom: 15px;}
           .news_header {color: #333333; text-transform: uppercase; font-weight: bold;}
           .billiardova .news_header, .petanqueova .news_header {color: #ffffcc;}
-        #reklama  {width: 220px; border: 1px solid #666666; background: #eee;}
+        #reklama  {width: 220px; border: 0px solid #666666; background: #fff;}
           
       #center {float: left; width: 370px; min-height: 300px; _height: 300px; padding: 20px 30px;}
       #right {float: left; width: 205px; min-height: 300px; _height: 300px; padding: 20px 30px;}

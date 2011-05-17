@@ -36,7 +36,7 @@ map.with_options :controller => 'calendar' do |calendar|
 
   map.with_options :controller => 'services' do |services|
     services.services      '/poster',  :action => 'index', :conditions => { :method => :get }
-    services.default       '/poster',  :action => 'index', :conditions => { :method => :get }
+    services.poster       '/poster',  :action => 'index', :conditions => { :method => :get }
 
   end
 
