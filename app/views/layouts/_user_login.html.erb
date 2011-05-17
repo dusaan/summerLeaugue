@@ -12,10 +12,11 @@
 <% else %>
       <input id="login" type="text" name="login" value="email" onBlur = "checkEmptyAndFill(this,'email');"onClick = "focusedAction(this, 'email');" />
       <input id="password" type="password" name="password" value="heslo" onBlur = "checkEmptyAndFill(this,'heslo');" onClick = "focusedAction(this, 'heslo');" />
-      <input id="submit" class="button" type="submit" value="" title="prihlásenie" />
+      <input id="submit" class="button" type="submit" value="OK" title="prihlásenie" />
       <%= link_to "registrácia", new_user_path, :id=> "register_link", :class=> "nodecoration" %>
 <% end %>
  
   </form>
+  <%= link_to "Kontakty", "#kontakt", :id=>"kontakt_link" %>
  
 </div>
