@@ -54,7 +54,7 @@
       #fb {margin-right: 10px; float:right;}
   
   #container {margin: 0 auto; width: 960px; position: relative;}
-    #header {width: 960px; height: 333px; position: relative; background: transparent url(/images/header.png) no-repeat 0 0;}
+    #header {width: 960px; height: 333px; position: relative; background: transparent url(/images/header2.png) no-repeat 0 0;}
       #header_img {border: 0; position: absolute; top: 0; left: 0; z-index: 1;}
       #header_over {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
       #header_over1 {width: 960px; height: 333px; position:absolute; top: 0; left: 0; background-color: transparent; background-repeat: no-repeat;}
@@ -72,7 +72,9 @@
           #loginform a.mailbox {height: 20px; line-height: 20px; margin: 2px 10px; display: block; float: left;}
           #loginform span {display: block; float: left; margin-right: 10px; line-height: 22px;}
           #loginform #login, #loginform #password {width: 150px; height: 1.2em; line-height: 1.2em; padding: 1px; float: left; margin-right: 5px; border: 1px solid #aaa; background-color: rgba(255, 255, 255, 0.70);}
-          #loginform #submit {background: transparent url(/images/menu_vrchne_registracia.png) no-repeat 0 0; width: 44px; height: 37px; border: none; float: left; cursor: pointer; margin-right: 5px;}
+          #loginform #submit {background: #fff; height: 22px; border: none; float: left; cursor: pointer; margin-right: 5px; font-size: 92%; font-weight: bold; padding: 1px 5px; border: 1px solid #aaa;}
+          #kontakt_link {color: #fff; text-decoration: none; position: absolute; right: 0; top: 30px; font-size: 110%; text-transform: uppercase; background: rgba(0, 0, 0, 0.2); padding: 1px 5px;}
+          #kontakt_link:hover {text-decoration: underline;}
       #sportsmen {width: 960px; height: 333px; position: relative;}
       #menu {z-index: 2; position: absolute; top: 151px; width: 960px; height: 182px; background: transparent url(/images/menu_prazdne.png) no-repeat 0 100%;}
       #submenu {z-index: 2; position: absolute; top: 302px; left: 0; width: 960px; height: 31px; padding-left: 10px;}
@@ -98,14 +100,14 @@
 /* Sport figures */
 /*---------------*/
     
-    #header_over .sportsman_streetball {background-image: url(/images/postavicky_streetball.png); background-position: 320px 0;}  
+    #header_over .sportsman_streetball {background-image: url(/images/postavicky_streetball.png); background-position: 365px 0px;}  
     #header_over .sportsman_squash {background-image: url(/images/postavicky_squash.png); background-position: 195px 0;}
     #header_over .sportsman_badminton {background-image: url(/images/postavicky_badminton.png); background-position: 343px 0;}
-    #header_over .sportsman_petanque {background-image: url(/images/postavicky_petanque.png); background-position: 812px 67px;}
+    #header_over .sportsman_petanque {background-image: url(/images/postavicky_petanque2.png); background-position: 800px 39px;}
     #header_over .sportsman_billiard {background-image: url(/images/postavicky_billiard.png); background-position: 692px 0;}
-    #header_over .sportsman_volleyball {background-image: url(/images/postavicky_volleyball.png); background-position: 184px 36px;}
-    #header_over .sportsman_soccer {background-image: url(/images/postavicky_soccer.png); background-position: 568px 67px;}
-    #header_over .sportsman_running {background-image: url(/images/postavicky_running.png); background-position: 460px 38px;}
+    #header_over .sportsman_volleyball {background-image: url(/images/postavicky_volleyball2.png); background-position: 228px 3px;}
+    #header_over .sportsman_soccer {background-image: url(/images/postavicky_soccer2.png); background-position: 526px 23px;}
+    #header_over .sportsman_running {background-image: url(/images/postavicky_running.png); background-position: 494px 40px;}
     #header_over .sportsman_golf {background-image: url(/images/postavicky_golf.png); background-position: 0 0;}
 
 /*-----------*/
@@ -113,13 +115,13 @@
 /*-----------*/
 
 
-    #header_over .menu_streetball {background-image: url(/images/menu_streetball_hover.png); background-position: 224px 214px;}
+    #header_over .menu_streetball {background-image: url(/images/menu_streetball_hover.png); background-position: 221px 213px;}
     #header_over .menu_squash  {background-image: url(/images/menu_squash_hover.png); background-position: 187px 234px;}
     #header_over .menu_badminton  {background-image: url(/images/menu_badminton_hover.png); background-position: 321px 234px;}
-    #header_over .menu_petanque {background-image: url(/images/menu_petanque_hover.png); background-position: 696px 240px;}
-    #header_over .menu_volleyball {background-image: url(/images/menu_volleyball_hover.png); background-position: 1px 205px;}
-    #header_over .menu_running {background-image: url(/images/menu_running_hover.png); background-position: 412px 227px;}
-    #header_over .menu_soccer {background-image: url(/images/menu_soccer_hover.png); background-position: 560px 236px;}
+    #header_over .menu_petanque {background-image: url(/images/menu_petanque_hover.png); background-position: 694px 239px;}
+    #header_over .menu_volleyball {background-image: url(/images/menu_volleyball_hover.png); background-position: 0px 204px;}
+    #header_over .menu_running {background-image: url(/images/menu_running_hover.png); background-position: 409px 226px;}
+    #header_over .menu_soccer {background-image: url(/images/menu_soccer_hover.png); background-position: 558px 235px;}
     #header_over .menu_billiard {background-image: url(/images/menu_billiard_hover.png); background-position: 598px 234px;}
     #header_over .menu_golf {background-image: url(/images/menu_golf_hover.png); background-position: 729px 234px;}
     
