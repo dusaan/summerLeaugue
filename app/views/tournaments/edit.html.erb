@@ -8,7 +8,7 @@
   </p>
    <p>
     <%= f.label :Začiatok %><br />
-    <%= calendar_date_select_tag "starts_at","#{@tournament.starts_at ? @tournament.starts_at.to_date : ''}" %>
+    <%= raw (calendar_date_select_tag "starts_at","#{@tournament.starts_at ? @tournament.starts_at.to_date : ''}" )%>
   </p>
   <p>
     <%= f.label :Čas %><br />
