@@ -42,7 +42,7 @@ map.with_options :controller => 'calendar' do |calendar|
 
 
   map.with_options :controller => 'newzs' do |newzs|
-    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
+#    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
     newzs.news      'news/:sport',  :action => 'index', :conditions => { :method => :get }
     newzs.rules     'rules/:sport', :action => 'rules', :conditions => { :method => :get }
   end
@@ -87,6 +87,7 @@ map.with_options :controller => 'calendar' do |calendar|
 
   map.with_options :controller => 'sessions' do |session|
     session.new_session    'session/new', :action => 'new',     :conditions => { :method => :get }
+    session.default    '/', :action => 'new',     :conditions => { :method => :get }
     session.session        'session',     :action => 'create',  :conditions => { :method => :post }
     session.connect        'session',     :action => 'destroy', :conditions => { :method => :delete }
     session.update_selected    'session/update/:sport', :action => 'update_selected_sport',     :conditions => { :method => :get }
