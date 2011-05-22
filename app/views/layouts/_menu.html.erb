@@ -1,5 +1,5 @@
 <% if @selected_sport_name %>
-  <%= link_to raw('<span>pravidlá</span>'), rules_path(@selected_sport_name)  , :class => (params[:action] == "rules" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
+  <%= link_to raw('<span>pravidlá</span>'), rules_path(@selected_sport_name)  , :class => ((params[:action] == "rules" && params[:sport] != "contacts")? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 <% end%>
 <% if @current_user %>
 
