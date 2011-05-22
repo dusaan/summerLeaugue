@@ -1,5 +1,10 @@
 <!--... right sidebar goes here ...-->
 <div id="right">
+  <% if Tournament.with_image.count > 0  %>
+    <% tournament  = Tournament.with_image.rand %>
+   	<%= link_to image_tag("/images/tournaments/#{tournament.pic_path}.png"), tournament%>
+  <% end %>
+
 
 
 	<% if(@current_user) %>

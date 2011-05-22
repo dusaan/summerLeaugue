@@ -6,6 +6,8 @@ class Tournament < ActiveRecord::Base
   has_many :teams, :through => :teams_tournaments 
   has_many :matches
 
+  named_scope :with_image, lambda { { :conditions => ['pic_path IS NOT  ?', nil] } }
+
   def user_name
     user ? user.name : ""
   end
