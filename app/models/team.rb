@@ -14,7 +14,7 @@ class Team < ActiveRecord::Base
   has_many :team_players
   has_many :users, :through => :team_players 
 
-  validates_uniqueness_of   :name
+  validate  :xname
   validates_presence_of   :name
  
   # Paperclip
@@ -39,5 +39,12 @@ class Team < ActiveRecord::Base
 
   def set_ascii_name
     self.ascii_name = name.ascii
+  end
+
+  def xname
+    return if name.nil?
+    xteam = Team.find_by_ascii_name name.ascii
+    return if xteam.nil?
+    errors.add(:name, 'already taken') if xteam.user_id != self.user_id
   end
 end

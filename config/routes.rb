@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
     tournaments.tournament_team_confirm 'tournament_team_confirm/:tournament_id/:team_id',  :action => 'tournament_team_confirm', :conditions => { :method => :put }
     tournaments.generate_tournament_mathces 'gen_matches/:tournament_id',  :action => 'generate_tournament_mathces', :conditions => { :method => :put }
     tournaments.tournament_matches 'tournament_matches/:tournament_id',  :action => 'tournament_matches'
+    tournaments.show_public 'tournament_public/:id',  :action => 'show_public'
 
 
 

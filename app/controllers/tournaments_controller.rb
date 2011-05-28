@@ -1,4 +1,6 @@
 class TournamentsController < ApplicationController
+  skip_before_filter :authenticate, :only => [:show_public]
+
   # GET /tournaments
   # GET /tournaments.xml
   def index
@@ -10,11 +12,18 @@ class TournamentsController < ApplicationController
     end
   end
 
+  def show_public
+    @tournament = Tournament.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @tournament }
+    end
+  end
   # GET /tournaments/1
   # GET /tournaments/1.xml
   def show
     @tournament = Tournament.find(params[:id])
-    @team = @tournament.teams.find :first, :conditions =>["user_id = #{@current_user.id}"]
+    @team = @tournament.teams.find :first, :conditions =>["user_id = #{@current_user.id}"] if @current_user
     @should_confirm = true if( @team && (TeamsTournament.find :first, :conditions =>["team_id = ? AND tournament_id = ? AND confirmed = false", @team.id, params[:id]]))
     respond_to do |format|
       format.html # show.html.erb

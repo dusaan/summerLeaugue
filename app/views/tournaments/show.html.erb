@@ -34,7 +34,7 @@
   <%=h @tournament.starts_at.strftime("%d.%m.%Y o %H:%M") %>
 </p>
 
-<% if @current_user.id == @tournament.user_id %>
+<% if @current_user && @current_user.id == @tournament.user_id %>
   <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
     <%= link_to 'Vygeneruj zápasy', generate_tournament_mathces_path(@tournament), :method=>:put  %> |
     <% if @tournament.sport.team %>
