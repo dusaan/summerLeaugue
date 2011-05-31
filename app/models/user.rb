@@ -21,17 +21,25 @@ class User < ActiveRecord::Base
 
   attr_accessor   :password, :password_confirmation
   validates_presence_of     :email
+  validates_uniqueness_of :vs
+  
 #  validates_presence_of     :first_name
 #  validates_presence_of     :last_name
   validates_format_of       :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_blank => false
   validates_uniqueness_of   :email, :if => :email_changed?
+
   validates_presence_of     :password,              :if => :password_needed?
   validates_presence_of     :password_confirmation, :if => :password_needed?
   before_create :generate_link
+  before_create :set_vs
   before_update :encrypt_password, :if => :password_needed?
 
   def set_ascii_name
     self.ascii_name = name.ascii
+  end
+
+  def set_vs
+    self.vs = randomInt(10)
   end
   
   def generate_link
@@ -45,6 +53,7 @@ class User < ActiveRecord::Base
     Notifier.deliver(mail)
     encrypt_password
   end
+
   def admin?
     self.user_role == "admin"  
   end

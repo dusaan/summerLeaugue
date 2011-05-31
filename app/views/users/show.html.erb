@@ -1,11 +1,19 @@
 <% if @current_user.id == @user.id && (@current_user.first_name.blank? || @current_user.last_name.blank?) %> 
 Nemáš vyplnené všetky údaje, bolo by super, keby si mal vyplnené aspoň meno a priezvisko.
-<br />  
+<br />  <br />
 <% end %>
+<% if @current_user.id == @user.id && @user.paid == false %>
+
+<p><b>Ešte si nezaplatil štartovné.</b><br /><br /> <b>Štartovné</b> je potrebné uhradiť na účet <b>2920857372 / 1100</b> s variabilným symbolom <b><%= @user.vs%></b> a do poznámky napíš svoj email, ktorým si sa registroval.<br />
+Ak chcete <b>zaplatiť hromadne</b> (napr. celý tím, kontaktujte nás na adrese registracie@letnaliga.sk) a do mailu napíšte zoznam ľudí (ich mailové adresy), pre ktorých je hromadná platba určená.<br />
+Ak chcete <b>zaplatiť v hotovosti</b>, tak píšte na <b><i>tina@letnaliga.sk</i></b>, alebo volajte na: <b>0907 100 319</b>
+</p>
+<% end %>
+
 
 <% if false && @current_user.id == @user.id && @user.sports.empty? && @user.teams.empty? %>
 Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
-Skús sa pridať napríklad na  <%= link_to "streetball!",teams__path(Sport.find_by_name "streetball") %>
+Skús sa pridať napríklad na  <%= link_to "streetball!",teams__path(Sport.find_by_name "streetball") %><br />  <br />
 <% end %>
 
 <% if @current_user.id == @user.id && @user.invitations.count > 0  %>

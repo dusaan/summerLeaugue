@@ -6,6 +6,10 @@ protected
     Digest::SHA1.hexdigest("--#{s1}--#{s2}--")
   end
 
+  def generate_random_int(length = 40)
+    chars = ("0".."9").to_a 
+    Array.new(length) { chars.rand }.join
+  end
   def generate_random_string(length = 40, *args)
     chars = []
     chars += ("a".."z").to_a if args.empty? || args.include?(:lowercase)

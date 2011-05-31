@@ -5,4 +5,8 @@ module ApplicationHelper
     o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten  
     (0...count).map{ o[rand(o.length)]  }.join
   end
+  def randomInt(count)
+    o =  [('0'..'9')].map{|i| i.to_a}.flatten  
+    (0...count).map{ o[rand(o.length)]  }.join
+  end
 end

@@ -33,6 +33,8 @@
     <%= f.select :gender, ["Muž", "Žena"] %>
  
   </p>
+
+
   <p>
     <%= f.label "Mám zájem o(plná cena/zľava pre študenta)" %><br />   
     <select name="user[interested_in]">
@@ -42,9 +44,12 @@
       <option value="petanque"> Pétanque za 5/4 €</option>
       <option value="running"> Beh za 5/4 €</option>
       <option value="all"> Všetky športy za 25/20 €</option>
- 
+    </select>
   </p>
-<br /><br />
+  <p><b>
+    Aby si bol zaradený do turnaja je nutné uhradiť sumu za štartovné na účet: 2920857372 / 1100.
+  </b></p>  
+<span> </span>
   <p>
     <%= f.submit 'Zaregistruj' %>
   </p>
