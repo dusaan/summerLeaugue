@@ -28,7 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   #  tournaments.show_public 'tournament_public/:id',  :action => 'show_public'
   end
 
-  map.resources :tournaments, :except => [:index]
+  map.resources :tournaments
 
   map.resources :courts
 
