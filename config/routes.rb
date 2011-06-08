@@ -1,16 +1,34 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.with_options :controller => 'users' do |users|
+    users.new_user     'registracia',  :action => 'new', :conditions => { :method => :get }
+  end
+
+  map.with_options :controller => 'services' do |services|
+    services.services      '/poster',  :action => 'index', :conditions => { :method => :get }
+    services.poster       '/poster',  :action => 'index', :conditions => { :method => :get }
+  end
+  map.with_options :controller => 'newzs' do |newzs|
+    newzs.contacts     '/kontakty', :action => 'contacts', :conditions => { :method => :get }
+    newzs.faq     '/FAQ', :action => 'faq', :conditions => { :method => :get }
+
+  end
+
   map.with_options :controller => 'tournaments' do |tournaments|
-    tournaments.tournaments_            'tournaments_/:sport',                          :action => 'index', :conditions => { :method => :get }
-    tournaments.edit_tournament_teams   'tournaments_/:tournament_id/edit',             :action => 'edit_tournament_teams',   :conditions => { :method => :get }
+    tournaments.show_public '/:name',  :action => 'show_with_name'
+  end
+
+
+
+  map.with_options :controller => 'tournaments' do |tournaments|
+    tournaments.tournaments_            'turnaje/:sport',                          :action => 'index', :conditions => { :method => :get }
+    tournaments.edit_tournament_teams   'turnaje/:tournament_id/edit',             :action => 'edit_tournament_teams',   :conditions => { :method => :get }
     tournaments.tournament_team_remove  'tournament_team/:tournament_id/:team_id',      :action => 'remove_tournament_team',  :conditions => { :method => :delete }
     tournaments.tournament_team_add     'tournament_team_add/:tournament_id/:team_id',  :action => 'tournament_team_add', :conditions => { :method => :put }
     tournaments.tournament_team_confirm 'tournament_team_confirm/:tournament_id/:team_id',  :action => 'tournament_team_confirm', :conditions => { :method => :put }
     tournaments.generate_tournament_mathces 'gen_matches/:tournament_id',  :action => 'generate_tournament_mathces', :conditions => { :method => :put }
     tournaments.tournament_matches 'tournament_matches/:tournament_id',  :action => 'tournament_matches'
-    tournaments.show_public 'tournament_public/:id',  :action => 'show_public'
-
-
-
+  #  tournaments.show_public 'tournament_public/:id',  :action => 'show_public'
   end
 
   map.resources :tournaments, :except => [:index]
@@ -35,17 +53,10 @@ map.with_options :controller => 'calendar' do |calendar|
   end
 
 
-  map.with_options :controller => 'services' do |services|
-    services.services      '/poster',  :action => 'index', :conditions => { :method => :get }
-    services.poster       '/poster',  :action => 'index', :conditions => { :method => :get }
-
-  end
-
-
   map.with_options :controller => 'newzs' do |newzs|
 #    newzs.default   '/',            :action => 'default', :conditions => { :method => :get }
-    newzs.news      'news/:sport',  :action => 'index', :conditions => { :method => :get }
-    newzs.rules     'rules/:sport', :action => 'rules', :conditions => { :method => :get }
+    newzs.news      'novinky/:sport',  :action => 'index', :conditions => { :method => :get }
+    newzs.rules     'pravidla/:sport', :action => 'rules', :conditions => { :method => :get }
   end
 
   map.with_options :controller => 'scores' do |scores|
@@ -53,7 +64,7 @@ map.with_options :controller => 'calendar' do |calendar|
   end
 
   map.with_options :controller => 'users' do |users|
-    users.users_        'users_/:sport',  :action => 'index', :conditions => { :method => :get }
+    users.users_        'sportovci/:sport',  :action => 'index', :conditions => { :method => :get }
     users.join_sport    'join_sport',     :action => 'join',  :conditions => { :method => :get }
     users.join_league   'jo/:join_string',    :action => 'join_league',  :conditions => { :method => :get }
   end
@@ -73,7 +84,7 @@ map.with_options :controller => 'calendar' do |calendar|
 
   map.with_options :controller => 'teams' do |teams|
     teams.edit_team       'teams/:id/edit',  :action => 'edit',            :conditions => { :method => :get }
-    teams.teams_    'teams_/:sport', :action => 'index', :conditions => { :method => :get }
+    teams.teams_    'timy/:sport', :action => 'index', :conditions => { :method => :get }
     teams.invite    'invite_to_team/:team_id', :action => 'invite', :conditions => { :method => :get }
     teams.invite_temp  'reg2', :action => 'invite_temp', :conditions => { :method => :get }
     teams.user_team_remove   'remove_from_team/:user_id/:team_id',  :action => 'remove_user',  :conditions => { :method => :delete }
@@ -112,7 +123,7 @@ map.with_options :controller => 'calendar' do |calendar|
 
   map.resources :leagues
 
-  map.resources :users
+  map.resources :users, :except => :new
 
   map.resources :sports
 

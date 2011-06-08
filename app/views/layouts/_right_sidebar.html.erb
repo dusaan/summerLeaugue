@@ -2,7 +2,7 @@
 <div id="right">
   <% if Tournament.with_image.count > 0  %>
     <% tournament  = Tournament.with_image.rand %>
-   	<%= link_to image_tag("/images/tournaments/#{tournament.pic_path}.png"), (@current_user ? tournament : show_public_path(tournament))%>
+   	<%= link_to image_tag("/images/tournaments/#{tournament.pic_path}.png"), (@current_user ? tournament : show_public_path(tournament.sport.name))%>
   <% end %>
 
 
@@ -23,10 +23,11 @@
   <% else %>
   <span class = "heading plus"> Registrácia</span>
     <div id="news">
-      1. klikni na <%= link_to "registráciu", new_user_path %><br>
-      2. vyplň mail, informácie o sebe a vyber si šport<br>
-      3. klikni na odkaz, ktorý ti prišiel mailom<br>
-      4. prihlás sa na stránke <%= link_to "www.LetnaLiga.sk", default_path %><br>
+      1. klikni na <%= link_to "registráciu", new_user_path %><br />
+      2. vyplň mail, informácie o sebe a vyber si šport<br />
+      3. klikni na odkaz, ktorý ti prišiel mailom<br />
+      4. prihlás sa na stránke <%= link_to "www.LetnaLiga.sk", default_path %><br /><br />
+      ...prípadne si stiahni prihlášku v <%= link_to ".doc", "/timovaprihlaska.doc" %>, alebo <%= link_to ".pdf", "/timovaprihlaska.pdf" %> formáte
     </div>
   <% end %>
 	<% if(@selected_sport && false) %>

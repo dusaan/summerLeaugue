@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  skip_before_filter :authenticate, :only => [:show_public]
+  skip_before_filter :authenticate, :only => [:show_public, :show_with_name]
 
   # GET /tournaments
   # GET /tournaments.xml
@@ -9,6 +9,18 @@ class TournamentsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tournaments }
+    end
+  end
+
+  def show_with_name
+    sport = Sport.find_by_name (params[:name])
+    redirect_to default_path if sport.nil? 
+    return if sport.nil? 
+    @tournament = sport.tournaments.first
+    redirect_to default_path if @tournament.nil?
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @tournament }
     end
   end
 

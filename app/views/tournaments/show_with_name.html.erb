@@ -1,0 +1,29 @@
+<h1><%=h @tournament.name %>
+</h1>
+<p>
+  <b>Miesto:</b>
+  <%= @tournament.court ? (link_to @tournament.courtname,@tournament.court) : @tournament.courtname %>
+</p>
+<p>
+  <b>Dodatočné info:</b>
+  <%= @tournament.description %>
+</p>
+<p>
+  <b>Kategórie:</b>
+<table>
+    <tr><td>&nbsp;&nbsp;Muži:</td><td> <%= image_tag(@tournament.male ? "tick.png" : "cross.png") %></td></tr>
+    <tr><td>&nbsp;&nbsp;Ženy:</td><td> <%= image_tag(@tournament.female ? "tick.png" : "cross.png") %> </td></tr>
+    <tr><td>&nbsp;&nbsp;Mix:</td><td> <%= image_tag(@tournament.mix ? "tick.png" : "cross.png") %> </td></tr>
+</table> 
+</p><p>
+  <b>Turnaj vytvoril:</b>
+  <%= @tournament.user %>
+</p>
+
+<p>
+  <b>Začiatok:</b>
+  <%=h @tournament.starts_at.strftime("%d.%m.%Y o %H:%M") %>
+</p>
+<h2>
+  <b><%= link_to "Zaregistruj", new_user_path%></b> sa a môžeš sa zúčastniť aj <b>TY</b>!
+</h2>

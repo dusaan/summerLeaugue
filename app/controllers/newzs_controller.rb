@@ -1,7 +1,7 @@
 class NewzsController < ApplicationController
   # GET /newzs
   # GET /newzs.xml
- skip_before_filter :authenticate, :only => [:index, :show, :rules]
+ skip_before_filter :authenticate, :only => [:index, :show, :rules, :contacts, :faq]
 
   def index
    
@@ -15,6 +15,11 @@ class NewzsController < ApplicationController
 
   def rules
     @sport_type = params[:sport]
+  end
+  
+  def contacts
+  end
+  def faq
   end
 
   def default
