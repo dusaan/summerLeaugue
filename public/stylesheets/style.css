@@ -77,6 +77,8 @@
           #loginform #submit {background: #fff; height: 22px; border: none; float: left; cursor: pointer; margin-right: 5px; font-size: 92%; font-weight: bold; padding: 1px 5px; border: 1px solid #aaa;}
           #kontakt_link {color: #fff; text-decoration: none; position: absolute; right: 0; top: 30px; font-size: 110%; text-transform: uppercase; background: rgba(0, 0, 0, 0.2); padding: 1px 5px;}
           #kontakt_link:hover {text-decoration: underline;}
+          #faq_link {color: #fff; text-decoration: none; position: absolute; right: 82px; top: 30px; font-size: 110%; text-transform: uppercase; background: rgba(0, 0, 0, 0.2); padding: 1px 5px;}
+          #faq_link:hover {text-decoration: underline;}
           
       #sportsmen {width: 960px; height: 333px; position: relative;}
       #menu {z-index: 2; position: absolute; top: 151px; width: 960px; height: 182px; background: transparent url(/images/menu_prazdne.png) no-repeat 0 100%;}
