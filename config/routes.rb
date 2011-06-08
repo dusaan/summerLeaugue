@@ -14,9 +14,6 @@ ActionController::Routing::Routes.draw do |map|
 
   end
 
-  map.with_options :controller => 'tournaments' do |tournaments|
-    tournaments.show_public '/:name',  :action => 'show_with_name'
-  end
 
 
 
@@ -127,6 +124,9 @@ map.with_options :controller => 'calendar' do |calendar|
 
   map.resources :sports
 
+  map.with_options :controller => 'tournaments' do |tournaments|
+    tournaments.show_public '/:name',  :action => 'show_with_name'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
 
