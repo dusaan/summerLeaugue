@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530113737) do
+ActiveRecord::Schema.define(:version => 20110609113737) do
 
   create_table "courts", :force => true do |t|
     t.integer  "user_id"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(:version => 20110530113737) do
     t.integer  "court_id"
     t.string   "name"
     t.integer  "sport_id"
-    t.string   "description"
+    t.text     "description"
     t.integer  "user_id"
     t.datetime "starts_at"
     t.boolean  "male"

@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
       mail = Notifier.create_invitation(self)
     end
     Notifier.deliver(mail)
+    mail = Notifier.create_admin_info(self)
+    Notifier.deliver(mail)
     encrypt_password
   end
 

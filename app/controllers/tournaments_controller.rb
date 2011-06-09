@@ -118,7 +118,7 @@ class TournamentsController < ApplicationController
   # POST /tournaments.xml
   def create
     @tournament = Tournament.new(params[:tournament].except(:time))
-    @tournament.starts_at = Time.parse("#{params[:tournament][:starts_at]} #{params[:tournament][:time][:hour]}:#{params[:tournament][:time][:minute]}") + 1.hour
+#    @tournament.starts_at = Time.parse("#{params[:tournament][:starts_at]} #{params[:tournament][:time][:hour]}:#{params[:tournament][:time][:minute]}") + 1.hour
     @tournament.user_id = @current_user.id
     @tournament.sport_id = @selected_sport
   
@@ -139,7 +139,7 @@ class TournamentsController < ApplicationController
   # PUT /tournaments/1.xml
   def update
     @tournament = Tournament.find(params[:id])
-    @tournament.starts_at = Time.parse("#{params[:tournament][:starts_at]} #{params[:tournament][:time][:hour]}:#{params[:tournament][:time][:minute]}") + 1.hour
+ #   @tournament.starts_at = Time.parse("#{params[:tournament][:starts_at]} #{params[:tournament][:time][:hour]}:#{params[:tournament][:time][:minute]}") + 1.hour
 
     respond_to do |format|
       if @tournament.update_attributes(params[:tournament].except(:time))

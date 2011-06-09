@@ -1,0 +1,15 @@
+<h1>Hráči:</h1>
+
+<table>
+  <tr>
+    <th>Meno</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.inspect %></td>
+    <td><%= link_to "edit", edit_user_path(user) %></td>
+
+  </tr>
+<% end %>
+</table>

@@ -62,6 +62,7 @@ map.with_options :controller => 'calendar' do |calendar|
 
   map.with_options :controller => 'users' do |users|
     users.users_        'sportovci/:sport',  :action => 'index', :conditions => { :method => :get }
+    users.users_admin   'sportovci_/admin',  :action => 'index_admin', :conditions => { :method => :get }
     users.join_sport    'join_sport',     :action => 'join',  :conditions => { :method => :get }
     users.join_league   'jo/:join_string',    :action => 'join_league',  :conditions => { :method => :get }
   end

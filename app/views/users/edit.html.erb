@@ -2,7 +2,12 @@
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
-
+<% if @current_user && @current_user.user_role == "admin" %>
+ <p>
+    <%= f.label "Paid"  %><br />
+    <%= f.check_box :paid %>
+  </p>
+<% end %>
   <p>
     <%= f.label "Meno"  %><br />
     <%= f.text_field :first_name %>

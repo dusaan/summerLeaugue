@@ -14,6 +14,12 @@ require 'net/smtp'
     body :user => user
     content_type 'text/html'
   end
-
+  def admin_info(user)
+    from "LetnaLiga.sk"
+    recipients "registracia@letnaliga.sk"
+    subject "Novy ksicht sa regol"
+    body :user => user
+    content_type 'text/html'
+  end
 end
 

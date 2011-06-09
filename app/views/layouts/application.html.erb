@@ -12,24 +12,51 @@
     <div id="footer">
       <div id = "footer_div">
         <div class="footerlist">
-          <span>Vseobecne</span>
+          <span>Všeobecné</span>
             <ul>
               <li>
                 <%= link_to "Home", default_path %>
               </li>
               <li>
+                <%= link_to "Registrácia", new_user_path %>
+              </li>
+              <li>
                 <%= link_to "Kontakty", contacts_path %>
+              </li>
+              <li>
+                <%= link_to "FAQ", faq_path %>
               </li>
             </ul>
           </div>
           <div class="footerlist">
-          <span>Sporty</span>
+          <span>Pravidlá</span>
+            <ul>
+              <li>
+                <%= link_to "Všeobecné", rules_path("base") %>
+              </li>
+              <li>
+                <%= raw (Sport.all.collect{|sport| "<li>" + " #{link_to sport.name.capitalize, rules_path(sport.name)} " + "</li>"}) %>
+              </li>
+            </ul>
+          </div>
+          <div class="footerlist">
+          <span>Športy</span>
            <ul>
             <li>
               <%= raw (Sport.all.collect{|sport| "<li>" + " #{link_to sport.name.capitalize, update_selected_path(sport)} " + "</li>"}) %>
             </li>
           </ul>
-        </div>
+          </div>
+<% if @current_user && @current_user.user_role == "admin" %>
+        <div class="footerlist">
+          <span>Admin</span>
+            <ul>
+              <li>
+                <%= link_to "Hraci", users_admin_path %>
+              </li>
+            </ul>
+          </div>
+<% end %>
       </div>
     </div>
   </div>
