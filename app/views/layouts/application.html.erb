@@ -11,12 +11,25 @@
     </div>
     <div id="footer">
       <div id = "footer_div">
-        <%= link_to "Home", default_path %> |
-        <%= link_to "Kontakty", contacts_path %> |
-        <%= raw (Sport.all.collect{|sport| "#{link_to sport.name.capitalize, update_selected_path(sport)} | "}) %>
-        <%= link_to "Všeobecné podmienky", rules_path("base") %> |
-        <%= link_to "FAQ", faq_path %>
-
+        <div class="footerlist">
+          <span>Vseobecne</span>
+            <ul>
+              <li>
+                <%= link_to "Home", default_path %>
+              </li>
+              <li>
+                <%= link_to "Kontakty", contacts_path %>
+              </li>
+            </ul>
+          </div>
+          <div class="footerlist">
+          <span>Sporty</span>
+           <ul>
+            <li>
+              <%= raw (Sport.all.collect{|sport| "<li>" + " #{link_to sport.name.capitalize, update_selected_path(sport)} " + "</li>"}) %>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
