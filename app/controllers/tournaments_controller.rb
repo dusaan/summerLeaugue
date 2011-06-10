@@ -76,6 +76,8 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1/edit
   def edit
     @tournament = Tournament.find(params[:id])
+    redirect_to default_path unless (@current_user.id == @tournament.user_id || @current_user.admin?)
+
   end
 
   def edit_tournament_teams

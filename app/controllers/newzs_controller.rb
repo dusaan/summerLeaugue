@@ -49,6 +49,9 @@ class NewzsController < ApplicationController
 
   # GET /newzs/1/edit
   def edit
+    redirect_to default_path unless (@current_user.admin?)
+    return unless (@current_user.admin?)
+
     @newz = Newz.find(params[:id])
   end
 
