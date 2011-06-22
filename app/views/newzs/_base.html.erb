@@ -4,85 +4,79 @@
 </p><p>
 2. Uskutoční sa od 18.6.2011 do 31.7.2011
 </p><p>
-3. Športy na Letnej Lige 2011 sú:</p>
-<table cellspacing="0" cellpadding="7" bordercolor="#00000a" border="1">
+3. Letná liga je šesť týždňová športová súťaž, ktorá je zložená z piatich samostatných turnajov v rozličných športoch:</p>
+<table class="blackborder" cellspacing="1" cellpadding="3" border="0" style="width: 100%; text-align: center;">
 	<tbody><tr >
-				<td><b>Šport</b></td>
-				<td >	<b>Dátum</b></td>
-  			<td><b>Miesto</b>	</td>
+				<th><b>Šport</b></th>
+				<th><b>Dátum</b></th>
+  			<th><b>Miesto</b>	</th>
 			</tr>
 			<tr>
-        <td >Beh</td>
-				<td >18.6.2011</td>
+        <td><%= link_to "Beh", update_selected_path(Sport.find_by_name "running") %></td>
+				<td>18.6.2011</td>
 				<td>LaFranconi(areál FTVŠ)</td>
 			</tr>
 			<tr>
-				<td >Plážový futbal<br /> (beach soccer)</td>
-				<td >2.7.2011</td>
+				<td><%= link_to "Plážový futbal", update_selected_path(Sport.find_by_name "soccer") %><br /> (beach soccer)</td>
+				<td>2.7.2011</td>
 				<td>Summer Club Incheba</td>
 			</tr>
 			<tr>
-				<td>Streetball</td>
+				<td><%= link_to "Streetball", update_selected_path(Sport.find_by_name "streetball") %></td>
 				<td>16.7.2011</td>
 				<td>LaFranconi (areál FTVŠ)	</td>
 			</tr>
 			<tr>
-				<td >Plážový	volejbal <br />(beach volley)</td>
-				<td >23.7.2011</td>
+				<td><%= link_to "Plážový	volejbal", update_selected_path(Sport.find_by_name "volleyball") %><br />(beach volley)</td>
+				<td>23.7.2011</td>
 				<td> Summer Club Incheba</td>
 			</tr>
 			<tr>
-				<td>Petang</td>
+				<td><%= link_to "Petang", update_selected_path(Sport.find_by_name "petanque") %></td>
 				<td>30.7.2011</td>
 				<td>LaFranconi (areál FTVŠ)</td>
 			</tr>
 		</tbody></table>
 <p>
 4. Cenník súťaže Letná liga 2011
-<table cellspacing="0" cellpadding="7" bordercolor="#00000a" border="1">
-	<tbody><tr >
-				<td><b>Šport</b></td>
-				<td >	<b>Cena na osobu</b></td>
-  			<td><b>Čo je zarátané v štartovnom</b>	</td>
+<table class="blackborder" cellspacing="1" cellpadding="3" border="0" style="width: 100%; text-align: center;">
+	<tbody><tr>
+				<th><b>Šport</b></th>
+				<th><b>Cena na osobu</b></th>
+  			<th><b>Čo je zarátané v štartovnom</b></th>
 			</tr>
 			<tr>
-        <td >Beh</td>
+        <td><%= link_to "Beh", update_selected_path(Sport.find_by_name "running") %></td>
 				<td >5€</td>
 				<td>Štartovné na jeden šport/kolo<br />
 Pitný režim </td>
 			</tr>
 			<tr>
-				<td >Plážový futbal<br /> (beach soccer)</td>
+				<td ><%= link_to "Plážový futbal", update_selected_path(Sport.find_by_name "soccer") %><br /> (beach soccer)</td>
 				<td >9€</td>
 				<td>Štartovné na jeden šport/kolo<br />
 Pitný režim </td>
 			</tr>
 			<tr>
-				<td>Streetball</td>
-				<td>9€</td>
-				<td>Štartovné na jeden šport/kolo<br />
-Pitný režim </td>
-			</tr>
-			<tr>
-				<td >Plážový	volejbal <br />(beach volley)</td>
-				<td >9€</td>
-				<td>Štartovné na jeden šport/kolo<br />
-Pitný režim </td>
-			</tr>
-			<tr>
-				<td>Petang</td>
+				<td><%= link_to "Streetball", update_selected_path(Sport.find_by_name "streetball") %></td>
 				<td>5€</td>
 				<td>Štartovné na jeden šport/kolo<br />
 Pitný režim </td>
 			</tr>
 			<tr>
-				<td>Celý turnaj Letná liga 2011</td>
-				<td>25€</td>
-				<td>Štartovné na 5 športov<br />
+				<td><%= link_to "Plážový	volejbal", update_selected_path(Sport.find_by_name "volleyball") %><br />(beach volley)</td>
+				<td>5€</td>
+				<td>Štartovné na jeden šport/kolo<br />
+Pitný režim </td>
+			</tr>
+			<tr>
+				<td><%= link_to "Petang", update_selected_path(Sport.find_by_name "petanque") %></td>
+				<td>5€</td>
+				<td>Štartovné na jeden šport/kolo<br />
 Pitný režim </td>
 			</tr>
 		</tbody></table>
-
+<i>*študenti si môžu uplatniť zľavu 20% na jednotlivé turnaje (cena 4€ na šport)</i>
 </p><p>
 
 5. Organizátori majú možnosť zmeniť a prispôsobiť pravidlá LL tak aby umožnili plynulý priebeh súťaže
@@ -93,4 +87,70 @@ Letná Liga sa hodnotí v dvoch oblastiach. Jeden druh hodnotení sa týka súť
 </p><p>
 7. Bodovanie jednotlivých turnajov (kôl)<br />
 Hodnotíme prvé 4 tímy pri behu prvých 5 jednotlivcov v kategórií. Najprv sa hrá v skupinách a prvých 8 tímov postupuje do play-off. Vyradovacím spôsobom sa hrá pavúk, až kým nepoznáme výťaza. Po ukončení turnaja sa odovzdávajú ceny víťazom.
+</p>
+<table class="blackborder" cellspacing="1" cellpadding="3" border="0" style="width: 100%; text-align: center;">
+  <tbody>
+    <tr>
+      <th>Šport</th>
+      <th>Umiestnenie</th>
+      <th>Body</th>
+    </tr>
+    <tr>
+      <td rowspan = "5">futbal<br />streetbal<br />volejbal<br />petang</td>
+      <td>1</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Neúčasť bez ospravedlnenia</td>
+      <td>-40</td>
+    </tr>
+    <tr>
+      <td rowspan="6">Beh</td>
+      <td>1</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Neúčasť bez ospravedlnenia</td>
+      <td>-20</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+8. Každý šport/kolo je hodnotené samostatne (pri tímových športoch dostane každý jeden športovec body podľa umiestnenia celého tímu).
+</p>
+<p>9.Na konci Letnej ligy (po petangovom kole dňa 30.7.) bude ohodnotený najvšestrannejší športovec, ktorý absolvoval aspoň 3 súťaže v rôznych športoch.
+</p>
+
+<p>10. Registrovať na Letnú ligu sa môžete na adrese <%= link_to "www.letnaliga.sk/registracia", new_user_path %> kde sú všetky  pokyny potrebné na registráciu.
+</p>
+<p>
+Ak vám nie je jasné ako je Letná liga hodnotená, neviete sa zaregistrovať alebo máte nejaké otázky pozrite si stránku <%= link_to "www.letnaliga.sk/FAQ", faq_path %>. Ak na tejto stránke nenájdete odpovede napíšte nám otázku na <%= mail_to "info@letnaliga.sk" %> a my vám na ňu odpovieme.
 </p>

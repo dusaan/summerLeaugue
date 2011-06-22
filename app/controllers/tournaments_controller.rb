@@ -5,7 +5,6 @@ class TournamentsController < ApplicationController
   # GET /tournaments.xml
   def index
     @tournaments = Tournament.find :all, :conditions => ["sport_id = #{@selected_sport}"], :order => "played desc, starts_at"
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tournaments }
