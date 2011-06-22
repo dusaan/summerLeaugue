@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
     @current_user = current_user if signed_in?
     @selected_sport = selected_sport_id
     @selected_sport_name = selected_sport_name
+    first_tournament = Tournament.find :first, :conditions => ["sport_id = #{@selected_sport}"]
+    @first_tournament_id = first_tournament.id
   end
  
 end
