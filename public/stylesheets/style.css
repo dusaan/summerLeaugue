@@ -4,10 +4,10 @@
 #flash {width: 100%; z-index: 10}
 #flash .notice, #flash .error {padding: 0.2em 2em 0.2em 20.3em}
 
-  a {color: #99CC00; text-decoration: underline;}
+  a {color: #4D9900; text-decoration: underline;}
   a img {border: 1px solid #99CC00;} 
   a:hover {text-decoration: none;}
-  #right a {color: #536f00;}
+  #right a {color: #18620b;}
   #right a img {border: 1px solid #536f00;}
   a.noborder img {border: none;}  
   a.nodecoration {text-decoration: none;}
@@ -178,7 +178,8 @@
 
   .streetballova a, .streetballova h1 {color: #E97300;}
   .streetballova #right a {color: #824000;} 
-  .volleyballova a, .volleyballova h1 {color: #d0a600;}
+  .volleyballova a {color: #bf8300;}
+  .volleyballova h1 {color: #f6a900;}
   .volleyballova #right a {color: #745d00;}
   .squashova a, .squashova h1 {color: #d0a600;}
   .squashova #right a {color: #745d00;}
@@ -186,8 +187,8 @@
   .badmintonova #right a {color: #475f17;}
   .runningova a, .runningova h1 {color: #4D8EAD;}
   .runningova #right a {color: #37667c;}
-  .petanqueova a, .petanqueova h1 {color: #4D8EAD;}
-  .petanqueova #right a {color: #37667c;}
+  .petanqueova a, .petanqueova h1 {color: #36647a;}
+  .petanqueova #right a {color: #2D5466;}
   .billiardova a, .billiardova h1 {color: #246610;}
   .billiardova #right a {color: #1b4d0c;}
 }
