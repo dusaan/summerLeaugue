@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     @selected_sport = selected_sport_id
     @selected_sport_name = selected_sport_name
     first_tournament = Tournament.find :first, :conditions => ["sport_id = #{@selected_sport}"]
+    first_tournament ||= Tournament.find :first
     @first_tournament_id = first_tournament.id
   end
  
