@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-  skip_before_filter :authenticate, :only => [:new, :create, :join_league]
+  skip_before_filter :authenticate, :only => [:new, :create, :join_league, :invite_self]
+  skip_before_filter :verify_authenticity_token, :only => [:invite_self]
 
   def index
    sport = Sport.find  @selected_sport
@@ -21,7 +22,25 @@ class UsersController < ApplicationController
     end
   end
   
-  
+  def invite_self
+    if params[:email].blank?
+      flash[:error] = 'Nezadal si email.'
+      redirect_to default_path
+      return false
+    end
+    user = User.find_by_email params[:email].downcase
+    if user.nil? 
+      user = User.new :email=> params[:email]
+      user.invite_self
+      user.save ? (flash[:notice] = 'Vítame Ťa na portáli LetnaLiga.SK! Pozri si email!' ) : (flash[:error] = 'Zle zadany email!' )
+
+    else
+        flash[:error] = 'Používateľ so zadaným emailom sa už registroval.'
+    end
+
+    redirect_to default_path
+  end
+
   # GET /users/1
   # GET /users/1.xml
   def show

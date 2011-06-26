@@ -7,6 +7,13 @@ require 'net/smtp'
     body :user => user
     content_type 'text/html'
   end
+  def self_invitation(user)
+    from "LetnaLiga.sk"
+    recipients "#{user.email}"
+    subject "Vitajte na LetnaLiga.sk!"
+    body :user => user
+    content_type 'text/html'
+  end
   def invitation(user)
     from "LetnaLiga.sk"
     recipients "#{user.email}"

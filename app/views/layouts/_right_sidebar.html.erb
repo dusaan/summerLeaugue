@@ -29,7 +29,16 @@
       4. prihlás sa na stránke <%= link_to "www.LetnaLiga.sk", default_path %><br /><br />
       ...prípadne si stiahni prihlášku v <%= link_to ".doc", "/timovaprihlaska.doc" %>, alebo <%= link_to ".pdf", "/timovaprihlaska.pdf" %> formáte
     </div>
-  <% end %>
+  <span class = "heading plus"> Rýchla registrácia</span>
+    <div id="news">
+      <form id="invite_form" method="post" action="/invite_self" >
+      <p>Len zadaj email:   <input id="email" size = 20 type="text" name="email" />
+      </p>
+     <input id="submit" type="submit" value="OK"/>
+    </p>
+    </form>
+    </div>
+ <% end %>
 	<% if(@selected_sport && false) %>
   <h2 >Free match</h2>
 

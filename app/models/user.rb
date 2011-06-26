@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   before_create :set_vs
   before_update :encrypt_password, :if => :password_needed?
 
+
   def set_ascii_name
     self.ascii_name = name.ascii
   end
@@ -46,7 +47,11 @@ class User < ActiveRecord::Base
     self.register_link =  randomStr(20)
     mail = nil
     if teams.blank?
-      mail = Notifier.create_feedback(self)
+      if @self_invited.blank?
+        mail = Notifier.create_feedback(self)
+      else
+        mail = Notifier.create_self_invitation(self)
+      end
     else
       mail = Notifier.create_invitation(self)
     end
@@ -72,6 +77,11 @@ class User < ActiveRecord::Base
   def invite_to(team)
     self.teams = [team]
     self.sports = [team.sport]
+    self.password_confirmation = self.password = randomStr(20)
+  end
+
+  def invite_self
+    @self_invited = true
     self.password_confirmation = self.password = randomStr(20)
   end
 

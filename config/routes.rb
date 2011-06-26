@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'users' do |users|
     users.new_user     'registracia',  :action => 'new', :conditions => { :method => :get }
+    users.invite_self  'invite_self',  :action => 'invite_self', :conditions => { :method => :post }
   end
 
   map.with_options :controller => 'services' do |services|
