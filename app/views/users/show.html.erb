@@ -27,7 +27,7 @@ Skús sa pridať napríklad na  <%= link_to "streetball!",teams__path(Sport.find
   </table>
 <% end %>
 
-<% if @current_user.id == @user.id  && @user.teams.empty? %>
+<% if @current_user.id == @user.id  && @user.teams.empty?  && @user.interested_in%>
 Zatiaľ nie si členom súťaže v žiadnom športovom odvetví.<br />
 V prihláške si vyplnil, že máš záujem o
   <% if @current_user.interested_in == "all" %> 
