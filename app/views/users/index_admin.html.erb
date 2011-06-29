@@ -1,15 +1,24 @@
 <h1>Hráči:</h1>
 
-<table>
-  <tr>
-    <th>Meno</th>
-  </tr>
+<table class="blackborder" cellspacing="1" cellpadding="3" border="0">
+	<tbody>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.inspect %></td>
-    <td><%= link_to "edit", edit_user_path(user) %></td>
-
+    <td><b>Meno</b>:<%= user.name %></td>
+    <td><b>Email</b>:<%= user.email %></td>
+<tr/><tr>
+    <td><b>Pohlavie</b>:<%= user.gender %></td>
+    <td><b>Registracia</b>:<%= user.created_at %></td>
+<tr/><tr>
+    <td><b>Zaplatene</b>:<%= user.paid %></td>
+    <td><b>VS</b>:<%= user.vs %></td>
+<tr/><tr>
+    <td></td><td><%= link_to "edit", edit_user_path(user) %></td>
+<tr/><tr>
+<tr/><tr>
   </tr>
 <% end %>
+	</tbody>
+
 </table>
