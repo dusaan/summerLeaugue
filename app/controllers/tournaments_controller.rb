@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  skip_before_filter :authenticate, :only => [:show_public, :show_with_name]
+  skip_before_filter :authenticate, :only => [:show_public, :show_with_name, :index, :show]
 
   # GET /tournaments
   # GET /tournaments.xml

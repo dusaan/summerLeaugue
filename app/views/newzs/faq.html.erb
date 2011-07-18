@@ -3,9 +3,11 @@
 <a href="#2"><h2>2 - Aké športy sa hrajú v Letnej lige?</h2></a>
 <a href="#3"><h2>3 - Ako sa prihlásim na Letnú ligu?</h2></a>
 <a href="#4"><h2>4 - Ako prihlásim tím na Letnú ligu?</h2></a>
-<a href="#5"><h2>5 - Kto je organizátor súťaže?</h2></a>
-<a href="#6"><h2>6 - Koho mám kontaktovať ak mi niečo nefunguje?</h2></a>
-<a href="#7"><h2>7 - Ako je hodnotená Letná liga?</h2></a>
+<a href="#5"><h2>5 - Ako zaplatím?</h2></a>
+<a href="#6"><h2>6 - Kto je organizátor súťaže?</h2></a>
+<a href="#7"><h2>7 - Koho mám kontaktovať ak mi niečo nefunguje?</h2></a>
+<a href="#8"><h2>8 - Ako je hodnotená Letná liga?</h2></a>
+
 
 <h1> Odpovede:</h1>
 
@@ -45,7 +47,12 @@ www.letnaliga.sk") %> a pošleme Tebe aj Tvojim kamarátom informácie o zaplate
 /www.letnaliga.sk") %>, následne si vytvoríš tím pre šport v ktorom chceš súťažiť. Pozveš
 ostatných hráčov na portál a každý pozvaný hráč sa môže pripojiť k Tvojmu tímu.
 
-<a name="5"><h2>5 - Kto je organizátor súťaže?</h2></a>
+<a name="5"><h2>5 - Ako zaplatím?</h2></a>
+Štartovné je potrebné uhradiť na účet 2920857372 / 1100 s variabilným symbolom <% if @current_user %><%= @current_user.vs%><% else %> unikátnym pre konkrétneho používateľa <% end %> a do poznámky napíš svoj email, ktorým si sa registroval.
+Ak chcete zaplatiť hromadne (napr. celý tím, kontaktujte nás na adrese registracie@letnaliga.sk) a do mailu napíšte zoznam ľudí (ich mailové adresy), pre ktorých je hromadná platba určená.
+Ak chcete zaplatiť v hotovosti, tak píšte na tina@letnaliga.sk, alebo volajte na: 0907 100 319
+
+<a name="6"><h2>6 - Kto je organizátor súťaže?</h2></a>
 Organizátor súťaže Letná liga je OZ Sme ľudia (<%= link_to "www.smeludia.sk",
 ("http://www.smeludia.sk") %>).
 <br /><br />
@@ -53,13 +60,13 @@ Korešpondenčná adresa OZ Sme ľudia: <br />Sklenárova 44, 821 09 Bratislava
 <br />
 Adresa prevádzky:<br /> Prievozská 18, 821 09 Bratislava
 <br />
-<a name="6"><h2>6 - Koho mám kontaktovať ak mi niečo nefunguje?</h2></a>
+<a name="7"><h2>7 - Koho mám kontaktovať ak mi niečo nefunguje?</h2></a>
 Všetky kontakty nájdeš na adrese <%= link_to "www.letnaliga.sk/kontakty", contacts_path %>.
 
 Registrácie a informácie má na starosti Tina a kontakt na ňu je <%= link_to "tina@letnaliga.sk",
 ("mailto:tina@letnaliga.sk") %> alebo 0907 100 319.
 
-<a name="7"><h2>7 - Ako je hodnotená Letná liga?</h2></a>
+<a name="8"><h2>8 - Ako je hodnotená Letná liga?</h2></a>
 Každý šport/kolo je hodnotené samostatne (pri tímových športoch dostane každý jeden športovec
 body podľa umiestnenia celého tímu).
 
@@ -256,3 +263,5 @@ Na konci je ohodnotený najvšestrannejší športovec, ktorý absolvoval aspoň
 		</td>
 	</tr>
 </tbody></table>
+
+

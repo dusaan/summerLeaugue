@@ -1,33 +1,22 @@
 <% if @selected_sport_name %>
   <%= link_to raw('<span>pravidlá</span>'), rules_path(@selected_sport_name)  , :class => ((params[:action] == "rules" && params[:sport] != "contacts")? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 <% end%>
-<% if @current_user %>
 
-  <% if @selected_sport %>
-    <% tournament = Sport.find(@selected_sport).tournaments %>
-    <% if tournament != nil && tournament.size == 1 %>
-      <% tournament_link = tournament_path(tournament.first.id) %>
-    <% else %>
-      <% tournament_link = tournaments_path %>
-    <% end %>
-  <% end %>
-  
+
+<% if @current_user %>
   <% case @selected_sport_name when "streetball", "volleyball", "soccer"  %>
     <%= link_to raw('<span>zápasy</span>'), matches__path(@selected_sport.to_s) , :class => (params[:controller] == "matches" ? 'submenu_item submenu_item_selected' : 'submenu_item') if false%>
     <%= link_to raw('<span>tabuľka </span>'), scores_path(@selected_sport.to_s) , :class => (params[:controller] == "scores" ? 'submenu_item submenu_item_selected' : 'submenu_item') if false%>
     <%= link_to raw('<span>tímy </span>'), teams__path(@selected_sport.to_s)  , :class => (params[:controller] == "teams" ? 'submenu_item submenu_item_selected' : 'submenu_item') %>
     <%= link_to raw('<span>ihriská </span>'), courts_path  , :class => (params[:controller] == "courts" ? 'submenu_item submenu_item_selected' : 'submenu_item') if (false && @selected_sport_name == "streetball")%>
-    <%= link_to raw('<span>turnaj</span>'), tournament_link , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
 
   <% when "running" %>
     <%= link_to raw("<span> bežci </span>"), users__path(@selected_sport.to_s) , :class => (params[:controller] == "users" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
-    <%= link_to raw('<span>turnaj</span>'), tournament_link , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
 
   <% when "petanque" %>
     <%= link_to raw("<span> tímy </span>"), teams__path(@selected_sport.to_s) , :class => (params[:controller] == "teams" ? 'submenu_item submenu_item_selected' : 'submenu_item') %>
-    <%= link_to raw('<span>turnaj</span>'), tournament_link , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
 
   <% when "squash", "badminton", "petanque", "billiard", "golf" %>
     <%= link_to raw("<span> hráči </span>"), users__path(@selected_sport.to_s) , :class => (params[:controller] == "users" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
@@ -37,4 +26,15 @@
     <%= link_to raw('<span>ligy</span>'), leagues__path(@selected_sport.to_s) , :class => (params[:controller] == "leagues" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
   <% end %>
 <% end%>
+
+  <% if @selected_sport %>
+    <% tournament = Sport.find(@selected_sport).tournaments %>
+    <% if tournament != nil && tournament.size == 1 %>
+      <% tournament_link = tournament_path(tournament.first.id) %>
+    <% else %>
+      <% tournament_link = tournaments_path %>
+    <% end %>
+    <%= link_to raw('<span>turnaj</span>'), tournament_link , :class => (params[:controller] == "tournaments" ? 'submenu_item submenu_item_selected' : 'submenu_item')%>
+  <% end %>
+
 <div id ="fb"><iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fhome.php%23%21%2Fletnaliga&amp;send=true&amp;layout=standard&amp;show_faces=false&amp;action=like&amp;colorscheme=dark&amp;font=arial&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:25px; padding-top: 3px;" allowTransparency="true"></iframe></div>
